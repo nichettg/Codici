@@ -4,12 +4,12 @@ axes.titlepad : 20
 
 # Impostazioni della legenda
 legend.loc : upper left
-legend.fontsize : 15
+legend.fontsize : 18
 legend.frameon : True
 legend.borderpad : 1
 
 # Dimensione delle etichette degli assi
-axes.labelsize : 17
+axes.labelsize : 20
 axes.labelpad : 20
 xtick.labelsize : 20
 ytick.labelsize : 20
