@@ -14,10 +14,10 @@ Test Student Pearson_______________________________________
 Covarianza = 20.71408
 Indice Pearson = 1.00000 +/- 0.00030
 Gradi di Liberta' = 8
-___Correlazione Perfetta___
+___Correlazione Perfetta (pearson=1)___
 	t = 0.0011988578625728187
-	p-value (2 tails)= 7.292545706665682e-26
-___Correlazione Assente____
+	p-value (2 tails)= 0.9990728059264085
+___Correlazione Assente (pearson=0)____
 	t = 3336.5083604245738
 	p-value (2 tails)= 7.292545706665682e-26
 
@@ -87,10 +87,10 @@ Test Student Pearson_______________________________________
 Covarianza = 11.15347
 Indice Pearson = 1.00000 +/- 0.00071
 Gradi di Liberta' = 8
-___Correlazione Perfetta___
+___Correlazione Perfetta (pearson=1)___
 	t = 0.00283868434068021
-	p-value (2 tails)= 7.205632500803306e-23
-___Correlazione Assente____
+	p-value (2 tails)= 0.9978045704063532
+___Correlazione Assente (pearson=0)____
 	t = 1409.102066612568
 	p-value (2 tails)= 7.205632500803306e-23
 
@@ -160,10 +160,10 @@ Test Student Pearson_______________________________________
 Covarianza = 4.25633
 Indice Pearson = 0.99958 +/- 0.01019
 Gradi di Liberta' = 8
-___Correlazione Perfetta___
+___Correlazione Perfetta (pearson=1)___
 	t = 0.04076426501853181
-	p-value (2 tails)= 1.3013608776394112e-13
-___Correlazione Assente____
+	p-value (2 tails)= 0.968482816867098
+___Correlazione Assente (pearson=0)____
 	t = 98.10477719960645
 	p-value (2 tails)= 1.3013608776394112e-13
 
@@ -233,10 +233,10 @@ Test Student Pearson_______________________________________
 Covarianza = 1.62884
 Indice Pearson = 0.99999 +/- 0.00157
 Gradi di Liberta' = 8
-___Correlazione Perfetta___
+___Correlazione Perfetta (pearson=1)___
 	t = 0.006262540300103947
-	p-value (2 tails)= 4.043232679473606e-20
-___Correlazione Assente____
+	p-value (2 tails)= 0.9951565992110345
+___Correlazione Assente (pearson=0)____
 	t = 638.7153133739557
 	p-value (2 tails)= 4.043232679473606e-20
 
@@ -306,10 +306,10 @@ Test Student Pearson_______________________________________
 Covarianza = 0.63871
 Indice Pearson = 0.99980 +/- 0.01148
 Gradi di Liberta' = 3
-___Correlazione Perfetta___
+___Correlazione Perfetta (pearson=1)___
 	t = 0.01722045728042622
-	p-value (2 tails)= 3.3362127639492666e-06
-___Correlazione Assente____
+	p-value (2 tails)= 0.9873419865392896
+___Correlazione Assente (pearson=0)____
 	t = 87.0970905999237
 	p-value (2 tails)= 3.3362127639492666e-06
 
