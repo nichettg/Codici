@@ -14,10 +14,10 @@ Test Student Pearson_______________________________________
 Covarianza = 0.00000
 Indice Pearson = 0.99995 +/- 0.00602
 Gradi di Liberta' = 3
-___Correlazione Perfetta___
+___Correlazione Perfetta (pearson=1)___
 	t = 0.009023149128426217
-	p-value (2 tails)= 4.800098608068503e-07
-___Correlazione Assente____
+	p-value (2 tails)= 0.9933671562157945
+___Correlazione Assente (pearson=0)____
 	t = 166.2345673380464
 	p-value (2 tails)= 4.800098608068503e-07
 
@@ -77,10 +77,10 @@ Test Student Pearson_______________________________________
 Covarianza = -0.00000
 Indice Pearson = -0.94702 +/- 0.18542
 Gradi di Liberta' = 3
-___Correlazione Perfetta___
+___Correlazione Perfetta (pearson=1)___
 	t = 10.500412346832857
-	p-value (2 tails)= 0.014520183775936623
-___Correlazione Assente____
+	p-value (2 tails)= 0.0018443803908601488
+___Correlazione Assente (pearson=0)____
 	t = 5.107354640499968
 	p-value (2 tails)= 0.014520183775936623
 

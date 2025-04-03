@@ -14,10 +14,10 @@ Test Student Pearson-Non Linearita'_________________________
 Covarianza = 4.12423
 Indice Pearson = 0.99998 +/- 0.00194
 Gradi di Liberta' = 8
-___Correlazione Perfetta___
+___Correlazione Perfetta (pearson=1)___
 	t = 0.007776294312504466
-	p-value (2 tails)= 2.2850651960513303e-19
-___Correlazione Assente____
+	p-value (2 tails)= 0.9939858973947129
+___Correlazione Assente (pearson=0)____
 	t = 514.3799352083844
 	p-value (2 tails)= 2.2850651960513303e-19
 
@@ -78,10 +78,10 @@ Test Student Pearson-Non Linearita'_________________________
 Covarianza = 4.10269
 Indice Pearson = 0.99999 +/- 0.00174
 Gradi di Liberta' = 8
-___Correlazione Perfetta___
+___Correlazione Perfetta (pearson=1)___
 	t = 0.006978234253953247
-	p-value (2 tails)= 9.609162278567566e-20
-___Correlazione Assente____
+	p-value (2 tails)= 0.9946030965680461
+___Correlazione Assente (pearson=0)____
 	t = 573.2074198946697
 	p-value (2 tails)= 9.609162278567566e-20
 
@@ -142,10 +142,10 @@ Test Student Pearson-Non Linearita'_________________________
 Covarianza = 4.09189
 Indice Pearson = 0.99999 +/- 0.00176
 Gradi di Liberta' = 8
-___Correlazione Perfetta___
+___Correlazione Perfetta (pearson=1)___
 	t = 0.007024674183471135
-	p-value (2 tails)= 1.013282245860469e-19
-___Correlazione Assente____
+	p-value (2 tails)= 0.9945671810078383
+___Correlazione Assente (pearson=0)____
 	t = 569.4179149802903
 	p-value (2 tails)= 1.013282245860469e-19
 
@@ -206,10 +206,10 @@ Test Student Pearson-Non Linearita'_________________________
 Covarianza = 4.08237
 Indice Pearson = 0.99999 +/- 0.00150
 Gradi di Liberta' = 8
-___Correlazione Perfetta___
+___Correlazione Perfetta (pearson=1)___
 	t = 0.0059831930487590015
-	p-value (2 tails)= 2.806659834639967e-20
-___Correlazione Assente____
+	p-value (2 tails)= 0.9953726412715529
+___Correlazione Assente (pearson=0)____
 	t = 668.5363597826421
 	p-value (2 tails)= 2.806659834639967e-20
 
@@ -270,10 +270,10 @@ Test Student Pearson-Non Linearita'_________________________
 Covarianza = 2.32202
 Indice Pearson = 0.99750 +/- 0.02496
 Gradi di Liberta' = 8
-___Correlazione Perfetta___
+___Correlazione Perfetta (pearson=1)___
 	t = 0.09998067460570824
-	p-value (2 tails)= 1.6927622520196622e-10
-___Correlazione Assente____
+	p-value (2 tails)= 0.9228197718845556
+___Correlazione Assente (pearson=0)____
 	t = 39.957741314586016
 	p-value (2 tails)= 1.6927622520196622e-10
 
@@ -334,10 +334,10 @@ Test Student Pearson-Non Linearita'_________________________
 Covarianza = 2.31801
 Indice Pearson = 0.99996 +/- 0.00312
 Gradi di Liberta' = 8
-___Correlazione Perfetta___
+___Correlazione Perfetta (pearson=1)___
 	t = 0.012474056061578944
-	p-value (2 tails)= 1.0017181974047555e-17
-___Correlazione Assente____
+	p-value (2 tails)= 0.990352870925062
+___Correlazione Assente (pearson=0)____
 	t = 320.65930914655786
 	p-value (2 tails)= 1.0017181974047555e-17
 
@@ -398,10 +398,10 @@ Test Student Pearson-Non Linearita'_________________________
 Covarianza = 2.30376
 Indice Pearson = 0.99996 +/- 0.00297
 Gradi di Liberta' = 8
-___Correlazione Perfetta___
+___Correlazione Perfetta (pearson=1)___
 	t = 0.011880520344451431
-	p-value (2 tails)= 6.782233721640446e-18
-___Correlazione Assente____
+	p-value (2 tails)= 0.9908118719919088
+___Correlazione Assente (pearson=0)____
 	t = 336.6796495983146
 	p-value (2 tails)= 6.782233721640446e-18
 
@@ -462,10 +462,10 @@ Test Student Pearson-Non Linearita'_________________________
 Covarianza = 2.30221
 Indice Pearson = 0.99996 +/- 0.00312
 Gradi di Liberta' = 8
-___Correlazione Perfetta___
+___Correlazione Perfetta (pearson=1)___
 	t = 0.012480181422156894
-	p-value (2 tails)= 1.0056599781905797e-17
-___Correlazione Assente____
+	p-value (2 tails)= 0.9903481339980078
+___Correlazione Assente (pearson=0)____
 	t = 320.50192118494675
 	p-value (2 tails)= 1.0056599781905797e-17
 
@@ -526,10 +526,10 @@ Test Student Pearson-Non Linearita'_________________________
 Covarianza = 0.93651
 Indice Pearson = 0.99985 +/- 0.00605
 Gradi di Liberta' = 8
-___Correlazione Perfetta___
+___Correlazione Perfetta (pearson=1)___
 	t = 0.024194380349760965
-	p-value (2 tails)= 2.0056297009267817e-15
-___Correlazione Assente____
+	p-value (2 tails)= 0.9812901671153345
+___Correlazione Assente (pearson=0)____
 	t = 165.31555089066458
 	p-value (2 tails)= 2.0056297009267817e-15
 
@@ -590,10 +590,10 @@ Test Student Pearson-Non Linearita'_________________________
 Covarianza = 0.93437
 Indice Pearson = 0.99986 +/- 0.00585
 Gradi di Liberta' = 8
-___Correlazione Perfetta___
+___Correlazione Perfetta (pearson=1)___
 	t = 0.023406667777588215
-	p-value (2 tails)= 1.5390916326800479e-15
-___Correlazione Assente____
+	p-value (2 tails)= 0.9818991883780757
+___Correlazione Assente (pearson=0)____
 	t = 170.8797724629985
 	p-value (2 tails)= 1.5390916326800479e-15
 
@@ -654,10 +654,10 @@ Test Student Pearson-Non Linearita'_________________________
 Covarianza = 0.92289
 Indice Pearson = 0.99991 +/- 0.00468
 Gradi di Liberta' = 8
-___Correlazione Perfetta___
+___Correlazione Perfetta (pearson=1)___
 	t = 0.018732778997630473
-	p-value (2 tails)= 2.590799770904013e-16
-___Correlazione Assente____
+	p-value (2 tails)= 0.985513058593591
+___Correlazione Assente (pearson=0)____
 	t = 213.52008380618102
 	p-value (2 tails)= 2.590799770904013e-16
 
@@ -718,10 +718,10 @@ Test Student Pearson-Non Linearita'_________________________
 Covarianza = 0.91518
 Indice Pearson = 0.99996 +/- 0.00330
 Gradi di Liberta' = 8
-___Correlazione Perfetta___
+___Correlazione Perfetta (pearson=1)___
 	t = 0.013190202925181884
-	p-value (2 tails)= 1.565631179023214e-17
-___Correlazione Assente____
+	p-value (2 tails)= 0.9897990556543498
+___Correlazione Assente (pearson=0)____
 	t = 303.2487848716104
 	p-value (2 tails)= 1.565631179023214e-17
 
@@ -782,10 +782,10 @@ Test Student Pearson-Non Linearita'_________________________
 Covarianza = 0.46453
 Indice Pearson = 0.99976 +/- 0.01266
 Gradi di Liberta' = 3
-___Correlazione Perfetta___
+___Correlazione Perfetta (pearson=1)___
 	t = 0.018999140096547983
-	p-value (2 tails)= 4.4802758127340574e-06
-___Correlazione Assente____
+	p-value (2 tails)= 0.9860347536257192
+___Correlazione Assente (pearson=0)____
 	t = 78.94144201874475
 	p-value (2 tails)= 4.4802758127340574e-06
 
@@ -841,10 +841,10 @@ Test Student Pearson-Non Linearita'_________________________
 Covarianza = 0.44518
 Indice Pearson = 0.99996 +/- 0.00511
 Gradi di Liberta' = 3
-___Correlazione Perfetta___
+___Correlazione Perfetta (pearson=1)___
 	t = 0.007661671274638908
-	p-value (2 tails)= 2.9386794535895264e-07
-___Correlazione Assente____
+	p-value (2 tails)= 0.9943679391203715
+___Correlazione Assente (pearson=0)____
 	t = 195.77590784414176
 	p-value (2 tails)= 2.9386794535895264e-07
 
@@ -900,10 +900,10 @@ Test Student Pearson-Non Linearita'_________________________
 Covarianza = 0.43357
 Indice Pearson = 1.00000 +/- 0.00096
 Gradi di Liberta' = 3
-___Correlazione Perfetta___
+___Correlazione Perfetta (pearson=1)___
 	t = 0.0014325375946255578
-	p-value (2 tails)= 1.920943178002474e-09
-___Correlazione Assente____
+	p-value (2 tails)= 0.9989469346539759
+___Correlazione Assente (pearson=0)____
 	t = 1047.0922226041494
 	p-value (2 tails)= 1.920943178002474e-09
 
@@ -959,10 +959,10 @@ Test Student Pearson-Non Linearita'_________________________
 Covarianza = 0.43462
 Indice Pearson = 0.99983 +/- 0.01050
 Gradi di Liberta' = 3
-___Correlazione Perfetta___
+___Correlazione Perfetta (pearson=1)___
 	t = 0.01574725711112966
-	p-value (2 tails)= 2.551215296310901e-06
-___Correlazione Assente____
+	p-value (2 tails)= 0.9884247473592689
+___Correlazione Assente (pearson=0)____
 	t = 95.24681037225152
 	p-value (2 tails)= 2.551215296310901e-06
 
@@ -1018,10 +1018,10 @@ Test Student Pearson-Non Linearita'_________________________
 Covarianza = 0.26110
 Indice Pearson = 0.99976 +/- 0.01278
 Gradi di Liberta' = 3
-___Correlazione Perfetta___
+___Correlazione Perfetta (pearson=1)___
 	t = 0.019170846294713682
-	p-value (2 tails)= 4.602831356849223e-06
-___Correlazione Assente____
+	p-value (2 tails)= 0.9859085621520899
+___Correlazione Assente (pearson=0)____
 	t = 78.23422170673074
 	p-value (2 tails)= 4.602831356849223e-06
 
@@ -1077,10 +1077,10 @@ Test Student Pearson-Non Linearita'_________________________
 Covarianza = 0.25653
 Indice Pearson = 0.99996 +/- 0.00526
 Gradi di Liberta' = 3
-___Correlazione Perfetta___
+___Correlazione Perfetta (pearson=1)___
 	t = 0.007893352314477398
-	p-value (2 tails)= 3.21340301487692e-07
-___Correlazione Assente____
+	p-value (2 tails)= 0.9941976360529559
+___Correlazione Assente (pearson=0)____
 	t = 190.02938013343308
 	p-value (2 tails)= 3.21340301487692e-07
 
@@ -1136,10 +1136,10 @@ Test Student Pearson-Non Linearita'_________________________
 Covarianza = 0.25690
 Indice Pearson = 0.99992 +/- 0.00744
 Gradi di Liberta' = 3
-___Correlazione Perfetta___
+___Correlazione Perfetta (pearson=1)___
 	t = 0.011166093812966732
-	p-value (2 tails)= 9.096373771818903e-07
-___Correlazione Assente____
+	p-value (2 tails)= 0.9917919738604117
+___Correlazione Assente (pearson=0)____
 	t = 134.32966660482424
 	p-value (2 tails)= 9.096373771818903e-07
 
@@ -1195,10 +1195,10 @@ Test Student Pearson-Non Linearita'_________________________
 Covarianza = 0.25338
 Indice Pearson = 0.99962 +/- 0.01582
 Gradi di Liberta' = 3
-___Correlazione Perfetta___
+___Correlazione Perfetta (pearson=1)___
 	t = 0.023735445932453074
-	p-value (2 tails)= 8.734586868836767e-06
-___Correlazione Assente____
+	p-value (2 tails)= 0.9825541344313938
+___Correlazione Assente (pearson=0)____
 	t = 63.18475408345196
 	p-value (2 tails)= 8.734586868836767e-06
 
