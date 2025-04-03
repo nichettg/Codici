@@ -1,2 +1,4 @@
+# Aggiornamenti
+Sono stati modificati i font dei grafici.
 # Da Fare
-Ingrandire le dimensioni dei font dei grafici.
+No ghemo niente da fare.
