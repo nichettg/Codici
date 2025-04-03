@@ -1,0 +1,23 @@
+# Titolo
+axes.titlesize : 24
+axes.titlepad : 20
+
+# Impostazioni della legenda
+legend.loc : upper left
+legend.fontsize : 15
+legend.frameon : True
+legend.borderpad : 1
+
+# Dimensione delle etichette degli assi
+axes.labelsize : 17
+axes.labelpad : 20
+xtick.labelsize : 20
+ytick.labelsize : 20
+
+# Impostazioni della griglia
+grid.linestyle : --
+grid.linewidth : 0.5
+grid.alpha : 0.7
+
+# Spaziatura della figura
+savefig.bbox : tight

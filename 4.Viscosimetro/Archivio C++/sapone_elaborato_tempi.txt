@@ -1,0 +1,206 @@
+
+
+
+SERIE 1 
+
+Diametro = 0.0015m
+
+Parametri___________________________________________________
+y = a + bx
+a = 7.872538 +/- 0.125544
+b = -0.118385 +/- 0.045260
+
+Test Chi Quadro_____________________________________________
+x         y         sy           y*            Chi-quadro   
+1.000000  7.760809  0.103610     7.754153      0.004127     
+2.000000  7.629323  0.101855     7.635768      0.004004     
+3.000000  7.511174  0.100278     7.517383      0.003834     
+4.000000  7.405045  0.098861     7.398998      0.003742     
+
+Gradi di liberta' = 2
+Chi-quadro = 0.015707
+Chi-quadro ridotto = 0.007853
+Incertezze Sovrastimate
+
+Test Errore a Posteriori____________________________________
+Deviazione Residua       Incertezza Ordinate           
+0.008971            <    0.103610            
+0.008971            <    0.101855            
+0.008971            <    0.100278            
+0.008971            <    0.098861            
+
+Deviazioni Residue maggiori delle Incertezze: 0
+Deviazioni Residue minori delle Incertezze: 4
+
+Test Student Intercetta-Origine____________________________
+Gradi di Liberta' = 3
+t_value = 62.70716364183488
+
+Test Student Pendenza-Funzione Costante____________________________
+Gradi di Liberta' = 3
+t-value = 2.6156692831124646
+
+
+
+SERIE 2 
+
+Diametro = 0.002m
+
+Parametri___________________________________________________
+y = a + bx
+a = 7.669129 +/- 0.215361
+b = -0.064080 +/- 0.032547
+
+Test Chi Quadro_____________________________________________
+x         y         sy           y*            Chi-quadro   
+5.000000  7.359376  0.073762     7.348729      0.020832     
+6.000000  7.275581  0.072922     7.284649      0.015464     
+7.000000  7.207733  0.072242     7.220570      0.031572     
+8.000000  7.167887  0.071843     7.156490      0.025167     
+
+Gradi di liberta' = 2
+Chi-quadro = 0.093034
+Chi-quadro ridotto = 0.046517
+Incertezze Sovrastimate
+
+Test Errore a Posteriori____________________________________
+Deviazione Residua       Incertezza Ordinate           
+0.015656            <    0.073762            
+0.015656            <    0.072922            
+0.015656            <    0.072242            
+0.015656            <    0.071843            
+
+Deviazioni Residue maggiori delle Incertezze: 0
+Deviazioni Residue minori delle Incertezze: 4
+
+Test Student Intercetta-Origine____________________________
+Gradi di Liberta' = 3
+t_value = 35.610607380665705
+
+Test Student Pendenza-Funzione Costante____________________________
+Gradi di Liberta' = 3
+t-value = 1.9688513525659157
+
+
+
+SERIE 3 
+
+Diametro = 0.00318m
+
+Parametri___________________________________________________
+y = a + bx
+a = 6.909258 +/- 0.210451
+b = 0.010454 +/- 0.019938
+
+Test Chi Quadro_____________________________________________
+x         y         sy           y*            Chi-quadro   
+9.000000  7.030554  0.044472     7.003345      0.374322     
+10.000000 7.004114  0.044305     7.013799      0.047786     
+11.000000 6.963325  0.044047     7.024253      1.913380     
+12.000000 7.080003  0.044788     7.034707      1.022806     
+
+Gradi di liberta' = 2
+Chi-quadro = 3.358294
+Chi-quadro ridotto = 1.679147
+Incertezze Sottostimate
+
+Test Errore a Posteriori____________________________________
+Deviazione Residua       Incertezza Ordinate           
+0.057437            >    0.044472            
+0.057437            >    0.044305            
+0.057437            >    0.044047            
+0.057437            >    0.044788            
+
+Deviazioni Residue maggiori delle Incertezze: 4
+Deviazioni Residue minori delle Incertezze: 0
+
+Test Student Intercetta-Origine____________________________
+Gradi di Liberta' = 3
+t_value = 32.830720644726036
+
+Test Student Pendenza-Funzione Costante____________________________
+Gradi di Liberta' = 3
+t-value = 0.5243245292194991
+
+
+
+SERIE 4 
+
+Diametro = 0.00476m
+
+Parametri___________________________________________________
+y = a + bx
+a = 6.349950 +/- 0.166184
+b = -0.024136 +/- 0.011419
+
+Test Chi Quadro_____________________________________________
+x         y         sy           y*            Chi-quadro   
+13.000000 6.035468  0.025685     6.036188      0.000786     
+14.000000 6.014143  0.025595     6.012053      0.006669     
+15.000000 5.985901  0.025474     5.987917      0.006267     
+16.000000 5.964431  0.025383     5.963782      0.000655     
+
+Gradi di liberta' = 2
+Chi-quadro = 0.014377
+Chi-quadro ridotto = 0.007188
+Incertezze Sovrastimate
+
+Test Errore a Posteriori____________________________________
+Deviazione Residua       Incertezza Ordinate           
+0.002165            <    0.025685            
+0.002165            <    0.025595            
+0.002165            <    0.025474            
+0.002165            <    0.025383            
+
+Deviazioni Residue maggiori delle Incertezze: 0
+Deviazioni Residue minori delle Incertezze: 4
+
+Test Student Intercetta-Origine____________________________
+Gradi di Liberta' = 3
+t_value = 38.21030782968206
+
+Test Student Pendenza-Funzione Costante____________________________
+Gradi di Liberta' = 3
+t-value = 2.1135962174207528
+
+
+
+SERIE 5 
+
+Diametro = 0.00635m
+
+Parametri___________________________________________________
+y = a + bx
+a = 4.901227 +/- 0.106668
+b = -0.057783 +/- 0.005744
+
+Test Chi Quadro_____________________________________________
+x         y         sy           y*            Chi-quadro   
+17.000000 4.069922  0.013379     3.918910      127.397348   
+18.000000 3.659771  0.012032     3.861127      280.046014   
+19.000000 3.843368  0.012635     3.803344      10.035193    
+20.000000 3.791616  0.012464     3.745560      13.653158    
+
+Gradi di liberta' = 2
+Chi-quadro = 431.131713
+Chi-quadro ridotto = 215.565857
+Incertezze Sottostimate
+
+Test Errore a Posteriori____________________________________
+Deviazione Residua       Incertezza Ordinate           
+0.183128            >    0.013379            
+0.183128            >    0.012032            
+0.183128            >    0.012635            
+0.183128            >    0.012464            
+
+Deviazioni Residue maggiori delle Incertezze: 4
+Deviazioni Residue minori delle Incertezze: 0
+
+Test Student Intercetta-Origine____________________________
+Gradi di Liberta' = 3
+t_value = 45.94853104493124
+
+Test Student Pendenza-Funzione Costante____________________________
+Gradi di Liberta' = 3
+t-value = 10.059768351729135
+

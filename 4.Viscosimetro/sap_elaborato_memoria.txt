@@ -1,0 +1,306 @@
+
+****************************************************************************************************
+SERIE 1
+****************************************************************************************************
+
+Medie e Deviazioni__________________________________________
+Media X = 2.50000 +/- 0.64550
+Media Y = 7.57659 +/- 0.07661
+
+Deviazione Stanard X = 1.29099
+Deviazione Stanard Y = 0.15321
+
+Test Student Pearson_______________________________________
+Covarianza = -0.19757
+Indice Pearson = -0.99886 +/- 0.03379
+Gradi di Liberta' = 2
+___Correlazione Perfetta___
+	t = 59.15120193193207
+	p-value (2 tails)= 0.0011425748648425786
+___Correlazione Assente____
+	t = 29.558695138741246
+	p-value (2 tails)= 0.0011425748648425786
+
+Parametri___________________________________________________
+y = a + bx
+a = 7.87254 +/- 0.12542
+b = -0.11839 +/- 0.04522
+
+Test Chi Quadro_____________________________________________
+x         y         sy           y*            Chi-quadro   
+1.00000   7.76081   0.10351      7.75415       0.00413      
+2.00000   7.62932   0.10175      7.63577       0.00401      
+3.00000   7.51117   0.10018      7.51738       0.00384      
+4.00000   7.40505   0.09876      7.39900       0.00375      
+
+Gradi di liberta = 2
+Chi-quadro = 0.015737869818112968
+p-value = 0.9921619441111608
+
+Test Errore a Posteriori____________________________________
+Deviazione Residua       Incertezza Ordinate           
+0.008971            <    0.103508            
+0.008971            <    0.101754            
+0.008971            <    0.100178            
+0.008971            <    0.098763            
+
+Deviazioni Residue maggiori delle Incertezze: 0
+Deviazioni Residue minori delle Incertezze: 4
+
+Test Student Intercetta-Origine____________________________
+Gradi di Liberta' = 3
+t = 62.76944786505311
+p-value (1 tail)= 4.454501917674068e-06
+p-value (2 tails)= 8.909003835348137e-06
+
+Test Student Pendenza-Funzione Costante_____________________
+Gradi di Liberta' = 3
+t = 2.618267308441287
+
+p-value (1 tail)= 0.03955967841399936
+p-value (2 tails)= 0.07911935682799873
+
+****************************************************************************************************
+SERIE 2
+****************************************************************************************************
+
+Medie e Deviazioni__________________________________________
+Media X = 6.50000 +/- 0.64550
+Media Y = 7.25264 +/- 0.04195
+
+Deviazione Stanard X = 1.29099
+Deviazione Stanard Y = 0.08390
+
+Test Student Pearson_______________________________________
+Covarianza = -0.10705
+Indice Pearson = -0.98833 +/- 0.10772
+Gradi di Liberta' = 2
+___Correlazione Perfetta___
+	t = 18.458023400126166
+	p-value (2 tails)= 0.01167206307540904
+___Correlazione Assente____
+	t = 9.174834718144577
+	p-value (2 tails)= 0.01167206307540904
+
+Parametri___________________________________________________
+y = a + bx
+a = 7.66913 +/- 0.21498
+b = -0.06408 +/- 0.03249
+
+Test Chi Quadro_____________________________________________
+x         y         sy           y*            Chi-quadro   
+5.00000   7.35938   0.07363      7.34873       0.02091      
+6.00000   7.27558   0.07279      7.28465       0.01552      
+7.00000   7.20773   0.07211      7.22057       0.03168      
+8.00000   7.16789   0.07172      7.15649       0.02526      
+
+Gradi di liberta = 2
+Chi-quadro = 0.09336258887313972
+p-value = 0.954391519012002
+
+Test Errore a Posteriori____________________________________
+Deviazione Residua       Incertezza Ordinate           
+0.015656            <    0.073632            
+0.015656            <    0.072794            
+0.015656            <    0.072115            
+0.015656            <    0.071716            
+
+Deviazioni Residue maggiori delle Incertezze: 0
+Deviazioni Residue minori delle Incertezze: 4
+
+Test Student Intercetta-Origine____________________________
+Gradi di Liberta' = 3
+t = 35.67343542691943
+p-value (1 tail)= 2.422025702221582e-05
+p-value (2 tails)= 4.844051404443164e-05
+
+Test Student Pendenza-Funzione Costante_____________________
+Gradi di Liberta' = 3
+t = 1.9723250117102367
+
+p-value (1 tail)= 0.07156119314335556
+p-value (2 tails)= 0.14312238628671112
+
+****************************************************************************************************
+SERIE 3
+****************************************************************************************************
+
+Medie e Deviazioni__________________________________________
+Media X = 10.50000 +/- 0.64550
+Media Y = 7.01950 +/- 0.02445
+
+Deviazione Stanard X = 1.29099
+Deviazione Stanard Y = 0.04891
+
+Test Student Pearson_______________________________________
+Covarianza = 0.01793
+Indice Pearson = 0.28393 +/- 0.67801
+Gradi di Liberta' = 2
+___Correlazione Perfetta___
+	t = 1.0561376035573486
+	p-value (2 tails)= 0.7160667012143185
+___Correlazione Assente____
+	t = 0.41877751505706534
+	p-value (2 tails)= 0.7160667012143185
+
+Parametri___________________________________________________
+y = a + bx
+a = 6.90924 +/- 0.20951
+b = 0.01046 +/- 0.01985
+
+Test Chi Quadro_____________________________________________
+x         y         sy           y*            Chi-quadro   
+9.00000   7.03055   0.04428      7.00334       0.37769      
+10.00000  7.00411   0.04411      7.01380       0.04822      
+11.00000  6.96333   0.04385      7.02426       1.93056      
+12.00000  7.08000   0.04459      7.03471       1.03188      
+
+Gradi di liberta = 2
+Chi-quadro = 3.3883490835714785
+p-value = 0.18375084508720263
+
+Test Errore a Posteriori____________________________________
+Deviazione Residua       Incertezza Ordinate           
+0.057437            >    0.044275            
+0.057437            >    0.044109            
+0.057437            >    0.043852            
+0.057437            >    0.044587            
+
+Deviazioni Residue maggiori delle Incertezze: 4
+Deviazioni Residue minori delle Incertezze: 0
+
+Test Student Intercetta-Origine____________________________
+Gradi di Liberta' = 3
+t = 32.97735384888867
+p-value (1 tail)= 3.06448533270527e-05
+p-value (2 tails)= 6.12897066541054e-05
+
+Test Student Pendenza-Funzione Costante_____________________
+Gradi di Liberta' = 3
+t = 0.5267450015053974
+
+p-value (1 tail)= 0.31741753042303755
+p-value (2 tails)= 0.6348350608460751
+
+****************************************************************************************************
+SERIE 4
+****************************************************************************************************
+
+Medie e Deviazioni__________________________________________
+Media X = 14.50000 +/- 0.64550
+Media Y = 5.99999 +/- 0.01560
+
+Deviazione Stanard X = 1.29099
+Deviazione Stanard Y = 0.03121
+
+Test Student Pearson_______________________________________
+Covarianza = -0.04023
+Indice Pearson = -0.99839 +/- 0.04005
+Gradi di Liberta' = 2
+___Correlazione Perfetta___
+	t = 49.89131120828715
+	p-value (2 tails)= 0.001605688676179381
+___Correlazione Assente____
+	t = 24.925612033914977
+	p-value (2 tails)= 0.001605688676179381
+
+Parametri___________________________________________________
+y = a + bx
+a = 6.34995 +/- 0.16455
+b = -0.02414 +/- 0.01131
+
+Test Chi Quadro_____________________________________________
+x         y         sy           y*            Chi-quadro   
+13.00000  6.03547   0.02543      6.03619       0.00080      
+14.00000  6.01414   0.02534      6.01205       0.00680      
+15.00000  5.98590   0.02522      5.98792       0.00639      
+16.00000  5.96443   0.02513      5.96378       0.00067      
+
+Gradi di liberta = 2
+Chi-quadro = 0.014662750114344536
+p-value = 0.992695433917386
+
+Test Errore a Posteriori____________________________________
+Deviazione Residua       Incertezza Ordinate           
+0.002165            <    0.025433            
+0.002165            <    0.025344            
+0.002165            <    0.025225            
+0.002165            <    0.025134            
+
+Deviazioni Residue maggiori delle Incertezze: 0
+Deviazioni Residue minori delle Incertezze: 4
+
+Test Student Intercetta-Origine____________________________
+Gradi di Liberta' = 3
+t = 38.58881997157005
+p-value (1 tail)= 1.9142881594518013e-05
+p-value (2 tails)= 3.8285763189036026e-05
+
+Test Student Pendenza-Funzione Costante_____________________
+Gradi di Liberta' = 3
+t = 2.134533516009064
+
+p-value (1 tail)= 0.06124226238902111
+p-value (2 tails)= 0.12248452477804223
+
+****************************************************************************************************
+SERIE 5
+****************************************************************************************************
+
+Medie e Deviazioni__________________________________________
+Media X = 18.50000 +/- 0.64550
+Media Y = 3.84117 +/- 0.08549
+
+Deviazione Stanard X = 1.29099
+Deviazione Stanard Y = 0.17097
+
+Test Student Pearson_______________________________________
+Covarianza = -0.10855
+Indice Pearson = -0.49181 +/- 0.61568
+Gradi di Liberta' = 2
+___Correlazione Perfetta___
+	t = 2.4230259292380016
+	p-value (2 tails)= 0.5081911098266054
+___Correlazione Assente____
+	t = 0.7988058664681849
+	p-value (2 tails)= 0.5081911098266054
+
+Parametri___________________________________________________
+y = a + bx
+a = 4.90112 +/- 0.10301
+b = -0.05778 +/- 0.00555
+
+Test Chi Quadro_____________________________________________
+x         y         sy           y*            Chi-quadro   
+17.00000  4.06992   0.01292      3.91889       136.65066    
+18.00000  3.65977   0.01162      3.86111       300.33160    
+19.00000  3.84337   0.01220      3.80333       10.76631     
+20.00000  3.79162   0.01204      3.74556       14.64357     
+
+Gradi di liberta = 2
+Chi-quadro = 462.3921376855527
+p-value = 3.915823098515623e-101
+
+Test Errore a Posteriori____________________________________
+Deviazione Residua       Incertezza Ordinate           
+0.183130            >    0.012920            
+0.183130            >    0.011618            
+0.183130            >    0.012201            
+0.183130            >    0.012036            
+
+Deviazioni Residue maggiori delle Incertezze: 4
+Deviazioni Residue minori delle Incertezze: 0
+
+Test Student Intercetta-Origine____________________________
+Gradi di Liberta' = 3
+t = 47.58139244489143
+p-value (1 tail)= 1.0219723875139634e-05
+p-value (2 tails)= 2.043944775027927e-05
+
+Test Student Pendenza-Funzione Costante_____________________
+Gradi di Liberta' = 3
+t = 10.416564150149396
+
+p-value (1 tail)= 0.0009441536057155772
+p-value (2 tails)= 0.0018883072114311544
+
