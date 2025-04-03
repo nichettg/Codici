@@ -1,0 +1,156 @@
+
+
+*******************************************************************************
+Fri Dec 20 15:59:54 2024
+
+
+FIT:    data read from "plot1.txt"
+        format = z
+        x range restricted to [1.50000 : 2.50000]
+        #datapoints = 10
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f1(x)
+	f1(x) = a / (sqrt(2. * pi) * c) * exp(-((x - b)**2.) / (2. * c**2.))
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b             c            
+   0 6.4955607012e+01   0.00e+00  1.19e+02    6.104000e+00   2.044040e+00   9.715510e-02
+   5 1.7336060852e+01  -1.94e-01  1.19e-03    5.900571e+00   2.047387e+00   8.012115e-02
+
+After 5 iterations the fit converged.
+final sum of squares of residuals : 17.3361
+rel. change during last iteration : -1.93635e-06
+
+degrees of freedom    (FIT_NDF)                        : 7
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 1.57372
+variance of residuals (reduced chisquare) = WSSR/ndf   : 2.47658
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a               = 5.90057          +/- 0.2441       (4.136%)
+b               = 2.04739          +/- 0.003867     (0.1889%)
+c               = 0.0801211        +/- 0.003755     (4.686%)
+
+correlation matrix of the fit parameters:
+                a      b      c      
+a               1.000 
+b               0.022  1.000 
+c               0.582 -0.021  1.000 
+
+
+*******************************************************************************
+Fri Dec 20 16:00:15 2024
+
+
+FIT:    data read from "plot1.txt"
+        format = z
+        x range restricted to [1.50000 : 2.50000]
+        #datapoints = 10
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f1(x)
+	f1(x) = a / (sqrt(2. * pi) * c) * exp(-((x - b)**2.) / (2. * c**2.))
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b             c            
+   0 6.4955607012e+01   0.00e+00  1.19e+02    6.104000e+00   2.044040e+00   9.715510e-02
+   5 1.7336060852e+01  -1.94e-01  1.19e-03    5.900571e+00   2.047387e+00   8.012115e-02
+
+After 5 iterations the fit converged.
+final sum of squares of residuals : 17.3361
+rel. change during last iteration : -1.93635e-06
+
+degrees of freedom    (FIT_NDF)                        : 7
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 1.57372
+variance of residuals (reduced chisquare) = WSSR/ndf   : 2.47658
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a               = 5.90057          +/- 0.2441       (4.136%)
+b               = 2.04739          +/- 0.003867     (0.1889%)
+c               = 0.0801211        +/- 0.003755     (4.686%)
+
+correlation matrix of the fit parameters:
+                a      b      c      
+a               1.000 
+b               0.022  1.000 
+c               0.582 -0.021  1.000 
+
+
+*******************************************************************************
+Fri Dec 20 16:01:09 2024
+
+
+FIT:    data read from "plot1.txt"
+        format = z
+        x range restricted to [1.50000 : 2.50000]
+        #datapoints = 10
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f1(x)
+	f1(x) = a / (sqrt(2. * pi) * c) * exp(-((x - b)**2.) / (2. * c**2.))
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b             c            
+   0 6.4955607012e+01   0.00e+00  1.19e+02    6.104000e+00   2.044040e+00   9.715510e-02
+   5 1.7336060852e+01  -1.94e-01  1.19e-03    5.900571e+00   2.047387e+00   8.012115e-02
+
+After 5 iterations the fit converged.
+final sum of squares of residuals : 17.3361
+rel. change during last iteration : -1.93635e-06
+
+degrees of freedom    (FIT_NDF)                        : 7
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 1.57372
+variance of residuals (reduced chisquare) = WSSR/ndf   : 2.47658
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a               = 5.90057          +/- 0.2441       (4.136%)
+b               = 2.04739          +/- 0.003867     (0.1889%)
+c               = 0.0801211        +/- 0.003755     (4.686%)
+
+correlation matrix of the fit parameters:
+                a      b      c      
+a               1.000 
+b               0.022  1.000 
+c               0.582 -0.021  1.000 
+
+
+*******************************************************************************
+Fri Dec 20 16:01:30 2024
+
+
+FIT:    data read from "plot1.txt"
+        format = z
+        x range restricted to [1.50000 : 2.50000]
+        #datapoints = 10
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f1(x)
+	f1(x) = a / (sqrt(2. * pi) * c) * exp(-((x - b)**2.) / (2. * c**2.))
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b             c            
+   0 6.4955607012e+01   0.00e+00  1.19e+02    6.104000e+00   2.044040e+00   9.715510e-02
+   5 1.7336060852e+01  -1.94e-01  1.19e-03    5.900571e+00   2.047387e+00   8.012115e-02
+
+After 5 iterations the fit converged.
+final sum of squares of residuals : 17.3361
+rel. change during last iteration : -1.93635e-06
+
+degrees of freedom    (FIT_NDF)                        : 7
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 1.57372
+variance of residuals (reduced chisquare) = WSSR/ndf   : 2.47658
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a               = 5.90057          +/- 0.2441       (4.136%)
+b               = 2.04739          +/- 0.003867     (0.1889%)
+c               = 0.0801211        +/- 0.003755     (4.686%)
+
+correlation matrix of the fit parameters:
+                a      b      c      
+a               1.000 
+b               0.022  1.000 
+c               0.582 -0.021  1.000 

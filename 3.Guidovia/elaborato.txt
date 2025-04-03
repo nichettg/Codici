@@ -1,0 +1,175 @@
+SERIE 1
+Potenza 3, Inclinazione 18.75', Carrellino vuoto
+
+v(t) = v0 + at
+v0 = 0.159502 +/- 0.000397893
+a = 0.0506594 +/- 0.000509855
+
+Incertezza alpha senza errore orizzontalizzazione = 4.94811e-05
+Incertezza alpha con errore orizzontalizzazione = 4.87332e-05
+Stima di g senza errore orizzontalizzazione= 9.28828 +/- 0.125853
+Stima di g con errore orizzontalizzazione= 9.28828 +/- 0.125004
+
+Test Chi Quadro_____________________________________________
+     t (s)   v (m/s)     sv (m/s)      v* (m/s)   Chi-quadro
+    1.2386  0.222025   0.00143379      0.222249     0.024359
+    1.1474  0.217884  0.000690697      0.217629     0.136739
+    1.0579  0.212686  0.000381857      0.213094      1.14708
+    0.9596   0.20842   0.00029621      0.208115       1.0638
+      0.86  0.203488  0.000645307      0.203069     0.422379
+    0.7584  0.197785  0.000521035      0.197922     0.069313
+    0.6503  0.192219  0.000298597      0.192446     0.576536
+    0.5359  0.186602  0.000408273       0.18665     0.013986
+    0.4149  0.180766   0.00051176       0.18052     0.231029
+    0.2872  0.174095   0.00038858      0.174051    0.0125013
+
+Gradi di libertà = 8
+Chi-quadro = 3.69772
+
+Test Errore a Posteriori____________________________________
+  Deviazione Residua           Incertezza Ordinate
+         0.000292989         <          0.00143379
+         0.000292989         <         0.000690697
+         0.000292989         <         0.000381857
+         0.000292989         <          0.00029621
+         0.000292989         <         0.000645307
+         0.000292989         <         0.000521035
+         0.000292989         <         0.000298597
+         0.000292989         <         0.000408273
+         0.000292989         <          0.00051176
+         0.000292989         <          0.00038858
+
+Deviazioni Residue maggiori delle Incertezze: 0
+Deviazioni Redisue minori delle Incertezze: 10
+
+
+
+SERIE 2
+Potenza 3, Inclinazione 18.75', Carrellino un ottone
+
+v(t) = v0 + at
+v0 = 0.160508 +/- 0.000257728
+a = 0.0499248 +/- 0.000360887
+
+Incertezza alpha senza errore orizzontalizzazione = 4.94811e-05
+Incertezza alpha con errore orizzontalizzazione = 4.87332e-05
+Stima di g senza errore orizzontalizzazione= 9.15358 +/- 0.10618
+Stima di g con errore orizzontalizzazione= 9.15358 +/- 0.105201
+
+Test Chi Quadro_____________________________________________
+     t (s)   v (m/s)     sv (m/s)      v* (m/s)   Chi-quadro
+    1.1509  0.217221  0.000456705      0.217967      2.66539
+    1.0549   0.21329  0.000403482      0.213174    0.0829647
+    0.9589  0.208572  0.000253648      0.208381     0.566795
+    0.8595  0.203607  0.000369868      0.203419     0.258113
+    0.7559  0.198439  0.000261354      0.198247     0.541484
+    0.6487  0.192693  0.000260679      0.192895     0.598165
+    0.5351  0.186881  0.000326608      0.187223      1.09825
+    0.4136  0.181335  0.000269981      0.181157     0.431038
+    0.2861  0.174764   0.00022466      0.174792     0.015413
+
+Gradi di libertà = 7
+Chi-quadro = 6.25762
+
+Test Errore a Posteriori____________________________________
+  Deviazione Residua           Incertezza Ordinate
+         0.000352179         <         0.000456705
+         0.000352179         <         0.000403482
+         0.000352179         >         0.000253648
+         0.000352179         <         0.000369868
+         0.000352179         >         0.000261354
+         0.000352179         >         0.000260679
+         0.000352179         >         0.000326608
+         0.000352179         >         0.000269981
+         0.000352179         >          0.00022466
+
+Deviazioni Residue maggiori delle Incertezze: 6
+Deviazioni Redisue minori delle Incertezze: 3
+
+
+
+SERIE 3
+Potenza 3, Inclinazione 18.75', Carrellino un ottone e due alluminio
+
+v(t) = v0 + at
+v0 = 0.160302 +/- 0.000186928
+a = 0.0512111 +/- 0.000228011
+
+Incertezza alpha senza errore orizzontalizzazione = 4.94811e-05
+Incertezza alpha con errore orizzontalizzazione = 4.87332e-05
+Stima di g senza errore orizzontalizzazione= 9.38942 +/- 0.0948873
+Stima di g con errore orizzontalizzazione= 9.38942 +/- 0.0937332
+
+Test Chi Quadro_____________________________________________
+     t (s)   v (m/s)     sv (m/s)      v* (m/s)   Chi-quadro
+    1.1421  0.218895  0.000177153       0.21879     0.351869
+    1.0507  0.214143   0.00014509      0.214109    0.0539868
+    0.9563  0.209139  0.000219737      0.209275     0.380383
+    0.8568  0.204248  0.000190324      0.204179     0.131259
+    0.7542  0.198886  0.000135964      0.198925    0.0819337
+    0.6469  0.193229  0.000316079       0.19343     0.404228
+    0.5336  0.187406  0.000175306      0.187628      1.59925
+    0.4132   0.18151   0.00017241      0.181462    0.0774679
+    0.2853  0.175254  0.000245549      0.174912      1.93805
+
+Gradi di libertà = 7
+Chi-quadro = 5.01842
+
+Test Errore a Posteriori____________________________________
+  Deviazione Residua           Incertezza Ordinate
+         0.000187275         >         0.000177153
+         0.000187275         >          0.00014509
+         0.000187275         <         0.000219737
+         0.000187275         <         0.000190324
+         0.000187275         >         0.000135964
+         0.000187275         <         0.000316079
+         0.000187275         >         0.000175306
+         0.000187275         >          0.00017241
+         0.000187275         <         0.000245549
+
+Deviazioni Residue maggiori delle Incertezze: 5
+Deviazioni Redisue minori delle Incertezze: 4
+
+
+
+SERIE 4
+Potenza 4, Inclinazione 18.75', Carrellino vuoto
+
+v(t) = v0 + at
+v0 = 0.151448 +/- 0.000510653
+a = 0.0452361 +/- 0.000652975
+
+Incertezza alpha senza errore orizzontalizzazione = 4.94811e-05
+Incertezza alpha con errore orizzontalizzazione = 4.87332e-05
+Stima di g senza errore orizzontalizzazione= 8.29391 +/- 0.141403
+Stima di g con errore orizzontalizzazione= 8.29391 +/- 0.140801
+
+Test Chi Quadro_____________________________________________
+     t (s)   v (m/s)     sv (m/s)      v* (m/s)   Chi-quadro
+    1.2137  0.205982  0.000717759      0.206351      0.26434
+    1.1211  0.200696   0.00057633      0.202162      6.47149
+    1.0154  0.196967  0.000822805       0.19738     0.252818
+    0.9044  0.193498  0.000466031      0.192359      5.97574
+    0.7963  0.188371  0.000510022      0.187469      3.12784
+    0.6825   0.18315  0.000732588      0.182321      1.28003
+    0.5636  0.177431   0.00108522      0.176943     0.202233
+    0.4396   0.17061  0.000339332      0.171334      4.55051
+    0.3017  0.165728  0.000682744      0.165095     0.857122
+
+Gradi di libertà = 7
+Chi-quadro = 22.9821
+
+Test Errore a Posteriori____________________________________
+  Deviazione Residua           Incertezza Ordinate
+         0.000957452         >         0.000717759
+         0.000957452         >          0.00057633
+         0.000957452         >         0.000822805
+         0.000957452         >         0.000466031
+         0.000957452         >         0.000510022
+         0.000957452         >         0.000732588
+         0.000957452         <          0.00108522
+         0.000957452         >         0.000339332
+         0.000957452         >         0.000682744
+
+Deviazioni Residue maggiori delle Incertezze: 8
+Deviazioni Redisue minori delle Incertezze: 1

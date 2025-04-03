@@ -1,0 +1,50 @@
+//parametri del fit gaussiano con n bin = sqrt(N), cioè 10, inizializzando i valori forniti in 'processed_data.txt'
+f(x) = a / (sqrt(2. * pi) * c) * exp(-((x - b)**2.) / (2. * c**2.))
+
+_____________________________________________________________________
+dati 1, in serie
+
+Numero valori: 109
+Ampiezza bin: 0.056
+Media: 2.04404
+Deviazione standard campionaria: 0.0971551
+
+a= 6.104
+b= 2.04404
+c= 0.0971551
+
+a               = 5.90057          +/- 0.2441       (4.136%)
+b               = 2.04739          +/- 0.003867     (0.1889%)
+c               = 0.0801211        +/- 0.003755     (4.686%)
+
+_____________________________________________________________________
+dati 3, start e stop
+
+Numero valori: 100
+Ampiezza bin: 0.065
+Media: 1.99
+Deviazione standard campionaria: 0.131418
+
+a= 6.5
+b= 1.99
+c= 0.131418
+
+a               = 6.43485          +/- 0.5962       (9.266%)
+b               = 1.96557          +/- 0.01333      (0.678%)
+c               = 0.126444         +/- 0.01393      (11.02%)
+
+_____________________________________________________________________
+dati 4, quattro oscillazioni
+
+Numero valori: 101
+Ampiezza bin: 0.023
+Media: 2.07653
+Deviazione standard campionaria: 0.0371332
+
+a= 2.323
+b= 2.07653
+c= 0.0371332
+
+a               = 1.52802          +/- 0.2052       (13.43%)
+b               = 2.08167          +/- 0.002463     (0.1183%)
+c               = 0.0152888        +/- 0.00225      (14.72%)

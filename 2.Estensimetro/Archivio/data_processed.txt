@@ -1,0 +1,126 @@
+Elaborazione delle quattro serie di dati:
+
+Serie 1:
+
+	§ Allungamento
+	k = 22734.6 N/m
+	Incertezza k = 6422.61 N/m
+	1/k = 4.39857e-05 m/N
+	Incertezza 1/k = 1.24261e-05 m/N
+
+	§ Accorciamento
+	k = 22920.6 N/m
+	Incertezza k = 6538.19 N/m
+	1/k = 4.3629e-05 m/N
+	Incertezza 1/k = 1.24453e-05 m/N
+
+	§ Unione allungamento e accorciamento
+	k = 22814 N/m
+	Incertezza k = 4467.77 N/m
+	1/k = 4.38328e-05 m/N
+	Incertezza 1/k = 8.584e-06 m/N
+
+Serie 2:
+
+	§ Allungamento
+	k = 22474.2 N/m
+	Incertezza k = 6314.78 N/m
+	1/k = 4.44954e-05 m/N
+	Incertezza 1/k = 1.25023e-05 m/N
+
+	§ Accorciamento
+	k = 22974.2 N/m
+	Incertezza k = 6580.64 N/m
+	1/k = 4.3527e-05 m/N
+	Incertezza 1/k = 1.24677e-05 m/N
+
+	§ Unione allungamento e accorciamento
+	k = 22708.3 N/m
+	Incertezza k = 4444.2 N/m
+	1/k = 4.40367e-05 m/N
+	Incertezza 1/k = 8.61833e-06 m/N
+
+Serie 3:
+
+	§ Allungamento
+	k = 22474.2 N/m
+	Incertezza k = 6317.93 N/m
+	1/k = 4.44954e-05 m/N
+	Incertezza 1/k = 1.25085e-05 m/N
+
+	§ Accorciamento
+	k = 22840.5 N/m
+	Incertezza k = 6512.3 N/m
+	1/k = 4.37819e-05 m/N
+	Incertezza 1/k = 1.24831e-05 m/N
+
+	§ Unione allungamento e accorciamento
+	k = 22655.9 N/m
+	Incertezza k = 4426.18 N/m
+	1/k = 4.41386e-05 m/N
+	Incertezza 1/k = 8.62317e-06 m/N
+
+Serie 4:
+
+	§ Allungamento
+	k = 22629.8 N/m
+	Incertezza k = 6451.26 N/m
+	1/k = 4.41896e-05 m/N
+	Incertezza 1/k = 1.25975e-05 m/N
+
+	§ Accorciamento
+	k = 22814 N/m
+	Incertezza k = 6497.4 N/m
+	1/k = 4.38328e-05 m/N
+	Incertezza 1/k = 1.24836e-05 m/N
+
+	§ Unione allungamento e accorciamento
+	k = 22734.6 N/m
+	Incertezza k = 4471.64 N/m
+	1/k = 4.39857e-05 m/N
+	Incertezza 1/k = 8.65147e-06 m/N
+
+
+Elaborazione della serie di dati generata dall'unione delle quattro precedenti:
+
+§ Allungamento
+
+	Media F = 19.62 N
+	Deviazione Standard F = 1.89232 N
+	Media x = 0.000857 m
+	Deviazione Standard x = 8.417e-05 m
+	COV[F,x] = 0.00700753 N*m
+	Coefficiente correlazione Pearson = 0.999909
+
+	k = 22893.8 N/m
+	Incertezza k = 3151.41 N/m
+	1/k = 4.36799e-05 m/N
+	Incertezza 1/K = 6.01269e-06 m/N
+
+§ Accorciamento
+
+	Media F = 19.62 N
+	Deviazione Standard F = 1.89232 N
+	Media x = 0.000869 m
+	Deviazione Standard x = 8.35636e-05 m
+	COV[F,x] = 0.00695461 N*m
+	Coefficiente correlazione Pearson = 0.999558
+
+	k = 22577.7 N/m
+	Incertezza k = 3074.98 N/m
+	1/k = 4.42915e-05 m/N
+	Incertezza 1/K = 6.03231e-06 m/N
+
+§ Unione allungamento e accorciamento
+
+	Media F = 19.62 N
+	Deviazione Standard F = 1.88141 N
+	Media x = 0.000863 m
+	Deviazione Standard x = 8.3389e-05 m
+	COV[F,x] = 0.00690083 N*m
+	Coefficiente correlazione Pearson = 0.999668
+
+	k = 22734.6 N/m
+	Incertezza k = 2188.45 N/m
+	1/k = 4.39857e-05 m/N
+	Incertezza 1/K = 4.23409e-06 m/N
