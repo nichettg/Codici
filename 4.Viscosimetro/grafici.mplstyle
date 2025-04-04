@@ -1,3 +1,11 @@
+# Etichette degli assi
+axes.labelsize : 20
+axes.labelpad : 20
+
+# Valori sugli assi
+xtick.labelsize : 20
+ytick.labelsize : 20
+
 # Titolo
 axes.titlesize : 24
 axes.titlepad : 20
@@ -7,12 +15,6 @@ legend.loc : upper left
 legend.fontsize : 18
 legend.frameon : True
 legend.borderpad : 1
-
-# Dimensione delle etichette degli assi
-axes.labelsize : 20
-axes.labelpad : 20
-xtick.labelsize : 20
-ytick.labelsize : 20
 
 # Impostazioni della griglia
 grid.linestyle : --
