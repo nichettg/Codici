@@ -1,5 +1,5 @@
 
-**************************************************************************************************
+***************************************************************************************************
 SERIE 1
 ****************************************************************************************************
 
@@ -15,11 +15,11 @@ Covarianza = 0.00000
 Indice Pearson = 0.97904 +/- 0.11760
 Gradi di Liberta' = 3
 ___Correlazione Perfetta (pearson=1)___
-	t = 0.1782622287878957
-	p-value (2 tails)= 0.8698751451355221
+	t = 0.17826222878789522
+	p-value (2 tails)= 0.8698751451355224
 ___Correlazione Assente (pearson=0)____
-	t = 8.32543887162797
-	p-value (2 tails)= 0.003631955668227234
+	t = 8.325438871627993
+	p-value (2 tails)= 0.0036319556682272054
 
 Parametri___________________________________________________
 y = a + bx
@@ -35,8 +35,8 @@ x         y         sy           y*            Chi-quadro
 0.00004   0.03942   0.00122      0.02399       160.90149    
 
 Gradi di liberta = 3
-Chi-quadro = 637.0767057509782
-p-value = 9.231389956478309e-138
+Chi-quadro = 637.0767057509776
+p-value = 9.231389956481469e-138
 
 Test Errore a Posteriori____________________________________
 Deviazione Residua       Incertezza Ordinate           
@@ -51,13 +51,13 @@ Deviazioni Residue minori delle Incertezze: 0
 
 Test Student Intercetta-Origine____________________________
 Gradi di Liberta' = 4
-t = 27.960302706799524
-p-value (1 tail)= 4.8669776783382955e-06
-p-value (2 tails)= 9.733955356676591e-06
+t = 27.960302706799627
+p-value (1 tail)= 4.866977678338208e-06
+p-value (2 tails)= 9.733955356676417e-06
 
 Test Student Pendenza-Funzione Costante_____________________
 Gradi di Liberta' = 4
-t = 276.57080865704233
+t = 276.5708086570423
 
 p-value (1 tail)= 5.1269377730889e-10
 p-value (2 tails)= 1.02538755461778e-09
@@ -78,11 +78,11 @@ Covarianza = -0.00002
 Indice Pearson = -0.98885 +/- 0.08597
 Gradi di Liberta' = 3
 ___Correlazione Perfetta (pearson=1)___
-	t = 23.133012970414622
-	p-value (2 tails)= 0.00017695393484120424
+	t = 23.133012970414857
+	p-value (2 tails)= 0.0001769539348411992
 ___Correlazione Assente (pearson=0)____
-	t = 11.501664088675637
-	p-value (2 tails)= 0.0014108948518391055
+	t = 11.501664088675755
+	p-value (2 tails)= 0.0014108948518390637
 
 Parametri___________________________________________________
 y = a + bx
@@ -98,8 +98,8 @@ x         y         sy           y*            Chi-quadro
 0.00004   3.81022   0.11824      4.41529       26.18717     
 
 Gradi di liberta = 3
-Chi-quadro = 44.2952546970333
-p-value = 1.3062266474425529e-09
+Chi-quadro = 44.295254697031396
+p-value = 1.3062266474437713e-09
 
 Test Errore a Posteriori____________________________________
 Deviazione Residua       Incertezza Ordinate           
@@ -114,14 +114,14 @@ Deviazioni Residue minori delle Incertezze: 0
 
 Test Student Intercetta-Origine____________________________
 Gradi di Liberta' = 4
-t = 135.67602782644568
-p-value (1 tail)= 8.8501678004902e-09
-p-value (2 tails)= 1.77003356009804e-08
+t = 135.6760278264456
+p-value (1 tail)= 8.85016780049023e-09
+p-value (2 tails)= 1.770033560098046e-08
 
 Test Student Pendenza-Funzione Costante_____________________
 Gradi di Liberta' = 4
-t = 29.41697621499382
+t = 29.41697621499396
 
-p-value (1 tail)= 3.975490760808917e-06
-p-value (2 tails)= 7.950981521617834e-06
+p-value (1 tail)= 3.975490760808846e-06
+p-value (2 tails)= 7.950981521617692e-06
 
