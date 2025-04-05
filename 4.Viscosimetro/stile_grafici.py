@@ -9,9 +9,9 @@ def imposta_stile_globale():
         "figure.dpi": 200,
 
         # Titoli e testo
-        "axes.titlesize": 16,
-        "axes.labelsize": 14, # Dimensione etichette assi
-        "legend.fontsize": 12,
+        "axes.titlesize": 20,
+        "axes.labelsize": 18, # Dimensione etichette assi
+        "legend.fontsize": 16,
         "font.family": "serif",
 
         # Linee e marker
@@ -36,7 +36,7 @@ def setup_2d_axes(ax, titolo=None, xlabel=None, ylabel=None):
     if titolo: ax.set_title(titolo, pad=15)
     if xlabel: ax.set_xlabel(xlabel, labelpad=10)
     if ylabel: ax.set_ylabel(ylabel, labelpad=10)
-    ax.tick_params(axis='both', labelsize=12)   # Dimensione valori assi
+    ax.tick_params(axis='both', labelsize=16)   # Dimensione valori assi
 
 
 # ======== FUNZIONI PER GRAFICI 3D ========
@@ -45,8 +45,8 @@ def setup_3d_axes(ax, titolo=None, xlabel=None, ylabel=None, zlabel=None):
     if xlabel: ax.set_xlabel(xlabel, labelpad=10)
     if ylabel: ax.set_ylabel(ylabel, labelpad=10)
     if zlabel: ax.set_zlabel(zlabel, labelpad=10)
-    ax.tick_params(axis='both', labelsize=12)
-    ax.tick_params(axis='z', labelsize=12) # Dimensione valori asse z
+    ax.tick_params(axis='both', labelsize=16)
+    ax.tick_params(axis='z', labelsize=16) # Dimensione valori asse z
 
 
 # ======== LAYOUT & SALVATAGGIO ========
