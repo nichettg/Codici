@@ -3,13 +3,6 @@
 SERIE 1
 ****************************************************************************************************
 
-Medie e Deviazioni__________________________________________
-Media X = 0.27500 +/- 0.04787
-Media Y = 7.56905 +/- 0.01499
-
-Deviazione Stanard X = 0.15138
-Deviazione Stanard Y = 0.04741
-
 Test Student Pearson_______________________________________
 Covarianza = 0.00307
 Indice Pearson = 0.42707 +/- 0.31969
@@ -60,28 +53,21 @@ Deviazioni Residue maggiori delle Incertezze: 0
 Deviazioni Residue minori delle Incertezze: 10
 
 Test Student Intercetta-Origine____________________________
-Gradi di Liberta' = 9
+Gradi di Liberta' = 8
 t = 29.64087983296245
-p-value (1 tail)= 1.3826510963077383e-10
-p-value (2 tails)= 2.7653021926154766e-10
+p-value (1 tail)= 9.096753697073374e-10
+p-value (2 tails)= 1.8193507394146747e-09
 
 Test Student Pendenza-Funzione Costante_____________________
-Gradi di Liberta' = 9
+Gradi di Liberta' = 8
 t = 0.19715927237042927
 
-p-value (1 tail)= 0.4240417860775264
-p-value (2 tails)= 0.8480835721550528
+p-value (1 tail)= 0.4243099621322593
+p-value (2 tails)= 0.8486199242645186
 
 ****************************************************************************************************
 SERIE 2
 ****************************************************************************************************
-
-Medie e Deviazioni__________________________________________
-Media X = 0.27500 +/- 0.04787
-Media Y = 7.24028 +/- 0.01888
-
-Deviazione Stanard X = 0.15138
-Deviazione Stanard Y = 0.05970
 
 Test Student Pearson_______________________________________
 Covarianza = 0.00717
@@ -133,28 +119,21 @@ Deviazioni Residue maggiori delle Incertezze: 0
 Deviazioni Residue minori delle Incertezze: 10
 
 Test Student Intercetta-Origine____________________________
-Gradi di Liberta' = 9
+Gradi di Liberta' = 8
 t = 56.267975665169004
-p-value (1 tail)= 4.450880162567468e-13
-p-value (2 tails)= 8.901760325134936e-13
+p-value (1 tail)= 5.5227079726657796e-12
+p-value (2 tails)= 1.1045415945331559e-11
 
 Test Student Pendenza-Funzione Costante_____________________
-Gradi di Liberta' = 9
+Gradi di Liberta' = 8
 t = 0.6256785838239204
 
-p-value (1 tail)= 0.273531111629105
-p-value (2 tails)= 0.54706222325821
+p-value (1 tail)= 0.27447752009253434
+p-value (2 tails)= 0.5489550401850687
 
 ****************************************************************************************************
 SERIE 3
 ****************************************************************************************************
-
-Medie e Deviazioni__________________________________________
-Media X = 0.27500 +/- 0.04787
-Media Y = 6.93503 +/- 0.30022
-
-Deviazione Stanard X = 0.15138
-Deviazione Stanard Y = 0.94938
 
 Test Student Pearson_______________________________________
 Covarianza = 0.02150
@@ -206,28 +185,21 @@ Deviazioni Residue maggiori delle Incertezze: 8
 Deviazioni Residue minori delle Incertezze: 2
 
 Test Student Intercetta-Origine____________________________
-Gradi di Liberta' = 9
+Gradi di Liberta' = 8
 t = 25.784258458299895
-p-value (1 tail)= 4.783622275061882e-10
-p-value (2 tails)= 9.567244550123764e-10
+p-value (1 tail)= 2.7456670816673123e-09
+p-value (2 tails)= 5.491334163334625e-09
 
 Test Student Pendenza-Funzione Costante_____________________
-Gradi di Liberta' = 9
+Gradi di Liberta' = 8
 t = 0.7222689516383722
 
-p-value (1 tail)= 0.2442351156149108
-p-value (2 tails)= 0.4884702312298216
+p-value (1 tail)= 0.24535006220263933
+p-value (2 tails)= 0.49070012440527866
 
 ****************************************************************************************************
 SERIE 4
 ****************************************************************************************************
-
-Medie e Deviazioni__________________________________________
-Media X = 0.27500 +/- 0.04787
-Media Y = 5.96872 +/- 0.03917
-
-Deviazione Stanard X = 0.15138
-Deviazione Stanard Y = 0.12386
 
 Test Student Pearson_______________________________________
 Covarianza = 0.01199
@@ -279,28 +251,21 @@ Deviazioni Residue maggiori delle Incertezze: 0
 Deviazioni Residue minori delle Incertezze: 10
 
 Test Student Intercetta-Origine____________________________
-Gradi di Liberta' = 9
+Gradi di Liberta' = 8
 t = 27.544073121863118
-p-value (1 tail)= 2.6584810472536627e-10
-p-value (2 tails)= 5.316962094507325e-10
+p-value (1 tail)= 1.6276514475353394e-09
+p-value (2 tails)= 3.2553028950706787e-09
 
 Test Student Pendenza-Funzione Costante_____________________
-Gradi di Liberta' = 9
+Gradi di Liberta' = 8
 t = 0.9044953696086062
 
-p-value (1 tail)= 0.19465128178994257
-p-value (2 tails)= 0.38930256357988513
+p-value (1 tail)= 0.19607813505810195
+p-value (2 tails)= 0.3921562701162039
 
 ****************************************************************************************************
 SERIE 5
 ****************************************************************************************************
-
-Medie e Deviazioni__________________________________________
-Media X = 0.30000 +/- 0.07071
-Media Y = 3.60380 +/- 0.25632
-
-Deviazione Stanard X = 0.15811
-Deviazione Stanard Y = 0.57316
 
 Test Student Pearson_______________________________________
 Covarianza = 0.07536
@@ -342,15 +307,15 @@ Deviazioni Residue maggiori delle Incertezze: 2
 Deviazioni Residue minori delle Incertezze: 3
 
 Test Student Intercetta-Origine____________________________
-Gradi di Liberta' = 4
+Gradi di Liberta' = 3
 t = 7.280635165144052
-p-value (1 tail)= 0.0009455978375271315
-p-value (2 tails)= 0.001891195675054263
+p-value (1 tail)= 0.0026742204254440118
+p-value (2 tails)= 0.0053484408508880235
 
 Test Student Pendenza-Funzione Costante_____________________
-Gradi di Liberta' = 4
+Gradi di Liberta' = 3
 t = 2.819313945104854
 
-p-value (1 tail)= 0.023930738730720068
-p-value (2 tails)= 0.047861477461440136
+p-value (1 tail)= 0.03338811499569514
+p-value (2 tails)= 0.06677622999139028
 

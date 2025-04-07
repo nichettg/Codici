@@ -3,13 +3,6 @@
 SERIE 1
 ****************************************************************************************************
 
-Medie e Deviazioni__________________________________________
-Media X = 0.00002 +/- 0.00001
-Media Y = 0.03885 +/- 0.01712
-
-Deviazione Stanard X = 0.00002
-Deviazione Stanard Y = 0.03827
-
 Test Student Pearson_______________________________________
 Covarianza = 0.00000
 Indice Pearson = 0.99989 +/- 0.00860
@@ -50,28 +43,21 @@ Deviazioni Residue maggiori delle Incertezze: 4
 Deviazioni Residue minori delle Incertezze: 1
 
 Test Student Intercetta-Origine____________________________
-Gradi di Liberta' = 4
+Gradi di Liberta' = 3
 t = 0.7408337000237993
-p-value (1 tail)= 0.24996285021303055
-p-value (2 tails)= 0.4999257004260611
+p-value (1 tail)= 0.25625567451432246
+p-value (2 tails)= 0.5125113490286449
 
 Test Student Pendenza-Funzione Costante_____________________
-Gradi di Liberta' = 4
+Gradi di Liberta' = 3
 t = 196.9476945217607
 
-p-value (1 tail)= 1.9936228826957684e-09
-p-value (2 tails)= 3.987245765391537e-09
+p-value (1 tail)= 1.4432705185932365e-07
+p-value (2 tails)= 2.886541037186473e-07
 
 ****************************************************************************************************
 SERIE 2
 ****************************************************************************************************
-
-Medie e Deviazioni__________________________________________
-Media X = 0.00002 +/- 0.00001
-Media Y = 1.45659 +/- 0.00902
-
-Deviazione Stanard X = 0.00002
-Deviazione Stanard Y = 0.02018
 
 Test Student Pearson_______________________________________
 Covarianza = 0.00000
@@ -113,15 +99,15 @@ Deviazioni Residue maggiori delle Incertezze: 0
 Deviazioni Residue minori delle Incertezze: 5
 
 Test Student Intercetta-Origine____________________________
-Gradi di Liberta' = 4
+Gradi di Liberta' = 3
 t = 120.59479280195012
-p-value (1 tail)= 1.4177771558121104e-08
-p-value (2 tails)= 2.835554311624221e-08
+p-value (1 tail)= 6.28561227829312e-07
+p-value (2 tails)= 1.257122455658624e-06
 
 Test Student Pendenza-Funzione Costante_____________________
-Gradi di Liberta' = 4
+Gradi di Liberta' = 3
 t = 1.2229289859959482
 
-p-value (1 tail)= 0.1442395368089964
-p-value (2 tails)= 0.2884790736179928
+p-value (1 tail)= 0.15433093504234896
+p-value (2 tails)= 0.3086618700846979
 
