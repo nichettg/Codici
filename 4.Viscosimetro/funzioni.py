@@ -9,17 +9,17 @@ import numpy as np
 def media(v):
     return sum(v) / len(v)
 
-# Funzione media pesate
+# Funzione media pesata
 def media_p(v, w):
-    sum1 = sum(v[i] * w[i] for i in range(len(v)))
-    sum2 = sum(w)
+    sum1 = sum(v[i] / (w[i]**2) for i in range(len(v)))
+    sum2 = sum((1/w[i])**2 for i in range(len(v)))
     return sum1 / sum2
 
 # Funzione incertezza media pesata
 def s_media_p(v, w):
-    sum1 = sum(w[i] for i in range(len(v)))
-    sum2 = sum(w[i] ** 2 for i in range(len(v)))
-    return math.sqrt(sum1 / (sum1 ** 2 - sum2))
+    sum1 = sum((1/w[i])**2 for i in range(len(v)))
+    return math.sqrt(1/sum1)
+
 # Funzione deviazione standard
 def dev(v):
     m = media(v)
@@ -209,7 +209,7 @@ def elaborato(vx, vy, vsy, output_filename, n, elaborato = True, ritorno = False
 
             output_elab.write("Verifica ipotesi funzione costante_________________________\n")
             output_elab.write(f"Gradi di Liberta' = {NDOF}\n")
-            output_elab.write(f"t = {abs(b /sb)}\n\n")
+            output_elab.write(f"t = {abs(b /sb)}\n")
             p_value_t_1tail = t.sf(abs(b/sb), NDOF)
             p_value_t_2tails = 2 * p_value_t_1tail
             #output_elab.write(f"p-value (1 tail)= {p_value_t_1tail}\n")
@@ -227,6 +227,7 @@ def elaborato(vx, vy, vsy, output_filename, n, elaborato = True, ritorno = False
             output_elab.write(f"Chi-quadro = {chi_quadro}\n")
             p_value = chi2.sf(chi_quadro, NDOF)
             output_elab.write(f"p-value = {p_value}\n\n")
+            output_elab.write(f"Media pesata = {y_media_p} +/- {sy_media_p}\n\n")
 
 
     # Apertura del file LaTeX
