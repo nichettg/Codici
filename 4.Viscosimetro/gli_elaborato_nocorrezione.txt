@@ -3,16 +3,12 @@
 SERIE 1
 ****************************************************************************************************
 
-Test Student Pearson_______________________________________
+Verifica ipotesi linearità_________________________________
 Covarianza = 0.00000
 Indice Pearson = 0.99989 +/- 0.00860
 Gradi di Liberta' = 3
-___Correlazione Perfetta (pearson=1)___
 	t = 0.012898191733059932
-	p-value (2 tails)= 0.9905188227762749
-___Correlazione Assente (pearson=0)____
-	t = 116.28892246037802
-	p-value (2 tails)= 1.4019744698578497e-06
+	p-value = 0.9905188227762749
 
 Parametri___________________________________________________
 y = a + bx
@@ -28,52 +24,41 @@ x         y         sy           y*            Chi-quadro
 0.00004   0.09741   0.00241      0.10023       1.36840      
 
 Gradi di liberta = 3
-Chi-quadro = 4.869882189486409
-p-value = 0.18157675033552692
+Chi-quadro = 4.8698821894863915
+p-value = 0.1815767503355287
 
-Test Errore a Posteriori____________________________________
-Deviazione Residua       Incertezza Ordinate           
-0.001633            >    0.000014            
-0.001633            >    0.000029            
-0.001633            >    0.000141            
-0.001633            >    0.001067            
-0.001633            <    0.002410            
-
-Deviazioni Residue maggiori delle Incertezze: 4
-Deviazioni Residue minori delle Incertezze: 1
-
-Test Student Intercetta-Origine____________________________
+Verifica ipotesi funzione costante_________________________
 Gradi di Liberta' = 3
-t = 0.7408337000237993
-p-value (1 tail)= 0.25625567451432246
-p-value (2 tails)= 0.5125113490286449
+t = 196.9476944755028
 
-Test Student Pendenza-Funzione Costante_____________________
-Gradi di Liberta' = 3
-t = 196.9476945217607
+p-value = 2.886541039220267e-07
 
-p-value (1 tail)= 1.4432705185932365e-07
-p-value (2 tails)= 2.886541037186473e-07
+x         y         sy           y_media_p     Chi-quadro   
+0.00000   0.00561   0.00001      0.08155       27751994.42994
+0.00000   0.01001   0.00003      0.08155       5972011.70922
+0.00001   0.02500   0.00014      0.08155       160156.02040 
+0.00002   0.05619   0.00107      0.08155       565.28967    
+0.00004   0.09741   0.00241      0.08155       43.30534     
+
+Gradi di liberta = 3
+Chi-quadro = 33884770.75457463
+p-value = 0.0
 
 ****************************************************************************************************
 SERIE 2
 ****************************************************************************************************
 
-Test Student Pearson_______________________________________
+Verifica ipotesi linearità_________________________________
 Covarianza = 0.00000
 Indice Pearson = 0.91747 +/- 0.22968
 Gradi di Liberta' = 3
-___Correlazione Perfetta (pearson=1)___
 	t = 0.35934732108752354
-	p-value (2 tails)= 0.7431400142737264
-___Correlazione Assente (pearson=0)____
-	t = 3.9945608807363056
-	p-value (2 tails)= 0.02810836594388226
+	p-value = 0.7431400142737264
 
 Parametri___________________________________________________
 y = a + bx
 a = 1.44013 +/- 0.01194
-b = 1130.71985 +/- 924.59976
+b = 1130.72005 +/- 924.59938
 
 Test Chi Quadro_____________________________________________
 x         y         sy           y*            Chi-quadro   
@@ -84,30 +69,23 @@ x         y         sy           y*            Chi-quadro
 0.00004   1.49063   0.03725      1.48573       0.01733      
 
 Gradi di liberta = 3
-Chi-quadro = 0.5492120693585862
-p-value = 0.9079540914397144
+Chi-quadro = 0.5492120693586344
+p-value = 0.9079540914397035
 
-Test Errore a Posteriori____________________________________
-Deviazione Residua       Incertezza Ordinate           
-0.009490            <    0.019735            
-0.009490            <    0.015156            
-0.009490            <    0.012516            
-0.009490            <    0.028313            
-0.009490            <    0.037248            
-
-Deviazioni Residue maggiori delle Incertezze: 0
-Deviazioni Residue minori delle Incertezze: 5
-
-Test Student Intercetta-Origine____________________________
+Verifica ipotesi funzione costante_________________________
 Gradi di Liberta' = 3
-t = 120.59479280195012
-p-value (1 tail)= 6.28561227829312e-07
-p-value (2 tails)= 1.257122455658624e-06
+t = 1.2229297045168523
 
-Test Student Pendenza-Funzione Costante_____________________
-Gradi di Liberta' = 3
-t = 1.2229289859959482
+p-value = 0.3086616348699498
 
-p-value (1 tail)= 0.15433093504234896
-p-value (2 tails)= 0.3086618700846979
+x         y         sy           y_media_p     Chi-quadro   
+0.00000   1.44430   0.01973      1.46221       0.82368      
+0.00000   1.43935   0.01516      1.46221       2.27584      
+0.00001   1.45667   0.01252      1.46221       0.19587      
+0.00002   1.45199   0.02831      1.46221       0.13018      
+0.00004   1.49063   0.03725      1.46221       0.58213      
+
+Gradi di liberta = 3
+Chi-quadro = 4.007699415466014
+p-value = 0.26063393152490677
 
