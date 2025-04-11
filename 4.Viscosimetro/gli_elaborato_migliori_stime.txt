@@ -8,7 +8,7 @@ Covarianza = 4.10030
 Indice Pearson = 0.99999 +/- 0.00162
 Gradi di Liberta' = 8
 	t = 0.00646794488913391
-	p-value = 0.9949977433248165
+	p-value (una coda) = 0.49749887166240825
 
 Parametri___________________________________________________
 y = a + bx
@@ -64,7 +64,7 @@ Covarianza = 2.31150
 Indice Pearson = 0.99979 +/- 0.00721
 Gradi di Liberta' = 8
 	t = 0.02883438432348657
-	p-value = 0.9777030194813265
+	p-value (una coda) = 0.48885150974066327
 
 Parametri___________________________________________________
 y = a + bx
@@ -120,7 +120,7 @@ Covarianza = 0.92724
 Indice Pearson = 0.99993 +/- 0.00425
 Gradi di Liberta' = 8
 	t = 0.016984374659301634
-	p-value = 0.9868650283348539
+	p-value (una coda) = 0.49343251416742695
 
 Parametri___________________________________________________
 y = a + bx
@@ -176,7 +176,7 @@ Covarianza = 0.44448
 Indice Pearson = 0.99997 +/- 0.00429
 Gradi di Liberta' = 3
 	t = 0.006433719639550684
-	p-value = 0.9952705827797744
+	p-value (una coda) = 0.4976352913898872
 
 Parametri___________________________________________________
 y = a + bx
@@ -222,7 +222,7 @@ Covarianza = 0.25698
 Indice Pearson = 0.99995 +/- 0.00589
 Gradi di Liberta' = 3
 	t = 0.008829957739641984
-	p-value = 0.9935091646649046
+	p-value (una coda) = 0.4967545823324523
 
 Parametri___________________________________________________
 y = a + bx

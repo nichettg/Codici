@@ -8,7 +8,7 @@ Covarianza = 0.00000
 Indice Pearson = 0.97904 +/- 0.11760
 Gradi di Liberta' = 3
 	t = 0.17826222878789522
-	p-value = 0.8698751451355224
+	p-value (una coda) = 0.4349375725677612
 
 Parametri___________________________________________________
 y = a + bx
@@ -54,7 +54,7 @@ Covarianza = -0.00002
 Indice Pearson = -0.98885 +/- 0.08597
 Gradi di Liberta' = 3
 	t = 23.133012970414857
-	p-value = 0.0001769539348411992
+	p-value (una coda) = 8.84769674205996e-05
 
 Parametri___________________________________________________
 y = a + bx
