@@ -32,27 +32,27 @@ def default_error_params():
         'capthick': 1,
     }
 
-# ======== FUNZIONI PER GRAFICI 2D ========
-def setup_2d_axes(ax, titolo=None, xlabel=None, ylabel=None):
-    if titolo: ax.set_title(titolo, pad=15)
-    if xlabel: ax.set_xlabel(xlabel, labelpad=10)
-    if ylabel: ax.set_ylabel(ylabel, labelpad=10)
-    ax.tick_params(axis='both', labelsize=16)   # Dimensione valori assi
+# Imposta automaticamente titolo, label degli assi e formatta i caratteri
+def parametri_grafico(ax, titolo=None, xlabel=None, ylabel=None, zlabel=None, tridimensionale=False):
 
+    if tridimensionale:
+        if titolo: ax.set_title(titolo, pad=20)
+        if xlabel: ax.set_xlabel(xlabel, labelpad=10)
+        if ylabel: ax.set_ylabel(ylabel, labelpad=10)
+        if zlabel: ax.set_zlabel(zlabel, labelpad=10)
+        ax.tick_params(axis='both', labelsize=16)
+        ax.tick_params(axis='z', labelsize=16)
+    else:
+        if titolo: ax.set_title(titolo, pad=15)
+        if xlabel: ax.set_xlabel(xlabel, labelpad=10)
+        if ylabel: ax.set_ylabel(ylabel, labelpad=10)
 
-# ======== FUNZIONI PER GRAFICI 3D ========
-def setup_3d_axes(ax, titolo=None, xlabel=None, ylabel=None, zlabel=None):
-    if titolo: ax.set_title(titolo, pad=20)
-    if xlabel: ax.set_xlabel(xlabel, labelpad=10)
-    if ylabel: ax.set_ylabel(ylabel, labelpad=10)
-    if zlabel: ax.set_zlabel(zlabel, labelpad=10)
     ax.tick_params(axis='both', labelsize=16)
-    ax.tick_params(axis='z', labelsize=16) # Dimensione valori asse z
 
-
-# ======== LAYOUT & SALVATAGGIO ========
-def salva_figura(nomefile, legenda = (1,1), formato='pdf'):
-    plt.tight_layout()
-    plt.legend(bbox_to_anchor = legenda, loc = 'upper left')
-    plt.savefig(nomefile, bbox_inches='tight', format=formato)
-    plt.show()
+# Salva e mostra l'immagine
+def salva_grafico(fig, nomefile, legenda = (1,1), formato='pdf', show=True):
+    fig.tight_layout()
+    fig.legend(bbox_to_anchor = legenda, loc = 'upper left')
+    fig.savefig(nomefile, bbox_inches='tight', format=formato)
+    if show: plt.show()
+    else: plt.close(fig)

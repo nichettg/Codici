@@ -4,9 +4,6 @@
 #include <vector>
 #include <string>
 #include <cmath>
-
-//to compile: g++ -Wall RawToHisto.cxx -o RawToHisto
-
 using namespace std;
 
 int GetPowerOfTen(unsigned int i){
