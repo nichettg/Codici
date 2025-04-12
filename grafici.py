@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 from matplotlib import rcParams
+import itertools
 
 # ======== IMPOSTAZIONI GLOBALI ========
 def imposta_stile_globale():
