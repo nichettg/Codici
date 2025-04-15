@@ -50,9 +50,8 @@ def parametri_grafico(ax, titolo=None, xlabel=None, ylabel=None, zlabel=None, tr
     ax.tick_params(axis='both', labelsize=16)
 
 # Salva e mostra l'immagine
-def salva_grafico(fig, nomefile, legenda = (1,1), formato='pdf', show=True):
+def salva_grafico(fig, nomefile, legenda = (1,1), formato='pdf'):
     fig.tight_layout()
     fig.legend(bbox_to_anchor = legenda, loc = 'upper left')
     fig.savefig(nomefile, bbox_inches='tight', format=formato)
-    if show: plt.show()
-    else: plt.close(fig)
+    plt.show()
