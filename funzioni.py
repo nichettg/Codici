@@ -78,27 +78,20 @@ def chi_quadro2(vx, vy, vsy, a, b):
     return sum(((y - (a + b * x)) / sy) ** 2 for x, y, sy in zip(vx, vy, vsy))
 
 # Funzione elaborato
-def elaborato(vx, vy, vsy, output_filename, n, elaborato = True, ritorno = False, latex = False, analitico = False):
+def elaborato(vx, vy, vsy, output_filename, n, elaborato = True, ritorno = False, latex = False):
 
     if isinstance(vsy, float):
-        print(f"Minimi quadrati I")
+        print(f"Incertezze Uniformi")
         vsy = [vsy] * len(vx)
-    elif isinstance(vsy, list):
-        print(f"Minimi quadrati II")
+    
+    def func_type(x,a,b):
+        return a + b*x
+    print("Fit Lineare")
 
-    if analitico == False:
-        par, cov = curve_fit(lambda x, a, b: a + b * x, vx, vy, sigma=vsy, absolute_sigma = True)
-        a, b = par
-        sa, sb = np.sqrt (np.diag(cov))
-        print (f"Processo al calcolatore\n")
-
-    if analitico == True:
-        delta = delta(vx, vsy)
-        a = a(vx, vy, vsy, delta)
-        sa = sa(vx, vsy, delta)
-        b = b(vx, vy, vsy, delta)
-        sb = sb(vx, vsy, delta)
-        print (f"Processo analitico\n")
+    par, pcov = curve_fit(func_type, vx, vy, sigma=vsy, absolute_sigma = True)
+    a, b = par
+    sa, sb = np.sqrt (np.diag(pcov))
+    cov = pcov[0,1]
 
     x_media = media(vx)
     y_media = media(vy)
@@ -165,10 +158,10 @@ def elaborato(vx, vy, vsy, output_filename, n, elaborato = True, ritorno = False
                 chi_quadro_i = ((y - y_media_p) / sy) ** 2
                 sum1 += chi_quadro_i
                 output_elab.write(f"{vx[i]:<10.5f}{y:<10.5f}{sy:<13.5f}{y_media_p:<14.5f}{chi_quadro_i:<13.5f}\n")
-            chi_quadro = sum1
+            chi_quadro_cost = sum1
             output_elab.write(f"\nGradi di liberta = {NDOF}\n")
-            output_elab.write(f"Chi-quadro = {chi_quadro}\n")
-            p_value = chi2.sf(chi_quadro, NDOF)
+            output_elab.write(f"Chi-quadro = {chi_quadro_cost}\n")
+            p_value_cost = chi2.sf(chi_quadro_cost, NDOF)
             output_elab.write(f"p-value = {p_value}\n\n")
             output_elab.write(f"Media pesata = {y_media_p} +/- {sy_media_p}\n\n")
 
@@ -214,7 +207,7 @@ def elaborato(vx, vy, vsy, output_filename, n, elaborato = True, ritorno = False
             latex_file.write(r"\end{table}" + '\n' + '\n' + '\n')
 
     if ritorno == True:
-        return a, b, sa, sb
+        return a, b, sa, sb, cov, p_value
 
 def output_init (output_filename, latex=False):
     with open(output_filename, "w") as file:
