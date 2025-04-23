@@ -54,4 +54,4 @@ def salva_grafico(fig, nomefile, legenda = (1,1), formato='pdf'):
     fig.tight_layout()
     fig.legend(bbox_to_anchor = legenda, loc = 'upper left')
     fig.savefig(nomefile, bbox_inches='tight', format=formato)
-    plt.show()
+    fig.show()
