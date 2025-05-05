@@ -1,7 +1,6 @@
 import math
 import numpy as np
 from scipy.stats import chi2, t
-from scipy.optimize import curve_fit
 
 # Funzione media
 def media(v):
@@ -42,70 +41,63 @@ def pearson(vx, vy):
 def s_pearson(vx, p):
     return math.sqrt((1 - p**2) / (len(vx) - 2))
 
-# Minimi quadrati 2
-def delta(vx, vsy):
-    sum1 = sum(1 / (sy ** 2) for sy in vsy)
-    sum2 = sum((x ** 2) / (sy ** 2) for x, sy in zip(vx, vsy))
-    sum3 = sum(x / (sy ** 2) for x, sy in zip(vx, vsy))
-    return sum1 * sum2 - sum3 ** 2
-def a(vx, vy, vsy, delta):
-    sum1 = sum((x ** 2) / (sy ** 2) for x, sy in zip(vx, vsy))
-    sum2 = sum(y / (sy ** 2) for y, sy in zip(vy, vsy))
-    sum3 = sum(x / (sy ** 2) for x, sy in zip(vx, vsy))
-    sum4 = sum((x * y) / (sy ** 2) for x, y, sy in zip(vx, vy, vsy))
-    return (sum1 * sum2 - sum3 * sum4) / delta
-def b(vx, vy, vsy, delta):
-    sum1 = sum(1 / (sy ** 2) for sy in vsy)
-    sum2 = sum((x * y) / (sy ** 2) for x, y, sy in zip(vx, vy, vsy))
-    sum3 = sum(x / (sy ** 2) for x, sy in zip(vx, vsy))
-    sum4 = sum(y / (sy ** 2) for y, sy in zip(vy, vsy))
-    return (sum1 * sum2 - sum3 * sum4) / delta
-def sa(vx, vsy, delta):
-    sum1 = sum((x ** 2) / (sy ** 2) for x, sy in zip(vx, vsy))
-    return math.sqrt(sum1 / delta)
-def sb(vx, vsy, delta):
-    sum1 = sum(1 / (sy ** 2) for sy in vsy)
-    return math.sqrt(sum1 / delta)
-
 # Funzione errore a posteriori
 def errpost(vx, vy, a, b):
     return math.sqrt(sum((y - (a + b * x)) ** 2 for x, y in zip(vx, vy)) / (len(vx) - 2))
 
-# Funzioni chi quadro
-def chi_quadro1(vx, vy, sy, a, b):
-    return sum(((y - (a + b * x)) / sy) ** 2 for x, y in zip(vx, vy))
-def chi_quadro2(vx, vy, vsy, a, b):
-    return sum(((y - (a + b * x)) / sy) ** 2 for x, y, sy in zip(vx, vy, vsy))
+from scipy.odr import ODR, Model, RealData
 
 # Funzione elaborato
-def elaborato(vx, vy, vsy, output_filename, n, elaborato = True, ritorno = False, latex = False):
+def elaborato(vx, vy, vsy, output_filename, n, vsx = None, elaborato = True, ritorno = False, latex = False):
 
     if isinstance(vsy, float):
-        print(f"Incertezze Uniformi")
+        print("Incertezze y uniformi")
         vsy = [vsy] * len(vx)
-    
-    def func_type(x,a,b):
-        return a + b*x
-    print("Fit Lineare")
+    elif vsy[0] == vsy[1]: print("Incertezze y uniformi")
+    else: print("Incertezze y variabili")
 
-    par, pcov = curve_fit(func_type, vx, vy, sigma=vsy, absolute_sigma = True)
-    a, b = par
-    sa, sb = np.sqrt (np.diag(pcov))
-    cov = pcov[0,1]
+    if vsx is None:
+        print("Incertezze x nulle")
+        vsx = [0] * len(vx)
+    elif isinstance(vsx, float):
+        print("Incertezze x uniformi")
+        vsx = [vsx] * len(vx)
+    elif vsx[0] == vsx[1]: print("Incertezze x uniformi")
+    else: print("Incertezze x variabili")
+
+    vx = np.array(vx, dtype=float)
+    vy = np.array(vy, dtype=float)
+    vsy = np.array(vsy, dtype=float)
+    vsx = np.array(vsx, dtype=float)
+
+    
+    def modello (B, x):
+        return B[0] + B[1] * x
+
+    dati = RealData(vx, vy, sx=vsx, sy=vsy)
+    modello_odr = Model(modello)
+    odr = ODR(dati, modello_odr, beta0=[0.0, 1.0])
+    output = odr.run()
+    
+    a, b = output.beta
+    sa, sb = output.sd_beta
+    cov = output.cov_beta[0, 1]
 
     x_media = media(vx)
     y_media = media(vy)
 
+    # Medie pesate per eventuale compatibilità
     y_media_p = media_p(vy, vsy)
     sy_media_p = s_media_p(vy, vsy)
 
-    dev_x = dev(vx)
-    dev_y = dev(vy)
     cov_xy = sum((vx[i] - x_media) * (vy[i] - y_media) for i in range(len(vx))) / (len(vx) - 1)
     pearson_xy = pearson(vx, vy)
     s_pearson_xy = s_pearson(vx, pearson_xy)
 
     NDOF = len(vx) - 2
+
+    if latex and not elaborato:
+        raise ValueError("latex=True richiede che elaborato=True")
 
     if elaborato == True:
         with open(output_filename, 'a') as output_elab:
@@ -113,13 +105,12 @@ def elaborato(vx, vy, vsy, output_filename, n, elaborato = True, ritorno = False
             output_elab.write(f"SERIE {n+1}\n")
             output_elab.write('*' * 100 + '\n\n')
 
-            output_elab.write("Verifica ipotesi linearità_________________________________\n")
+            output_elab.write("Test ipotesi linearità_____________________________________\n")
             output_elab.write(f"Covarianza = {cov_xy:.5f}\n")
             output_elab.write(f"Indice Pearson = {pearson_xy:.5f} +/- {s_pearson_xy:.5f}\n")
             output_elab.write(f"Gradi di Liberta' = {NDOF}\n")
-            output_elab.write(f"\tt = {abs((pearson_xy) / s_pearson_xy)}\n")
-            p_value_pearson_xy = 2 * t.sf(abs((pearson_xy) / s_pearson_xy ), NDOF)
-            output_elab.write(f"\tp-value (due code) = {p_value_pearson_xy}\n")
+            output_elab.write(f"\tt = {abs((pearson_xy) / s_pearson_xy)}\n") # Variabile t per il test di Pearson
+            output_elab.write(f"\tp-value (due code) = {2 * t.sf(abs((pearson_xy) / s_pearson_xy ), NDOF)}\n") # p-value per il test di Pearson
             output_elab.write('\n')
         
             output_elab.write("Parametri___________________________________________________\n")
@@ -128,7 +119,7 @@ def elaborato(vx, vy, vsy, output_filename, n, elaborato = True, ritorno = False
             output_elab.write(f"b = {b:.5f} +/- {sb:.5f}\n\n")
 
             # Chi-Quadro
-            output_elab.write("Test Chi Quadro_____________________________________________\n")
+            output_elab.write("Test bontà fit _____________________________________________\n")
             output_elab.write(f"{'x':<10}{'y':<10}{'sy':<13}{'y*':<14}{'Chi-quadro':<13}\n")
             sum1 = 0.
             for i in range(len(vx)):
@@ -138,18 +129,19 @@ def elaborato(vx, vy, vsy, output_filename, n, elaborato = True, ritorno = False
                 chi_quadro_i = ((y - y_star) / sy) ** 2
                 sum1 += chi_quadro_i
                 output_elab.write(f"{vx[i]:<10.5f}{y:<10.5f}{sy:<13.5f}{y_star:<14.5f}{chi_quadro_i:<13.5f}\n")
-            chi_quadro = sum1
+            chi_quadro_fit = sum1 # Chi-quadro bontà fit
             output_elab.write(f"\nGradi di liberta = {NDOF}\n")
-            output_elab.write(f"Chi-quadro = {chi_quadro}\n")
-            p_value = chi2.sf(chi_quadro, NDOF)
-            output_elab.write(f"p-value = {p_value}\n\n")
+            output_elab.write(f"Chi-quadro = {chi_quadro_fit}\n")
+            p_value_fit = chi2.sf(chi_quadro_fit, NDOF) # p-value bontà fit
+            output_elab.write(f"p-value = {p_value_fit}\n")
+            output_elab.write(f"Errore a posteriori = {errpost(vx, vy, a, b):.5f}\n\n")
 
-            output_elab.write("Verifica ipotesi funzione costante_________________________\n")
+            output_elab.write("Test ipotesi funzione costante_______________________________\n")
             output_elab.write(f"Gradi di Liberta' = {NDOF}\n")
-            output_elab.write(f"t = {abs(b /sb)}\n")
-            p_value_t_1tail = t.sf(abs(b/sb), NDOF)
-            p_value_t_2tails = 2 * p_value_t_1tail
-            output_elab.write(f"p-value = {p_value_t_2tails}\n\n")
+            output_elab.write(f"t = {abs(b /sb)}\n") # Variabile t per test funzione costante
+            output_elab.write(f"p-value = {2 * t.sf(abs(b/sb), NDOF)}\n\n") # p-value test funzione costante
+
+            output_elab.write("Test ipotesi compatibilità misure____________________________\n")
             output_elab.write(f"{'x':<10}{'y':<10}{'sy':<13}{'y_media_p':<14}{'Chi-quadro':<13}\n")
             sum1 = 0.
             for i in range(len(vx)):
@@ -158,11 +150,10 @@ def elaborato(vx, vy, vsy, output_filename, n, elaborato = True, ritorno = False
                 chi_quadro_i = ((y - y_media_p) / sy) ** 2
                 sum1 += chi_quadro_i
                 output_elab.write(f"{vx[i]:<10.5f}{y:<10.5f}{sy:<13.5f}{y_media_p:<14.5f}{chi_quadro_i:<13.5f}\n")
-            chi_quadro_cost = sum1
+            chi_quadro_comp = sum1
             output_elab.write(f"\nGradi di liberta = {NDOF}\n")
-            output_elab.write(f"Chi-quadro = {chi_quadro_cost}\n")
-            p_value_cost = chi2.sf(chi_quadro_cost, NDOF)
-            output_elab.write(f"p-value = {p_value}\n\n")
+            output_elab.write(f"Chi-quadro = {chi_quadro_comp}\n") # Chi-quadro compatibilità misure
+            output_elab.write(f"p-value = {chi2.sf(chi_quadro_comp, NDOF)}\n\n") # p-value compatibilità misure
             output_elab.write(f"Media pesata = {y_media_p} +/- {sy_media_p}\n\n")
 
 
@@ -186,19 +177,19 @@ def elaborato(vx, vy, vsy, output_filename, n, elaborato = True, ritorno = False
             latex_file.write('\t' + '\t' +r"\hline" + '\n')
             latex_file.write('\t' + '\t' +f"Gradi di libertà & {NDOF}" + r"\\" + '\n')    
             latex_file.write('\t' + '\t' +f"Valore t & {form(abs((pearson_xy)/s_pearson_xy))}" + r"\\" + '\n')
-            latex_file.write('\t' + '\t' +f"p-value (due code) & {form(p_value_pearson_xy)}" + r"\\" + '\n')
+            latex_file.write('\t' + '\t' +f"p-value (due code) & {2 * t.sf(abs((pearson_xy)/s_pearson_xy), NDOF)}" + r"\\" + '\n')
             latex_file.write('\t' + '\t' +r"\hline" + '\n')
             latex_file.write('\t' + '\t' +r"\multicolumn{2}{|c|}{\textbf{Verifica della bontà del fit}} \\" + '\n')
             latex_file.write('\t' + '\t' +r"\hline" + '\n')
             latex_file.write('\t' + '\t' +f"Gradi di libertà & {NDOF}" + r"\\" + '\n')
-            latex_file.write('\t' + '\t' +f"Chi-quadro & {form(chi_quadro)}" + r"\\" + '\n')
-            latex_file.write('\t' + '\t' +f"p-value & {form(p_value)}" + r"\\" + '\n')
+            latex_file.write('\t' + '\t' +f"Chi-quadro & {form(chi_quadro_fit)}" + r"\\" + '\n')
+            latex_file.write('\t' + '\t' +f"p-value & {form(p_value_fit)}" + r"\\" + '\n')
             latex_file.write('\t' + '\t' +r"\hline" + '\n')
             latex_file.write('\t' + '\t' +r"\multicolumn{2}{|c|}{\textbf{Verifica ipotesi funzione costante}} \\" + '\n')
             latex_file.write('\t' + '\t' +r"\hline" + '\n')
             latex_file.write('\t' + '\t' + f"Gradi di libertà & {NDOF}" + r"\\" + '\n')
             latex_file.write('\t' + '\t' + f"Valore t & {form(abs(b/sb))}" + r"\\" + '\n')
-            latex_file.write('\t' + '\t'+ f"p-value & {form(p_value_t_2tails)}" + r"\\" + '\n')
+            latex_file.write('\t' + '\t'+ f"p-value & {form(t.fs(abs(b/sb), NDOF))}" + r"\\" + '\n')
             latex_file.write('\t' + '\t' + r"\hline" + '\n')
             latex_file.write('\t' + r"\end{tabular}" + '\n')
             latex_file.write('\n')
@@ -207,9 +198,9 @@ def elaborato(vx, vy, vsy, output_filename, n, elaborato = True, ritorno = False
             latex_file.write(r"\end{table}" + '\n' + '\n' + '\n')
 
     if ritorno == True:
-        return a, b, sa, sb, cov, p_value
+        return a, b, sa, sb, cov, p_value_fit
 
-def output_init (output_filename, latex=False):
+def inizializza_output (output_filename, latex=False):
     with open(output_filename, "w") as file:
         file.write('')
     if latex == True:
