@@ -1,6 +1,7 @@
 import math
 import numpy as np
 from scipy.stats import chi2, t
+from scipy.optimize import curve_fit
 
 # Funzione media
 def media(v):
@@ -50,38 +51,61 @@ from scipy.odr import ODR, Model, RealData
 # Funzione elaborato
 def elaborato(vx, vy, vsy, output_filename, n, vsx = None, elaborato = True, ritorno = False, latex = False):
 
-    if isinstance(vsy, float):
-        print("Incertezze y uniformi")
-        vsy = [vsy] * len(vx)
-    elif vsy[0] == vsy[1]: print("Incertezze y uniformi")
-    else: print("Incertezze y variabili")
-
+    analitico = False
+    print("\nElaborazione serie " + str(n+1))
     if vsx is None:
-        print("Incertezze x nulle")
+        analitico = True
+        print("\tIncertezze x nulle")
         vsx = [0] * len(vx)
     elif isinstance(vsx, float):
-        print("Incertezze x uniformi")
+        print("\tIncertezze x uniformi")
         vsx = [vsx] * len(vx)
-    elif vsx[0] == vsx[1]: print("Incertezze x uniformi")
-    else: print("Incertezze x variabili")
+    elif vsx[0] == vsx[1]:
+        print("\tIncertezze x uniformi")
+    else:
+        print("\tIncertezze x variabili")
+
+    if isinstance(vsy, float):
+        lq = 1
+        print("\tIncertezze y uniformi")
+        vsy = [vsy] * len(vx)
+    elif vsy[0] == vsy[1]:
+        lq = 1
+        print("\tIncertezze y uniformi")
+    else:
+        lq = 2
+        print("\tIncertezze y variabili")
 
     vx = np.array(vx, dtype=float)
     vy = np.array(vy, dtype=float)
     vsy = np.array(vsy, dtype=float)
     vsx = np.array(vsx, dtype=float)
 
-    
-    def modello (B, x):
-        return B[0] + B[1] * x
+    if analitico == True:
+        def modello (x,a,b):
+            return a + b * x
+        
+        par, mcov = curve_fit(modello, vx, vy, sigma=vsy, absolute_sigma=True)
+        a, b = par
+        sa, sb = np.sqrt(np.diag(mcov))  # deviazioni standard
+        cov = mcov[0, 1]
 
-    dati = RealData(vx, vy, sx=vsx, sy=vsy)
-    modello_odr = Model(modello)
-    odr = ODR(dati, modello_odr, beta0=[0.0, 1.0])
-    output = odr.run()
-    
-    a, b = output.beta
-    sa, sb = output.sd_beta
-    cov = output.cov_beta[0, 1]
+        print(f"\tMinimi quadrati {lq}")
+
+    else:
+        def modello (B, x):
+            return B[0] + B[1] * x
+
+        dati = RealData(vx, vy, sx=vsx, sy=vsy)
+        modello_odr = Model(modello)
+        odr = ODR(dati, modello_odr, beta0=[0.0, 1.0])
+        output = odr.run()
+        
+        a, b = output.beta
+        sa, sb = output.sd_beta
+        cov = output.cov_beta[0, 1]
+
+        print("\tMinimi quadrati 3")
 
     x_media = media(vx)
     y_media = media(vy)
