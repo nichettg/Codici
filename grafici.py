@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 from matplotlib import rcParams
-import itertools
+from IPython.display import display, HTML
 
 # ======== IMPOSTAZIONI GLOBALI ========
 def imposta_stile_globale():
@@ -55,3 +55,14 @@ def salva_grafico(fig, nomefile, legenda = (1,1), formato='pdf'):
     fig.legend(bbox_to_anchor = legenda, loc = 'upper left')
     fig.savefig(nomefile, bbox_inches='tight', format=formato)
     fig.show()
+
+def tabula (tabelle):
+
+    if not isinstance(tabelle, list):
+        tabelle = [tabelle]
+
+    html = '<div style="display: flex; gap: 40px; flex-wrap: wrap;">' + \
+       ''.join(f'<div>{tbl}</div>' for tbl in tabelle) + \
+       '</div>'
+
+    display(HTML(html))
