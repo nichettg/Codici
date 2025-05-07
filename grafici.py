@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 from matplotlib import rcParams
 from IPython.display import display, HTML
+import numpy as np
 
 # ======== IMPOSTAZIONI GLOBALI ========
 def imposta_stile_globale():
@@ -48,6 +49,16 @@ def parametri_grafico(ax, titolo=None, xlabel=None, ylabel=None, zlabel=None, tr
         if ylabel: ax.set_ylabel(ylabel, labelpad=10)
 
     ax.tick_params(axis='both', labelsize=16)
+
+# Funzione linea
+def linea(ax, vx, color='black', verticale=False):
+    if verticale:
+        ax.plot(np.zeros(len(vx)), vx, color=color, linestyle="-.", linewidth=1)
+    else: ax.plot(vx, np.zeros(len(vx)), color=color, linestyle="-.", linewidth=1)
+
+# Funzione per creare una descrizione della legenda
+def descrizione_legenda(ax, testo):
+    ax.plot([], [], label=testo, linestyle='None', marker='', color='black')
 
 # Salva e mostra l'immagine
 def salva_grafico(fig, nomefile, legenda = (1,1), formato='pdf'):
