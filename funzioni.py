@@ -251,7 +251,7 @@ def errore(R, digitale=False):
         return R / np.sqrt(24)
 
 # Funzione per calcolare l'incertezza di una misura singola con errore sistematico
-def propaga_incertezza(formula, variabili, valori, incertezze):
+def propaga_incertezza(formula, variabili, valori = None, incertezze=None, ritorno=False):
     """
     formula: stringa, es. 'x * y + z**2'
     variabili: lista di stringhe, es. ['x', 'y', 'z']
@@ -262,6 +262,11 @@ def propaga_incertezza(formula, variabili, valori, incertezze):
     simboli = sp.symbols(variabili)
     f = sp.sympify(formula)
     derivati = [sp.diff(f, var) for var in simboli]
+
+    if ritorno==True:
+        # Sostituzione dei valori e delle incertezze
+        dizionario = dict(zip(simboli, valori))
+        risultato = sp.sqrt(sum((float(der.evalf(subs=dizionario)) * incertezze[i])**2 for i, der in enumerate(derivati)))
 
     # Creazione della stringa per la propagazione dell'incertezza
     stringa = 'sqrt('
@@ -274,8 +279,6 @@ def propaga_incertezza(formula, variabili, valori, incertezze):
             stringa += ' + '
     stringa += ')'
 
-    # Sostituzione dei valori e delle incertezze
-    dizionario = dict(zip(simboli, valori))
-    risultato = sp.sqrt(sum((float(der.evalf(subs=dizionario)) * incertezze[i])**2 for i, der in enumerate(derivati)))
-
-    return risultato, stringa
+    if ritorno==True:
+        return risultato, stringa
+    else: return stringa

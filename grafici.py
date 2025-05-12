@@ -57,15 +57,26 @@ def linea(ax, vx, color='black', verticale=False):
     else: ax.plot(vx, np.zeros(len(vx)), color=color, linestyle="-.", linewidth=1)
 
 # Funzione per creare una descrizione della legenda
-def descrizione_legenda(ax, testo):
-    ax.plot([], [], label=testo, linestyle='None', marker='', color='black')
+def descrizione_legenda(ax, testo, color=None, marker=None):
+    if color is not None and marker is not None:
+        ax.scatter([], [], label=testo, s=5, marker=marker, color=color)
+    elif color is not None:
+        ax.scatter([], [], label=testo, s=5, color=color)
+    else:
+        ax.plot([], [], label=testo, linestyle='None', marker='', color='black')
+
 
 # Salva e mostra l'immagine
-def salva_grafico(fig, nomefile, legenda = (1,1), formato='pdf'):
+def salva_grafico(fig, nomefile, legenda=(1, 1), formato='pdf', noLegenda=False):
     fig.tight_layout()
-    fig.legend(bbox_to_anchor = legenda, loc = 'upper left')
+
+    if not noLegenda:
+        fig.legend(bbox_to_anchor=legenda, loc='upper left')
+
     fig.savefig(nomefile, bbox_inches='tight', format=formato)
-    fig.show()
+
+    plt.show()
+
 
 def tabula (tabelle):
 
