@@ -1,5 +1,6 @@
 import math
 import numpy as np
+import sympy as sp
 from scipy.stats import chi2, t
 from scipy.optimize import curve_fit
 
@@ -224,6 +225,7 @@ def elaborato(vx, vy, vsy, output_filename, n, vsx = None, elaborato = True, rit
     if ritorno == True:
         return a, b, sa, sb, cov, p_value_fit
 
+# Funzione per la creazione di un file di output vuoto
 def inizializza_output (output_filename, latex=False):
     with open(output_filename, "w") as file:
         file.write('')
@@ -232,6 +234,7 @@ def inizializza_output (output_filename, latex=False):
         with open(latex_filename, 'w') as latex_file:
             latex_file.write('')
 
+# Funzione per formattare i numeri
 def form(float):
     if float == 0.0:
         return 0.0
@@ -239,3 +242,40 @@ def form(float):
         return f"{float:.2e}"
     else:
         return f"{float:.5f}"
+
+# Funzione per calcolare l'incertezza di una misura singola
+def errore(R, digitale=False):
+    if digitale == True:
+        return R / np.sqrt(12)
+    else:
+        return R / np.sqrt(24)
+
+# Funzione per calcolare l'incertezza di una misura singola con errore sistematico
+def propaga_incertezza(formula, variabili, valori, incertezze):
+    """
+    formula: stringa, es. 'x * y + z**2'
+    variabili: lista di stringhe, es. ['x', 'y', 'z']
+    valori: lista di valori numerici, es. [1.0, 2.0, 0.5]
+    incertezze: lista di incertezze, es. [0.1, 0.2, 0.05]
+    """
+
+    simboli = sp.symbols(variabili)
+    f = sp.sympify(formula)
+    derivati = [sp.diff(f, var) for var in simboli]
+
+    # Creazione della stringa per la propagazione dell'incertezza
+    stringa = 'sqrt('
+    for i, (der, var) in enumerate(zip(derivati, simboli)):
+        # Aggiungi la parte della derivata
+        stringa += f'( {str(der)} * s{str(var)} )**2'
+        
+        # Aggiungi "+" se non è l'ultimo elemento
+        if i < len(derivati) - 1:
+            stringa += ' + '
+    stringa += ')'
+
+    # Sostituzione dei valori e delle incertezze
+    dizionario = dict(zip(simboli, valori))
+    risultato = sp.sqrt(sum((float(der.evalf(subs=dizionario)) * incertezze[i])**2 for i, der in enumerate(derivati)))
+
+    return risultato, stringa
