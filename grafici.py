@@ -51,19 +51,21 @@ def parametri_grafico(ax, titolo=None, xlabel=None, ylabel=None, zlabel=None, tr
     ax.tick_params(axis='both', labelsize=16)
 
 # Funzione linea
-def linea(ax, vx, color='black', verticale=False):
+def linea(ax, vx, color='black', verticale=False, salto=0):
     if verticale:
-        ax.plot(np.zeros(len(vx)), vx, color=color, linestyle="-.", linewidth=1)
-    else: ax.plot(vx, np.zeros(len(vx)), color=color, linestyle="-.", linewidth=1)
+        ax.plot(np.zeros(len(vx)) + salto, vx, color=color, linestyle="-.", linewidth=1)
+    else: ax.plot(vx, np.zeros(len(vx)) + salto, color=color, linestyle="-.", linewidth=1)
 
 # Funzione per creare una descrizione della legenda
-def descrizione_legenda(ax, testo, color=None, marker=None):
+def descrizione_legenda(ax, testo, color=None, marker=None, show=False):
     if color is not None and marker is not None:
         ax.scatter([], [], label=testo, s=5, marker=marker, color=color)
     elif color is not None:
         ax.scatter([], [], label=testo, s=5, color=color)
     else:
         ax.plot([], [], label=testo, linestyle='None', marker='', color='black')
+    if show:
+        ax.legend(bbox_to_anchor=(1,1))
 
 
 # Salva e mostra l'immagine

@@ -45,7 +45,7 @@ def s_pearson(vx, p):
 
 # Funzione errore a posteriori
 def errpost(vx, vy, a, b):
-    return math.sqrt(sum((y - (a + b * x)) ** 2 for x, y in zip(vx, vy)) / (len(vx) - 2))
+    return np.sqrt(sum((y - (a + b * x)) ** 2 for x, y in zip(vx, vy)) / (len(vx) - 2))
 
 from scipy.odr import ODR, Model, RealData
 
@@ -111,6 +111,8 @@ def elaborato(vx, vy, vsy, output_filename, n, vsx = None, elaborato = True, rit
     x_media = media(vx)
     y_media = media(vy)
 
+    errpost_fit = errpost(vx, vy, a, b)
+
     # Medie pesate per eventuale compatibilità
     y_media_p = media_p(vy, vsy)
     sy_media_p = s_media_p(vy, vsy)
@@ -159,7 +161,7 @@ def elaborato(vx, vy, vsy, output_filename, n, vsx = None, elaborato = True, rit
             output_elab.write(f"Chi-quadro = {chi_quadro_fit}\n")
             p_value_fit = chi2.sf(chi_quadro_fit, NDOF) # p-value bontà fit
             output_elab.write(f"p-value = {p_value_fit}\n")
-            output_elab.write(f"Errore a posteriori = {errpost(vx, vy, a, b):.5f}\n\n")
+            output_elab.write(f"Errore a posteriori = {errpost_fit:.5f}\n\n")
 
             output_elab.write("Test ipotesi funzione costante_______________________________\n")
             output_elab.write(f"Gradi di Liberta' = {NDOF}\n")
@@ -223,7 +225,7 @@ def elaborato(vx, vy, vsy, output_filename, n, vsx = None, elaborato = True, rit
             latex_file.write(r"\end{table}" + '\n' + '\n' + '\n')
 
     if ritorno == True:
-        return a, b, sa, sb, cov, p_value_fit
+        return a, b, sa, sb, cov, p_value_fit, errpost_fit
 
 # Funzione per la creazione di un file di output vuoto
 def inizializza_output (output_filename, latex=False):
