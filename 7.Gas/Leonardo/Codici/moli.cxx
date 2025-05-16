@@ -21,6 +21,9 @@ int main(){
    string luigina= "45";
    string gianfranco= "55";
 
+   vector<double> totale;
+   vector<double> stotale;
+
    for(int p=0; p<=5; p++){
       ifstream corretto;
       ofstream elaborato;
@@ -67,19 +70,24 @@ int main(){
       vector<double> mediamoli;
       vector<double> mediasmoli;
 
+      double i= 0;
+
       string line;
       while (getline(corretto, line)){
          istringstream ss(line);
          vector<double> dati;
          double num;
+         i+= 0.1;
          while(ss>>num){
             dati.push_back(num);
          }
          double errpos= moli(dati) + smoli(dati);
          double errneg= moli(dati) - smoli(dati);
-         elaborato<< moli(dati)<< " "<< smoli(dati)<< " "<< errpos<< " "<< errneg<< endl;
+         elaborato<< i<< " "<< moli(dati)<< " "<< smoli(dati)<< " "<< errpos<< " "<< errneg<< endl;
          mediamoli.push_back(moli(dati));
          mediasmoli.push_back(smoli(dati));
+         totale.push_back(moli(dati));
+         stotale.push_back(smoli(dati));
       }
       
       switch (p){
@@ -100,6 +108,7 @@ int main(){
       corretto.close();
       elaborato.close();
    }
+   cout<< endl<< mmoli(totale, stotale)<< " "<< smmoli(stotale)<< endl;
    molitempo.close();
    return 0;
 }
