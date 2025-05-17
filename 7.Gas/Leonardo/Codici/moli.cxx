@@ -14,7 +14,7 @@ double smmoli(const vector<double>&);
 double errore3(const vector<double>&);
 
 int main(){
-   ofstream molitempo("moli_temp.txt");
+   ofstream molitempo("../Elaborati/moli_temp.txt");
    ofstream clearFile("../Elaborati/Errore3.txt");
    clearFile.close();
    string celestino= "3";
