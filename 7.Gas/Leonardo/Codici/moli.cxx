@@ -11,9 +11,12 @@ double moli (const vector<double>&);
 double smoli(const vector<double>&);
 double mmoli(const vector<double>&, const vector<double>&);
 double smmoli(const vector<double>&);
+double errore3(const vector<double>&);
 
 int main(){
    ofstream molitempo("moli_temp.txt");
+   ofstream clearFile("../Elaborati/Errore3.txt");
+   clearFile.close();
    string celestino= "3";
    string antonietta= "15";
    string beppi= "25";
@@ -27,34 +30,46 @@ int main(){
    for(int p=0; p<=5; p++){
       ifstream corretto;
       ofstream elaborato;
+      ifstream compressione;
+      ifstream espansione;
       if(p==0){
-         corretto.open("GR03_primo_corretto.txt");
-         elaborato.open("moli_primo.txt");
+         corretto.open("../Raw/GR03_primo_corretto.txt");
+         elaborato.open("../Elaborati/moli_primo.txt");
       }
       
       else if(p==1){
-         corretto.open("15_gradi.txt");
-         elaborato.open("moli_15.txt");
+         corretto.open("../Raw/15_gradi.txt");
+         elaborato.open("../Elaborati/moli_15.txt");
+         compressione.open("../Raw/15_compressione.txt");
+         espansione.open("../Raw/15_espansione.txt");
       }
 
       else if(p==2){
-         corretto.open("25_gradi.txt");
-         elaborato.open("moli_25.txt");
+         corretto.open("../Raw/25_gradi.txt");
+         elaborato.open("../Elaborati/moli_25.txt");
+         compressione.open("../Raw/25_compressione.txt");
+         espansione.open("../Raw/25_espansione.txt");
       }
 
       else if(p==3){
-         corretto.open("35_gradi.txt");
-         elaborato.open("moli_35.txt");
+         corretto.open("../Raw/35_gradi.txt");
+         elaborato.open("../Elaborati/moli_35.txt");
+         compressione.open("../Raw/35_compressione.txt");
+         espansione.open("../Raw/35_espansione.txt");
       }
 
       else if(p==4){
-         corretto.open("45_gradi.txt");
-         elaborato.open("moli_45.txt");
+         corretto.open("../Raw/45_gradi.txt");
+         elaborato.open("../Elaborati/moli_45.txt");
+         compressione.open("../Raw/45_compressione.txt");
+         espansione.open("../Raw/45_espansione.txt");
       }
 
       else if(p==5){
-         corretto.open("55_gradi.txt");
-         elaborato.open("moli_55.txt");
+         corretto.open("../Raw/55_gradi.txt");
+         elaborato.open("../Elaborati/moli_55.txt");
+         compressione.open("../Raw/55_compressione.txt");
+         espansione.open("../Raw/55_espansione.txt");
       }
 
       if (!elaborato) {
@@ -64,6 +79,16 @@ int main(){
 
       if (!corretto) {
          cout<< "Errore nell'apertura del file corretto (input)!"<< endl;
+         return 1;
+      }
+
+      if (!espansione) {
+         cout<< "Errore nell'apertura del file espansione!"<< endl;
+         return 1;
+      }
+
+      if (!compressione) {
+         cout<< "Errore nell'apertura del file compressione!"<< endl;
          return 1;
       }
       
@@ -90,6 +115,44 @@ int main(){
          stotale.push_back(smoli(dati));
       }
       
+      if(p>=1){
+         ofstream erroretre("../Elaborati/Errore3.txt", ios::app);
+         vector<double> comp;
+         vector<double> scomp;
+         vector<double> esp;
+         vector<double> sesp;
+         vector<double> calcolo;
+
+         string riga;
+         while (getline(compressione, riga)){
+            istringstream ss(riga);
+            vector<double> dati;
+            double num;
+            while(ss>>num){
+               dati.push_back(num);
+            }
+            comp.push_back(moli(dati));
+            scomp.push_back(smoli(dati));
+         }
+
+         string striscia;
+         while (getline(espansione, striscia)){
+            istringstream ss(striscia);
+            vector<double> dati;
+            double num;
+            while(ss>>num){
+               dati.push_back(num);
+            }
+            esp.push_back(moli(dati));
+            sesp.push_back(smoli(dati));
+         }
+         calcolo.push_back(mmoli(esp, sesp));
+         calcolo.push_back(mmoli(comp, scomp));
+         calcolo.push_back(mmoli(mediamoli, mediasmoli));
+         erroretre<< errore3(calcolo)<< endl;
+         erroretre.close();
+      }
+
       switch (p){
          case 0: molitempo<< celestino; break;
          case 1: molitempo<< antonietta; break;
@@ -107,6 +170,8 @@ int main(){
 
       corretto.close();
       elaborato.close();
+      compressione.close();
+      espansione.close();
    }
    cout<< endl<< mmoli(totale, stotale)<< " "<< smmoli(stotale)<< endl;
    molitempo.close();
@@ -162,4 +227,11 @@ double smmoli(const vector<double>& gricia){
    }
    double smediapesata= sqrt(1 / denominatore2);
    return smediapesata;
+}
+
+double errore3(const vector<double>& risotto){
+   double numeratore3= risotto.at(0) - risotto.at(1);
+   double denominatore3= 2 * sqrt(3) * risotto.at(2);
+   double incertezza= abs(numeratore3) / denominatore3;
+   return incertezza;
 }
