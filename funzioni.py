@@ -245,13 +245,6 @@ def form(float):
     else:
         return f"{float:.5f}"
 
-# Funzione per calcolare l'incertezza di una misura singola
-def errore(R, digitale=False):
-    if digitale == True:
-        return R / np.sqrt(12)
-    else:
-        return R / np.sqrt(24)
-
 # Funzione per calcolare l'incertezza di una misura singola con errore sistematico
 def propaga_incertezza(formula, variabili, valori = None, incertezze=None, ritorno=False):
     """

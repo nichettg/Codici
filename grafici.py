@@ -79,14 +79,30 @@ def salva_grafico(fig, nomefile, legenda=(1, 1), formato='pdf', noLegenda=False)
 
     plt.show()
 
+def darken(color, factor=0.6):
+    return tuple(factor * c for c in color)
 
-def tabula (tabelle):
+# Funzione per convertire un dizionario in una tabella HTML e visualizzarla in Jupyter Notebook
+from IPython.display import display, HTML
 
-    if not isinstance(tabelle, list):
-        tabelle = [tabelle]
+def dict_to_html_table(d, depth=0):
+    html = ''
+    indent = '&nbsp;' * 4 * depth
+    if isinstance(d, dict):
+        html += '<table border="1" style="border-collapse: collapse;">'
+        for key, value in d.items():
+            html += '<tr>'
+            html += f'<td>{indent}<strong>{key}</strong></td>'
+            if isinstance(value, dict):
+                html += f'<td>{dict_to_html_table(value, depth + 1)}</td>'
+            else:
+                html += f'<td>{indent}{value}</td>'
+            html += '</tr>'
+        html += '</table>'
+    else:
+        html += f'{indent}{d}'
+    return html
 
-    html = '<div style="display: flex; gap: 40px; flex-wrap: wrap;">' + \
-       ''.join(f'<div>{tbl}</div>' for tbl in tabelle) + \
-       '</div>'
-
+def display_dizionario(d):
+    html = dict_to_html_table(d)
     display(HTML(html))
