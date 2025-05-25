@@ -82,9 +82,7 @@ def salva_grafico(fig, nomefile, legenda=(1, 1), formato='pdf', noLegenda=False)
 def darken(color, factor=0.6):
     return tuple(factor * c for c in color)
 
-# Funzione per convertire un dizionario in una tabella HTML e visualizzarla in Jupyter Notebook
-from IPython.display import display, HTML
-
+# Interna
 def dict_to_html_table(d, depth=0):
     html = ''
     indent = '&nbsp;' * 4 * depth
@@ -106,3 +104,26 @@ def dict_to_html_table(d, depth=0):
 def display_dizionario(d):
     html = dict_to_html_table(d)
     display(HTML(html))
+
+# Interna
+def arrotonda(x, cifre=2):
+    if x == 0:
+        return 0
+    potenza = int(np.floor(np.log10(abs(x))))
+    fattore = 10**(cifre - 1 - potenza)
+    return round(x * fattore) / fattore
+
+def formatta_errore(val, err, unit=''):
+    if err == 0:
+        return rf"${val:.3f} \pm 0 {unit}$".strip()
+
+    err_rounded = arrotonda(abs(err), 2)
+    exp = int(np.floor(np.log10(err_rounded)))
+    scale = 10 ** (-exp)
+    val_scaled = val * scale
+    err_scaled = err_rounded * scale
+
+    if abs(exp) >= 2 or abs(val_scaled) >= 1e4 or abs(val_scaled) < 1e-3:
+        return rf"$({val_scaled:.1f} \pm {err_scaled:.1f}) \times 10^{{{exp}}}$ {unit}".strip()
+    else:
+        return rf"${val_scaled:.1f} \pm {err_scaled:.1f}$ {unit}".strip()
