@@ -4,3 +4,4 @@
 - Capire cosa rappresentano i dati raccolti nelle schede .csv. Capire anche le unità di misura.
 - Valutare che incertezza mettere al calcolo delle ampiezze massime per ogni frequenza forzante, serve poi per il fit lorentziano.
 - Discutere il metodo di calcolo dei picchi, Mengoni diceva di usare una funzione ricorsiva con periodo uguale al periodo dell'oscillazione. Per ora ho semplicemente usato un periodo sovrastimato non sapendo come stimare quello effettivo (serve farlo?).
+- Le oscillazioni sembrano essere tutte un po traslate verso il basso nei grafici, infatti non sono attorno allo zero ma ad un numero negativo molto vicino allo zero (ben visibile nei grafici delle oscillazioni smorzate).
