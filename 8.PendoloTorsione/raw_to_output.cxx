@@ -25,11 +25,11 @@ void elaboraFile(const vector<string>& inFile, const vector<string>& outFile) {
         int contatoreRighe = 0;
 
         while (getline(input, riga)) {
-            if (contatoreRighe < 2) { //ignora le prime due righe e le copia nel file di output (titolo dell'esperienza e contenuto delle colonne)
+            if (contatoreRighe == 1) { //copia la seconda riga con i contenuti di ogni colonna
                 output << riga << endl;
             } 
             
-            else { //sostituisce le virgole decimali con punti e spazi e tab con virgole
+            else if (contatoreRighe > 1) { //sostituisce le virgole decimali con punti e spazi e tab con virgole
                 for (char& c : riga) {
                     if (c == ',') c = '.';
                     if (c == '	' || c == '\t') c = ',';
