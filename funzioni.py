@@ -184,15 +184,17 @@ def elaborato(vx, vy, vsy, output_filename, n, vsx = None, elaborato = True, rit
             output_elab.write(f"Media pesata = {y_media_p} +/- {sy_media_p}\n\n")
 
     else:
-        sum1 = 0.
+        chi2_sum = 0.0
         for i in range(len(vx)):
-            y = vy[i]
-            y_star = a + b * vx[i]
-            sy = vsy[i]
-            chi_quadro_i = ((y - y_star) / sy) ** 2
-            sum1 += chi_quadro_i
-        chi_quadro_fit = sum1 # Chi-quadro bontà fit
-    p_value_fit = chi2.sf(chi_quadro_fit, NDOF) # p-value bontà fit
+            y_obs = vy[i]
+            y_exp = a + b * vx[i]
+            sigma_y = vsy[i]
+            chi2_i = ((y_obs - y_exp) / sigma_y) ** 2
+            chi2_sum += chi2_i
+
+        chi_quadro_fit = chi2_sum  # Statistica chi-quadro per la bontà del fit
+        p_value_fit = chi2.sf(chi_quadro_fit, NDOF)  # p-value corrispondente
+
 
     # Apertura del file LaTeX
     if latex == True:
