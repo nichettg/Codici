@@ -127,3 +127,20 @@ def formatta_errore(val, err, unit=''):
         return rf"$({val_scaled:.1f} \pm {err_scaled:.1f}) \times 10^{{{exp}}}$ {unit}".strip()
     else:
         return rf"${val_scaled:.1f} \pm {err_scaled:.1f}$ {unit}".strip()
+
+def salva_dizionario(lista_dizionari, nome_file="output.html", titoli=None):
+    with open(nome_file, "w") as f:
+        f.write('<html><head><meta charset="UTF-8"><style>')
+        f.write('table { border-collapse: collapse; margin-bottom: 20px; }')
+        f.write('td, th { border: 1px solid black; padding: 5px; }')
+        f.write('</style></head><body>\n')
+
+        for i, diz in enumerate(lista_dizionari):
+            if titoli: f.write(f"<h3>{titoli[i]}</h3>\n")
+            else: f.write(f"<h3>Tabella {i + 1}</h3>\n")
+            f.write('<table>\n')
+            for freq, val in diz.items():
+                f.write(f'<tr><td><strong>{freq}</strong></td><td>{val}</td></tr>\n')
+            f.write('</table>\n')
+
+        f.write('</body></html>')
