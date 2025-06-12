@@ -24,6 +24,8 @@ def imposta_stile_globale():
         "axes.grid": True,
         "grid.linestyle": "--",
         "grid.color": "gray",
+        "grid.linewidth": 0.5,
+        "grid.alpha": 0.7,
     })
 
 def default_error_params():
