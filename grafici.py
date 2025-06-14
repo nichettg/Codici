@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 from matplotlib import rcParams
 from IPython.display import display, HTML
 import numpy as np
+import json
 
 # ======== IMPOSTAZIONI GLOBALI ========
 def imposta_stile_globale():
@@ -115,34 +116,79 @@ def arrotonda(x, cifre=2):
     fattore = 10**(cifre - 1 - potenza)
     return round(x * fattore) / fattore
 
-def formatta_errore(val, err, unit=''):
-    if err == 0:
-        return rf"${val:.3f} \pm 0 {unit}$".strip()
-
+def formatta_errore(val, err, unit='', html=False):
+    """Formatta valore e errore in notazione scientifica automatica.
+    
+    Args:
+        val: valore centrale
+        err: incertezza (dev'essere positiva)
+        unit: unità di misura (opzionale)
+        html: se True, usa formato HTML; altrimenti LaTeX
+        
+    Returns:
+        Stringa formattata
+    """
+    # Controlli iniziali
+    if np.isnan(val) or np.isnan(err):
+        return "NaN"
+    
+    if err < 0:
+        raise ValueError("L'errore non può essere negativo")
+    
+    # Gestione errore zero
+    if np.isclose(err, 0):
+        val_rounded = round(val, 3)  # Arrotonda a 3 cifre decimali
+        if html:
+            return f"{val_rounded:.3f} &plusmn; 0 {unit}".strip()
+        else:
+            return rf"${val_rounded:.3f} \pm 0$ {unit}".strip()
+    
+    # Arrotondamento e scalatura
     err_rounded = arrotonda(abs(err), 2)
     exp = int(np.floor(np.log10(err_rounded)))
     scale = 10 ** (-exp)
+    
     val_scaled = val * scale
     err_scaled = err_rounded * scale
-
+    
+    # Formattazione in base all'ordine di grandezza
     if abs(exp) >= 2 or abs(val_scaled) >= 1e4 or abs(val_scaled) < 1e-3:
-        return rf"$({val_scaled:.1f} \pm {err_scaled:.1f}) \times 10^{{{exp}}}$ {unit}".strip()
+        if html:
+            return f"({val_scaled:.1f} &plusmn; {err_scaled:.1f}) &times; 10<sup>{exp}</sup> {unit}".strip()
+        else:
+            return rf"$({val_scaled:.1f} \pm {err_scaled:.1f}) \times 10^{{{exp}}}$ {unit}".strip()
     else:
-        return rf"${val_scaled:.1f} \pm {err_scaled:.1f}$ {unit}".strip()
+        if html:
+            return f"{val_scaled:.1f} &plusmn; {err_scaled:.1f} {unit}".strip()
+        else:
+            return rf"${val_scaled:.1f} \pm {err_scaled:.1f}$ {unit}".strip()
 
 def salva_dizionario(lista_dizionari, nome_file="output.html", titoli=None):
-    with open(nome_file, "w") as f:
+    if isinstance(lista_dizionari, dict):
+        lista_dizionari = [lista_dizionari]
+
+    with open(nome_file, "w", encoding="utf-8") as f:
         f.write('<html><head><meta charset="UTF-8"><style>')
         f.write('table { border-collapse: collapse; margin-bottom: 20px; }')
-        f.write('td, th { border: 1px solid black; padding: 5px; }')
+        f.write('td, th { border: 1px solid black; padding: 5px; vertical-align: top; }')
         f.write('</style></head><body>\n')
 
         for i, diz in enumerate(lista_dizionari):
-            if titoli: f.write(f"<h3>{titoli[i]}</h3>\n")
-            else: f.write(f"<h3>Tabella {i + 1}</h3>\n")
-            f.write('<table>\n')
-            for freq, val in diz.items():
-                f.write(f'<tr><td><strong>{freq}</strong></td><td>{val}</td></tr>\n')
-            f.write('</table>\n')
+            if titoli:
+                f.write(f"<h3>{titoli[i]}</h3>\n")
+            else:
+                f.write(f"<h3>Tabella {i + 1}</h3>\n")
+            f.write(dict_to_html_table(diz))
+            f.write("<br>\n")
 
         f.write('</body></html>')
+
+def esporta_pickle(data, filename="data.pkl"):
+    import pickle
+    with open(filename, "wb") as f:
+        pickle.dump(data, f)
+
+def importa_pickle(filename="data.pkl"):
+    import pickle
+    with open(filename, "rb") as f:
+        return pickle.load(f)

@@ -1,7 +1,7 @@
 import math
 import numpy as np
 import sympy as sp
-from scipy.stats import chi2, t
+from scipy.stats import chi2, t, pearsonr
 from scipy.optimize import curve_fit
 
 # Funzione media
@@ -32,16 +32,33 @@ def cov(vx, vy):
 
 # Funzione indice Pearson
 def pearson(vx, vy):
-    x_m = media(vx)
-    y_m = media(vy)
-    dev_x = dev(vx)
-    dev_y = dev(vy)
-    cov = sum((vx[i] - x_m) * (vy[i] - y_m) for i in range(len(vx))) / (len(vx) - 1)
-    return cov / (dev_x * dev_y)
+    matrix = np.cov(vx,vy,ddof=1)
+    dev_x = np.sqrt(matrix[0,0])
+    dev_y = np.sqrt(matrix[1,1])
+    cov_xy = matrix[0,1]
+    p = cov_xy / (dev_x * dev_y)
+    if np.abs(p) > 1:
+        raise ValueError(f"Pearson Impossibile ({p})")
+    return p
 
 # Funzione incertezza indice Pearson
 def s_pearson(vx, p):
-    return math.sqrt((1 - p**2) / (len(vx) - 2))
+    return np.sqrt((1 - p**2) / (len(vx) - 2))
+
+# Funzione per il test di linearità con Pearson
+def test_linearita(vx, vy, significanza=0.05, con = 0, code=1):
+    p, skip = pearsonr(vx, vy)
+    if len(vx) < 3:
+        raise ValueError(f"len(vx) = {len(vx)}")
+    if (1 - p**2) / (len(vx) - 2) < 0:
+        raise ValueError(f"Radice di Negativo, Pearson = {p}")
+    s_p = s_pearson(vx, p)
+    NDOF = len(vx) - 2
+    p_atteso = float(con)
+    t_value = abs((p - p_atteso) / s_p)
+    p_value = code * t.sf(t_value, NDOF)
+    compatibile = p_value > significanza
+    return compatibile, p_value, p, s_p
 
 # Funzione errore a posteriori
 def errpost(vx, vy, a, b):
