@@ -1,12 +1,12 @@
 # Fdb version 4
-["pdflatex"] 1749915385.52552 "/home/nichettg/Codici/Laboratorio/8.PendoloTorsione/Latex/relazione.tex" "relazione.pdf" "relazione" 1749915386.23581 0
+["pdflatex"] 1749997986.19585 "/home/nichettg/Codici/Laboratorio/8.PendoloTorsione/Latex/relazione.tex" "relazione.pdf" "relazione" 1749997986.96955 0
   "/etc/texmf/web2c/texmf.cnf" 1734022160.79475 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/nichettg/Codici/Laboratorio/8.PendoloTorsione/Images/ConfrontoForzanti.pdf" 1749914596.12293 123209 ca89cd5141d98aea4add080f52862ca2 ""
-  "/home/nichettg/Codici/Laboratorio/8.PendoloTorsione/Images/ConfrontoGamma.pdf" 1749914596.12293 19897 ca74880e697a6919bea95936d32cea88 ""
-  "/home/nichettg/Codici/Laboratorio/8.PendoloTorsione/Images/ConfrontoMassimi.pdf" 1749914596.12293 35711 f802ec3367ea2408b515a4d13f095033 ""
-  "/home/nichettg/Codici/Laboratorio/8.PendoloTorsione/Images/ConfrontoMassimiSmorzamento.pdf" 1749914596.12293 36567 2be3a873d229558b50c148e588a85bf0 ""
-  "/home/nichettg/Codici/Laboratorio/8.PendoloTorsione/Images/ConfrontoSmorzati.pdf" 1749914596.12293 78953 2741a5c99a0037e6672057d7edcde243 ""
-  "/home/nichettg/Codici/Laboratorio/8.PendoloTorsione/Images/Lorentziana.pdf" 1749914596.13093 17786 623aa59968b9c95673945c58215d1bac ""
+  "/home/nichettg/Codici/Laboratorio/8.PendoloTorsione/Images/ConfrontoForzanti.pdf" 1749997916.25225 1821650 c5722f7a82f6a815f99247914ed1799c ""
+  "/home/nichettg/Codici/Laboratorio/8.PendoloTorsione/Images/ConfrontoGamma.pdf" 1749996311.45219 19897 871e8b1661d6165b1ed817569b542036 ""
+  "/home/nichettg/Codici/Laboratorio/8.PendoloTorsione/Images/ConfrontoMassimi.pdf" 1749996313.80818 35711 4020891e4d791c0538a226d7b0729066 ""
+  "/home/nichettg/Codici/Laboratorio/8.PendoloTorsione/Images/ConfrontoMassimiSmorzamento.pdf" 1749997985.26824 36567 634363c1f7bf6c55b6de72fe722b054c ""
+  "/home/nichettg/Codici/Laboratorio/8.PendoloTorsione/Images/ConfrontoSmorzati.pdf" 1749996313.22418 78953 df575935c527cabbdedf645db767d1de ""
+  "/home/nichettg/Codici/Laboratorio/8.PendoloTorsione/Images/Lorentziana.pdf" 1749996311.74819 17786 3ecb2c87eb6c98038f90d7eefde1daaa ""
   "/home/nichettg/Codici/Laboratorio/8.PendoloTorsione/Latex/relazione.tex" 1749915385.33318 32339 714d506e72360d19584076c15af02267 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx0900.tfm" 1136768653 3584 1a7de6c99457381c64abc1a7c545505f ""
@@ -227,8 +227,8 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1743601195.87093 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1743601464 8211839 8d25f3461dd672b49f36775e684c60ac ""
   "Strumento.jpeg" 1749914596.13493 1830449 9a69af77fddba23a995e682d93a0db58 ""
-  "relazione.aux" 1749915386.14598 6783 139d3c7359900765f5fed481a36eba6a "pdflatex"
-  "relazione.out" 1749915386.14598 1956 d25faa1c2bea1cf7c0f0e67d074790a0 "pdflatex"
+  "relazione.aux" 1749997986.86024 6783 139d3c7359900765f5fed481a36eba6a "pdflatex"
+  "relazione.out" 1749997986.86424 1956 d25faa1c2bea1cf7c0f0e67d074790a0 "pdflatex"
   "relazione.tex" 1749915385.33318 32339 714d506e72360d19584076c15af02267 ""
   (generated)
   "relazione.aux"
