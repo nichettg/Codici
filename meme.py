@@ -2,7 +2,7 @@ import numpy as np
 from matplotlib.textpath import TextPath
 from matplotlib.font_manager import FontProperties
 
-def scrivi(ax, testo, pos=(0, 0), scala_x=1.0, scala_y=1.0, densita=0.5, colore='black', line=True, alpha=1):
+def scrivi(ax, testo, pos=(0, 0), scala_x=1.0, scala_y=1.0, densita=0.5, colore='black', line=True, alpha=1, markersize=1):
     font = FontProperties(family="DejaVu Sans", weight="bold", size=100)
     tp = TextPath((0, 0), testo, prop=font)
 
@@ -15,8 +15,8 @@ def scrivi(ax, testo, pos=(0, 0), scala_x=1.0, scala_y=1.0, densita=0.5, colore=
     x = verts[:, 0] * scala_x + pos[0]
     y = verts[:, 1] * scala_y + pos[1]
 
-    if line==False: ax.plot(x, y, 'o', color=colore, markersize=1, zorder=10, alpha=alpha)
-    elif line: ax.plot(x, y, color=colore, markersize=1, zorder=10, alpha=alpha)
+    if line==False: ax.plot(x, y, 'o', color=colore, markersize=markersize, zorder=10, alpha=alpha)
+    elif line: ax.plot(x, y, color=colore, markersize=markersize, zorder=10, alpha=alpha)
 
 from PIL import Image
 
