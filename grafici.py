@@ -183,6 +183,10 @@ def salva_dizionario(lista_dizionari, nome_file="output.html", titoli=None):
 
         f.write('</body></html>')
 
+def numera_punti(ax,x,y):
+    for i, (xi, yi) in enumerate(zip(x, y)):
+        ax.text(1/xi, 1/yi, str(i+1), fontsize=9, ha='left', va='bottom')
+
 def esporta_pickle(data, filename="data.pkl"):
     import pickle
     with open(filename, "wb") as f:

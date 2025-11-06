@@ -8,6 +8,12 @@ from scipy.optimize import curve_fit
 def media(v):
     return sum(v) / len(v)
 
+# Funzione incertezza media
+
+def s_media(v):
+    v = np.array(v, dtype=float)
+    return np.std(v, ddof=1) / np.sqrt(len(v))
+
 # Funzione media pesata
 def media_p(v, w):
     sum1 = sum(v[i] / (w[i]**2) for i in range(len(v)))
