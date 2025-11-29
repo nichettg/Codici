@@ -15,6 +15,7 @@ Poi serve:
 + fare la tabella dei risultati delle focali, indice compatibilità, parametri ottimali con incertezze
 + fare la tabella dei risultati delle aberrazioni
 
-
+Se avanza tempo ci sarebbe da implementare il programma mettendo il test di verifica per vedere se gli errori sistematici sono stati corretti tutti (la prof ha detto che non è obbligatorio ma secondo me meglio farlo lo stesso perchè, oltre a prenderci il bonus, controlliamo che non stiamo facendo cagate)
 
 N.B. i p-value qui valgono meno di 0 perchè il chi quadrato qui fallisce pesantemente essendo che le incertezze non sono a priori, se decidiamo di usare la media delle focali NON bisogna usare l'errore della media perchè p e q non sono statisticamente indipendenti
+
