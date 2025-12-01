@@ -19,3 +19,4 @@ Se avanza tempo ci sarebbe da implementare il programma mettendo il test di veri
 
 N.B. i p-value qui valgono meno di 0 perchè il chi quadrato qui fallisce pesantemente essendo che le incertezze non sono a priori, se decidiamo di usare la media delle focali NON bisogna usare l'errore della media perchè p e q non sono statisticamente indipendenti
 
+Vanno dichiarati i software e le routine usate se si usano routine già fatte
