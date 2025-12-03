@@ -108,61 +108,6 @@ def display_dizionario(d):
     html = dict_to_html_table(d)
     display(HTML(html))
 
-# Interna
-def arrotonda(x, cifre=2):
-    if x == 0:
-        return 0
-    potenza = int(np.floor(np.log10(abs(x))))
-    fattore = 10**(cifre - 1 - potenza)
-    return round(x * fattore) / fattore
-
-def formatta_errore(val, err, unit='', html=False):
-    """Formatta valore e errore in notazione scientifica automatica.
-    
-    Args:
-        val: valore centrale
-        err: incertezza (dev'essere positiva)
-        unit: unità di misura (opzionale)
-        html: se True, usa formato HTML; altrimenti LaTeX
-        
-    Returns:
-        Stringa formattata
-    """
-    # Controlli iniziali
-    if np.isnan(val) or np.isnan(err):
-        return "NaN"
-    
-    if err < 0:
-        raise ValueError("L'errore non può essere negativo")
-    
-    # Gestione errore zero
-    if np.isclose(err, 0):
-        val_rounded = round(val, 3)  # Arrotonda a 3 cifre decimali
-        if html:
-            return f"{val_rounded:.3f} &plusmn; 0 {unit}".strip()
-        else:
-            return rf"${val_rounded:.3f} \pm 0$ {unit}".strip()
-    
-    # Arrotondamento e scalatura
-    err_rounded = arrotonda(abs(err), 2)
-    exp = int(np.floor(np.log10(err_rounded)))
-    scale = 10 ** (-exp)
-    
-    val_scaled = val * scale
-    err_scaled = err_rounded * scale
-    
-    # Formattazione in base all'ordine di grandezza
-    if abs(exp) >= 2 or abs(val_scaled) >= 1e4 or abs(val_scaled) < 1e-3:
-        if html:
-            return f"({val_scaled:.1f} &plusmn; {err_scaled:.1f}) &times; 10<sup>{exp}</sup> {unit}".strip()
-        else:
-            return rf"$({val_scaled:.1f} \pm {err_scaled:.1f}) \times 10^{{{exp}}}$ {unit}".strip()
-    else:
-        if html:
-            return f"{val_scaled:.1f} &plusmn; {err_scaled:.1f} {unit}".strip()
-        else:
-            return rf"${val_scaled:.1f} \pm {err_scaled:.1f}$ {unit}".strip()
-
 def salva_dizionario(lista_dizionari, nome_file="output.html", titoli=None):
     if isinstance(lista_dizionari, dict):
         lista_dizionari = [lista_dizionari]
@@ -196,3 +141,37 @@ def importa_pickle(filename="data.pkl"):
     import pickle
     with open(filename, "rb") as f:
         return pickle.load(f)
+
+def arrotonda_significative(x, cifre=2):
+    if x == 0:
+        return 0.0
+    exp = int(np.floor(np.log10(abs(x))))
+    fattore = 10**(cifre - 1 - exp)
+    return round(x * fattore) / fattore
+
+def formatta_errore(val, err, unit='', html=False):
+    if err < 0:
+        raise ValueError("Errore negativo no grazie.")
+
+    # caso errore zero
+    if np.isclose(err, 0):
+        val_rounded = round(val, 3)
+        if html:
+            return f"{val_rounded:.3f} &plusmn; 0 {unit}"
+        return rf"${val_rounded:.3f} \pm 0$ {unit}"
+
+    # arrotonda l’errore a una cifra significativa (standard)
+    err_round = arrotonda_significative(err, cifre=1)
+
+    # trova il numero di decimali richiesto
+    exp_err = int(np.floor(np.log10(err_round)))
+    dec = max(0, -exp_err)
+
+    # arrotonda il valore allo stesso numero di decimali
+    val_round = round(val, dec)
+
+    # stampa
+    if html:
+        return f"{val_round:.{dec}f} &plusmn; {err_round:.{dec}f} {unit}"
+    return rf"${val_round:.{dec}f} \pm {err_round:.{dec}f}$ {unit}"
+
