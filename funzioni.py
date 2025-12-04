@@ -310,5 +310,12 @@ def propaga_incertezza(formula, variabili, valori = None, incertezze=None, ritor
     stringa += ')'
 
     if ritorno==True:
-        return risultato, stringa
+        return float(risultato), stringa
     else: return stringa
+
+def compatibilita(f1, sf1, f2, sf2):
+    f1 = float(f1)
+    sf1 = float(sf1)
+    f2 = float(f2)
+    sf2 = float(sf2)
+    return abs(f1 - f2) / np.sqrt(sf1**2 + sf2**2)

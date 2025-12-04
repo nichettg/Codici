@@ -149,7 +149,7 @@ def arrotonda_significative(x, cifre=2):
     fattore = 10**(cifre - 1 - exp)
     return round(x * fattore) / fattore
 
-def formatta_errore(val, err, unit='', html=False):
+def formatta_errore(val, err, unit='', html=False, txt=False):
     if err < 0:
         raise ValueError("Errore negativo no grazie.")
 
@@ -173,5 +173,7 @@ def formatta_errore(val, err, unit='', html=False):
     # stampa
     if html:
         return f"{val_round:.{dec}f} &plusmn; {err_round:.{dec}f} {unit}"
+    if txt:
+        return f"{val_round:.{dec}f} ± {err_round:.{dec}f} {unit}"
     return rf"${val_round:.{dec}f} \pm {err_round:.{dec}f}$ {unit}"
 
