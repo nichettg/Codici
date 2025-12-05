@@ -1,0 +1,7 @@
+Nel codice "analisi.ipynb" sono presenti dei commenti utili per seguire il processo di analisi dati e per ricordari quali scelte sono state prese nel caso ad esempio dell'assegnazione di certe incertezze.
+
+Il file "log_coniugati.txt" contiene tutti calcoli intermedi e alcuni test statistici standard (scritti da me analiticamente) impiegati in questo caso nel fit del metodo dei punti coniugati. Tanti test statistici risultano insensati ma sono comunque riportati perchè la funzione che ho usato è universale, cioè la uso per tutti i casi e leggo poi solo le cose che servono/hanno senso. In questo caso è utile controllare le tabelle del chi-quadro rispetto al fit (quindi la prima tabella delle due che ci sono per ogni serie), il test di linearità di Pearson e l'errore a posteriori. L'ordine delle serie è uguale a quello presente in "grafici_coniugati.pdf", quindi ambra-blu-rosso.
+
+Il file "valutazione_fit_coniugati.txt" contiene i test di compatibilità suggeriti dalla Sada tra pendenza e meno uno e differenza delle intercette e zero. Da questi si può valutare la bontà delle sistematiche applicate.
+
+I file "focali.txt" e "aberrazione.txt" sono quelli che riassumono i risultati forse più importanti, quindi i valori delle focali calcolati con i vari metodi e i valori delle aberrazioni.
