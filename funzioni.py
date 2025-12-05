@@ -228,7 +228,7 @@ def elaborato(vx, vy, vsy, output_filename, n, vsx = None, elaborato = True, rit
 
             latex_file.write(r"\b" + r"egin{table}[h]" + '\n' + '\n')
             latex_file.write('\t' +r"\centering" + '\n' + '\n')
-            latex_file.write('\t' +r"\b" + r"egin{tabular}{{|c|c|}}" + '\n')
+            latex_file.write('\t' +r"\b" + r"egin{tabular}{|c|c|}" + '\n')
             latex_file.write('\t' + '\t' +r"\hline" + '\n')
             latex_file.write('\t' + '\t' +r"\multicolumn{2}{|c|}{\textbf{Dati Interpolazione}} \\" + '\n')
             latex_file.write('\t' + '\t' +r"\hline" + '\n')
@@ -251,7 +251,7 @@ def elaborato(vx, vy, vsy, output_filename, n, vsx = None, elaborato = True, rit
             latex_file.write('\t' + '\t' +r"\hline" + '\n')
             latex_file.write('\t' + '\t' + f"Gradi di libertà & {NDOF}" + r"\\" + '\n')
             latex_file.write('\t' + '\t' + f"Valore t & {form(abs(b/sb))}" + r"\\" + '\n')
-            latex_file.write('\t' + '\t'+ f"p-value & {form(t.fs(abs(b/sb), NDOF))}" + r"\\" + '\n')
+            latex_file.write('\t' + '\t'+ f"p-value & {form(2 * t.sf(abs(b/sb), NDOF))}" + r"\\" + '\n')
             latex_file.write('\t' + '\t' + r"\hline" + '\n')
             latex_file.write('\t' + r"\end{tabular}" + '\n')
             latex_file.write('\n')
