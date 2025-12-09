@@ -1,21 +1,21 @@
 Colore: ambra
   Pendenza: -0.99 ± 0.01 
-  Compatibilità pendenza vs teorica (-1): 1.3696951988791617
-  Differenza intercette: -0.00009 ± 0.00007 
-  Compatibilità differenza intercette vs teorica (0): 1.3699965891274237
-  Focale: 150.6506 ± 0.8248
+  Compatibilità pendenza vs teorica (-1): 1.3814253085407662
+  Differenza intercette: -0.00010 ± 0.00007 
+  Compatibilità differenza intercette vs teorica (0): 1.381766935469662
+  Focale: 150.6578 ± 0.8213
 
 Colore: blu
   Pendenza: -1.04 ± 0.02 
-  Compatibilità pendenza vs teorica (-1): 1.5790302466877197
+  Compatibilità pendenza vs teorica (-1): 1.5822600226683228
   Differenza intercette: 0.0003 ± 0.0002 
-  Compatibilità differenza intercette vs teorica (0): 1.5741489811848564
-  Focale: 144.4247 ± 2.0969
+  Compatibilità differenza intercette vs teorica (0): 1.5768561223197965
+  Focale: 144.4199 ± 2.0954
 
 Colore: rosso
   Pendenza: -1.005 ± 0.004 
-  Compatibilità pendenza vs teorica (-1): 1.3432080141928202
+  Compatibilità pendenza vs teorica (-1): 1.3395023477049117
   Differenza intercette: 0.00003 ± 0.00003 
-  Compatibilità differenza intercette vs teorica (0): 1.3367426648996956
-  Focale: 150.3356 ± 0.3138
+  Compatibilità differenza intercette vs teorica (0): 1.3323862090663923
+  Focale: 150.3365 ± 0.3140
 
