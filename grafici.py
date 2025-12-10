@@ -29,12 +29,22 @@ def imposta_stile_globale():
         "grid.alpha": 0.7,
     })
 
+# Per errorbar
 def default_error_params():
     return {
         'elinewidth': 0.5,
         'capsize': 5,
         'capthick': 1,
     }
+
+def scaled_error_params(y, scale_factor=1.0):
+    scale = (max(y) - min(y)) * scale_factor
+    return {
+        'elinewidth': 0.02 * scale,
+        'capsize':    0.05 * scale,
+        'capthick':   0.02 * scale,
+    }
+
 
 # Imposta automaticamente titolo, label degli assi e formatta i caratteri
 def parametri_grafico(ax, titolo=None, xlabel=None, ylabel=None, zlabel=None, tridimensionale=False):
