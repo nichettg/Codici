@@ -3,9 +3,6 @@ import numpy as np
 import sympy as sp
 from scipy.stats import chi2, t, pearsonr
 
-# Per funzione formatta_errori
-from grafici import formatta_errore
-
 # Funzione media
 def media(v):
     return sum(v) / len(v)
@@ -307,3 +304,38 @@ def matrice_covarianza(a, b):
 
     return np.array([[var_a, cov_ab],
                      [cov_ab, var_b]])
+
+def arrotonda_significative(x, cifre=2):
+    if x == 0:
+        return 0.0
+    exp = int(np.floor(np.log10(abs(x))))
+    fattore = 10**(cifre - 1 - exp)
+    return round(x * fattore) / fattore
+
+def formatta_errore(val, err, unit='', html=False, txt=False):
+    if err < 0:
+        raise ValueError("Errore negativo no grazie.")
+
+    # caso errore zero
+    if np.isclose(err, 0):
+        val_rounded = round(val, 3)
+        if html:
+            return f"{val_rounded:.3f} &plusmn; 0 {unit}"
+        return rf"${val_rounded:.3f} \pm 0$ {unit}"
+
+    # arrotonda l’errore a una cifra significativa (standard)
+    err_round = arrotonda_significative(err, cifre=1)
+
+    # trova il numero di decimali richiesto
+    exp_err = int(np.floor(np.log10(err_round)))
+    dec = max(0, -exp_err)
+
+    # arrotonda il valore allo stesso numero di decimali
+    val_round = round(val, dec)
+
+    # stampa
+    if html:
+        return f"{val_round:.{dec}f} &plusmn; {err_round:.{dec}f} {unit}"
+    if txt:
+        return f"{val_round:.{dec}f} ± {err_round:.{dec}f} {unit}"
+    return rf"${val_round:.{dec}f} \pm {err_round:.{dec}f}$ {unit}"
