@@ -3,6 +3,11 @@ import numpy as np
 import sympy as sp
 from scipy.stats import chi2, t, pearsonr
 
+# Funzione percentuale
+def percento(x, perc, stringa):
+    if stringa == "+": return x * (1 + perc/100)
+    if stringa == "-": return x * (1 - perc/100)
+
 # Funzione media
 def media(v):
     return sum(v) / len(v)
@@ -93,7 +98,7 @@ def elaborato(vx, vy, vsx, vsy, output_filename, n, elaborato=True, ritorno=True
     output = odr.run()
     a, b = output.beta
     sa, sb = output.sd_beta
-    cov_ab = output.cov_beta[0, 1]
+    cov_ab = output.cov_beta[0][1]
 
     x_media = np.mean(vx)
     y_media = np.mean(vy)
