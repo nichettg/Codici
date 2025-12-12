@@ -74,6 +74,18 @@ def test_linearita(vx, vy, significanza=0.05, con = 0, code=1):
 def errpost(vx, vy, a, b):
     return np.sqrt(sum((y - (a + b * x)) ** 2 for x, y in zip(vx, vy)) / (len(vx) - 2))
 
+def residui(vx,vy,par,modello,file,titolo):
+    somma = 0.
+    with open(file, 'a') as output_elab:
+        output_elab.write(f"Test residui {titolo}_____________________________________________\n")
+        output_elab.write(f"{'Indice':<13}{'x':<13}{'y':<13}{'y*':<13}{'Residuo':<13}\n")
+        for i,(x,y) in enumerate(zip(vx,vy)):
+            y_star = modello(x,par)
+            res = abs(y-y_star)
+            somma += res
+            output_elab.write(f"{i+1:<13}{x:<13.5f}{y:<13.5f}{y_star:<13.5f}{res:<13.5f}\n")
+        output_elab.write(f"Somma residui = {somma}\n")
+
 from scipy.odr import ODR, Model, RealData
 
 # Funzione elaborato
