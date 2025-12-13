@@ -82,11 +82,10 @@ def descrizione_legenda(ax, testo, color=None, marker=None, show=False):
 
 
 # Salva e mostra l'immagine
-def salva_grafico(fig, nomefile, legenda=(1, 1), formato='pdf', noLegenda=False):
+def salva_grafico(fig, nomefile, legenda=(1, 1), formato='pdf'):
     fig.tight_layout()
 
-    if not noLegenda:
-        fig.legend(bbox_to_anchor=legenda, loc='upper left')
+    fig.legend(bbox_to_anchor=legenda, loc='upper left')
 
     fig.savefig(nomefile, bbox_inches='tight', format=formato)
 
