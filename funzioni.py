@@ -86,6 +86,36 @@ def residui(vx,vy,par,modello,file,titolo):
             output_elab.write(f"{i+1:<13}{x:<13.5f}{y:<13.5f}{y_star:<13.5f}{res:<13.5f}\n")
         output_elab.write(f"Somma residui = {somma}\n")
 
+import numpy as np
+
+def minimi_quadrati(x, y, sigma=None):
+    x = np.array(x)
+    y = np.array(y)
+
+    if sigma is None:
+        w = np.ones_like(y)
+    else:
+        sigma = np.array(sigma)
+        w = 1 / sigma**2
+
+    W = np.sum(w)
+    Wx = np.sum(w * x)
+    Wy = np.sum(w * y)
+    Wxx = np.sum(w * x * x)
+    Wxy = np.sum(w * x * y)
+
+    Delta = W * Wxx - Wx**2
+    b = (W * Wxy - Wx * Wy) / Delta
+    a = (Wxx * Wy - Wx * Wxy) / Delta
+
+    sigma_b = np.sqrt(W / Delta)
+    sigma_a = np.sqrt(Wxx / Delta)
+    cov_ab = -Wx / Delta
+    
+    return [[a, sigma_a],
+            [b, sigma_b],
+            cov_ab]
+
 from scipy.odr import ODR, Model, RealData
 
 # Funzione elaborato
