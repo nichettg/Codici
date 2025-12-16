@@ -13,7 +13,6 @@ def media(v):
     return sum(v) / len(v)
 
 # Funzione incertezza media
-
 def s_media(v):
     v = np.array(v, dtype=float)
     return np.std(v, ddof=1) / np.sqrt(len(v))
@@ -41,28 +40,30 @@ def cov(vx, vy):
     return sum((vx[i] - x_m) * (vy[i] - y_m) for i in range(len(vx))) / (len(vx) - 1)
 
 # Funzione indice Pearson
-def pearson(vx, vy):
-    matrix = np.cov(vx,vy,ddof=1)
-    dev_x = np.sqrt(matrix[0,0])
-    dev_y = np.sqrt(matrix[1,1])
-    cov_xy = matrix[0,1]
-    p = cov_xy / (dev_x * dev_y)
-    if np.abs(p) > 1:
-        raise ValueError(f"Pearson Impossibile ({p})")
-    return p
+def pearson(x, y):
+    x = np.array(x, dtype=float)
+    y = np.array(y, dtype=float)
 
-# Funzione incertezza indice Pearson
-def s_pearson(vx, p):
-    return np.sqrt((1 - p**2) / (len(vx) - 2))
+    if x.size != y.size:
+        raise ValueError("x e y devono avere la stessa lunghezza")
+    N = x.size
+    if N < 3:
+        raise ValueError("Servono almeno 3 punti per stimare l'incertezza")
+
+    x_mean = np.mean(x)
+    y_mean = np.mean(y)
+    cov_xy = np.sum((x - x_mean) * (y - y_mean)) / (N - 1)
+    sx = np.sqrt(np.sum((x - x_mean)**2) / (N - 1))
+    sy = np.sqrt(np.sum((y - y_mean)**2) / (N - 1))
+
+    r = cov_xy / (sx * sy)
+    sigma_r = np.sqrt((1 - r**2) / (N - 2))
+
+    return [r, sigma_r]
 
 # Funzione per il test di linearità con Pearson
 def test_linearita(vx, vy, significanza=0.05, con = 0, code=1):
-    p, skip = pearsonr(vx, vy)
-    if len(vx) < 3:
-        raise ValueError(f"len(vx) = {len(vx)}")
-    if (1 - p**2) / (len(vx) - 2) < 0:
-        raise ValueError(f"Radice di Negativo, Pearson = {p}")
-    s_p = s_pearson(vx, p)
+    [p,s_p] = pearson(vx,vy)
     NDOF = len(vx) - 2
     p_atteso = float(con)
     t_value = abs((p - p_atteso) / s_p)
@@ -74,19 +75,30 @@ def test_linearita(vx, vy, significanza=0.05, con = 0, code=1):
 def errpost(vx, vy, a, b):
     return np.sqrt(sum((y - (a + b * x)) ** 2 for x, y in zip(vx, vy)) / (len(vx) - 2))
 
-def residui(vx,vy,par,modello,file,titolo):
+def residui(vx,vy,par,modello,file,titolo, nomi_par=None,n=8,f=2):
     somma = 0.
+    # n decide la spaziatura tra i valori
+    # f decide le cifre significative
+    if nomi_par is None:
+        nomi_par = [f"p{i}" for i in range(len(par))]
     with open(file, 'a') as output_elab:
         output_elab.write(f"Test residui {titolo}_____________________________________________\n")
-        output_elab.write(f"{'Indice':<13}{'x':<13}{'y':<13}{'y*':<13}{'Residuo':<13}\n")
+        output_elab.write(f"{'':<3}{'x':<{n}}{'y':<{n}}{'y*':<{n}}{'Residuo':<{n}}\n")
         for i,(x,y) in enumerate(zip(vx,vy)):
             y_star = modello(x,par)
             res = abs(y-y_star)
             somma += res
-            output_elab.write(f"{i+1:<13}{x:<13.5f}{y:<13.5f}{y_star:<13.5f}{res:<13.5f}\n")
-        output_elab.write(f"Somma residui = {somma}\n")
-
-import numpy as np
+            output_elab.write(f"{i+1:<3}{x:<{n}.{f}f}{y:<{n}.{f}f}{y_star:<{n}.{f}f}{res:<{n}.{f}f}\n")
+        if np.isscalar(par):
+            par = [par]
+        output_elab.write("Parametri: ")
+        output_elab.write(
+            ", ".join(
+                f"{nome} = {val:.{f}f}"
+                for nome, val in zip(nomi_par, par)
+            )
+        )
+        output_elab.write(f"\nSomma residui = {somma:.{f}f}\n")
 
 def minimi_quadrati(x, y, sigma=None):
     x = np.array(x)
