@@ -3,15 +3,15 @@ RIASSUNTO MISURE FOCALE
 
 Colore: ambra
 	Coniugati: 149.9 ± 0.2 mm
-	Bessel:    149.54 ± 0.05 mm
-	Indice di Compatibilità:   1.767
-	Media: 149.56 ± 0.05 mm
+	Bessel:    149.54 ± 0.04 mm
+	Indice di Compatibilità:   1.783
+	Media: 149.55 ± 0.04 mm
 
 Colore: blu
 	Coniugati: 147.8 ± 0.2 mm
-	Bessel:    147.85 ± 0.05 mm
-	Indice di Compatibilità:   0.314
-	Media: 147.85 ± 0.05 mm
+	Bessel:    147.85 ± 0.04 mm
+	Indice di Compatibilità:   0.317
+	Media: 147.85 ± 0.04 mm
 
 Colore: rosso
 	Coniugati: 150.8 ± 0.2 mm

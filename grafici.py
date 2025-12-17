@@ -117,25 +117,50 @@ def display_dizionario(d):
     html = dict_to_html_table(d)
     display(HTML(html))
 
-def salva_dizionario(lista_dizionari, nome_file="output.html", titoli=None):
+def dict_to_latex_table(d, depth=0):
+    latex = ""
+    indent = "\\quad " * depth
+
+    if isinstance(d, dict):
+        latex += "\\begin{tabular}{|l|l|}\n"
+        latex += "\\hline\n"
+        for key, value in d.items():
+            latex += f"{indent}\\textbf{{{key}}} & "
+            if isinstance(value, dict):
+                latex += "\\\\\n"
+                latex += "\\hline\n"
+                latex += f"\\multicolumn{{2}}{{|l|}}{{\n{dict_to_latex_table(value, depth + 1)}\n}} \\\\\n"
+            else:
+                latex += f"{indent}{value} \\\\\n"
+            latex += "\\hline\n"
+        latex += "\\end{tabular}"
+    else:
+        latex += f"{indent}{d}"
+
+    return latex
+
+def salva_dizionario(lista_dizionari, nome_file="output.tex", titoli=None):
     if isinstance(lista_dizionari, dict):
         lista_dizionari = [lista_dizionari]
 
     with open(nome_file, "w", encoding="utf-8") as f:
-        f.write('<html><head><meta charset="UTF-8"><style>')
-        f.write('table { border-collapse: collapse; margin-bottom: 20px; }')
-        f.write('td, th { border: 1px solid black; padding: 5px; vertical-align: top; }')
-        f.write('</style></head><body>\n')
+        f.write("\\documentclass{article}\n")
+        f.write("\\usepackage[utf8]{inputenc}\n")
+        f.write("\\usepackage{booktabs}\n")
+        f.write("\\usepackage{array}\n")
+        f.write("\\begin{document}\n\n")
 
         for i, diz in enumerate(lista_dizionari):
             if titoli:
-                f.write(f"<h3>{titoli[i]}</h3>\n")
+                f.write(f"\\section*{{{titoli[i]}}}\n")
             else:
-                f.write(f"<h3>Tabella {i + 1}</h3>\n")
-            f.write(dict_to_html_table(diz))
-            f.write("<br>\n")
+                f.write(f"\\section*{{Tabella {i + 1}}}\n")
 
-        f.write('</body></html>')
+            f.write(dict_to_latex_table(diz))
+            f.write("\n\n")
+
+        f.write("\\end{document}")
+
 
 def numera_punti(ax,x,y):
     for i, (xi, yi) in enumerate(zip(x, y)):
