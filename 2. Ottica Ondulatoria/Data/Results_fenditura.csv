@@ -1,0 +1,12 @@
+ ,Label,Min,Max,IntDen,Length
+fend,0.000E0,8.833E1,2.903E4,1.436E3
+fend_lambdaquarti_51(circolare),0.000E0,8.667E1,2.664E4,1.436E3
+fend_lambdamezzi_26(verticale),0.000E0,8.833E1,2.932E4,1.440E3
+fend_lambdamezzi_71(orizzonatle),0.000E0,8.667E1,2.933E4,1.440E3
+--------------------------------------------------------------
+Misure del profilo di intensità della figura di difrazione con
+le varie polarizzazioni N.B. nelle immagini ci sono degli errori 
+di nomencaltura corretti in questi dati 
+
+Min e Max sono massimo e minimo di intensità luminosa, Lenght la 
+larghezza della figura di diffrazione 
