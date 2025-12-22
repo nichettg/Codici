@@ -402,3 +402,36 @@ def formatta_errore(val, err, unit='', html=False, txt=False):
     if txt:
         return f"{val_round:.{dec}f} ± {err_round:.{dec}f} {unit}"
     return rf"${val_round:.{dec}f} \pm {err_round:.{dec}f}$ {unit}"
+
+import numpy as np
+from scipy.optimize import minimize
+from scipy import odr
+
+def fit(xdata, ydata, modello, beta0, chi=True):
+    x, sx = xdata
+    y, sy = ydata
+
+    # --- chi quadro ---
+    def chi2(par, x, y, sy):
+        return np.sum(((y - modello(par, x)) / sy) ** 2)
+
+    if chi:
+        res = minimize(chi2, beta0, args=(x, y, sy))
+        anal_chi = [
+            [res.x[i], np.sqrt(abs(res.hess_inv[i][i]))]
+            for i in range(len(res.x))
+        ]
+        return anal_chi
+
+    # --- ODR ---
+    model = odr.Model(modello)
+    data_odr = odr.RealData(x, y, sx=sx, sy=sy)
+    odr_instance = odr.ODR(data_odr, model, beta0=beta0)
+    res = odr_instance.run()
+
+    anal_odr = [
+        [res.beta[i], res.sd_beta[i]]
+        for i in range(len(res.beta))
+    ]
+    return anal_odr
+
