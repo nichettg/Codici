@@ -28,6 +28,10 @@ def s_media_p(v, w):
     sum1 = sum((1/w[i])**2 for i in range(len(v)))
     return math.sqrt(1/sum1)
 
+# Funzione semidispersione massima
+def semidisp(x):
+    return (np.max(x) - np.min(x)) / 2
+
 # Funzione deviazione standard
 def dev(v):
     m = media(v)
