@@ -5,5 +5,5 @@ La cartella Raw Data contiene i file per come sono stati caricati direttamente d
 - lambdamezzi: come il punto9 ma per la lambda mezzi;
 - lambdaquarti: vengono graficate le intensità in funzione dell'angolo, le quali dovrebbero risultare circa costanti;
 - malus: vengono graficate le intensità in funzione dell'angolo (sta volta in radianti) per poi fare un fit sulla legge di Malus;
-- fenditura: ?;
+- fenditura: la compatibilità tra massimi, intensità e larghezze è valutata tramite chi quadro e salvata nel file "compatibilità_fenditura.txt";
 - fend: ?

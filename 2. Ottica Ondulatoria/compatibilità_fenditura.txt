@@ -1,0 +1,27 @@
+Test Chi Quadro Compatibilità massimi____________________________________________
+   y           sy          chi         
+1  88.33       0.83        1.00        
+2  86.67       0.83        1.00        
+3  88.33       0.83        1.00        
+4  86.67       0.83        1.00        
+Media pesata = 87.50
+Chi quadro = 4.00
+
+Test Chi Quadro Compatibilità larghezza____________________________________________
+   y           sy          chi         
+1  1436.00     2.00        1.00        
+2  1436.00     2.00        1.00        
+3  1440.00     2.00        1.00        
+4  1440.00     2.00        1.00        
+Media pesata = 1438.00
+Chi quadro = 4.00
+
+Test Chi Quadro Compatibilità intensita____________________________________________
+   y           sy          chi         
+1  29030.00    1126.52     0.16        
+2  26640.00    1126.52     2.97        
+3  29320.00    1126.52     0.43        
+4  29330.00    1126.52     0.44        
+Media pesata = 28580.00
+Chi quadro = 4.00
+
