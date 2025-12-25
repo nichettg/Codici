@@ -76,7 +76,7 @@ def residui(vx,vy,par,modello,file,titolo,n=8,f=2):
         output_elab.write(f"Test residui {titolo}_____________________________________________\n")
         output_elab.write(f"{'':<3}{'x':<{n}}{'y':<{n}}{'y*':<{n}}{'Residuo':<{n}}\n")
         for i,(x,y) in enumerate(zip(vx,vy)):
-            y_star = modello(x,par)
+            y_star = modello(par,x)
             res = abs(y-y_star)
             somma += res
             output_elab.write(f"{i+1:<3}{x:<{n}.{f}f}{y:<{n}.{f}f}{y_star:<{n}.{f}f}{res:<{n}.{f}f}\n")
@@ -95,7 +95,7 @@ def chi_quadro(vx,vy,vsy,par,modello,file,titolo,n=8,f=2):
         output_elab.write(f"Test Chi Quadro {titolo}_____________________________________________\n")
         output_elab.write(f"{'':<3}{'x':<{n}}{'y':<{n}}{'y*':<{n}}{'sy':<{n}}{'Chi':<{n}}\n")
         for i,(x,y,sy) in enumerate(zip(vx,vy,vsy)):
-            y_star = modello(x,par)
+            y_star = modello(par,x)
             chi = ((y-y_star)/sy)**2
             somma += chi
             output_elab.write(f"{i+1:<3}{x:<{n}.{f}f}{y:<{n}.{f}f}{y_star:<{n}.{f}f}{sy:<{n}.{f}f}{chi:<{n}.{f}f}\n")
@@ -170,7 +170,7 @@ def fit(xdata, ydata, modello, beta0, chi=True):
     y, sy = ydata
 
     def chi2(par, x, y, sy):
-        return np.sum(((y - modello(par, x)) / sy) ** 2)
+        return np.sum(((y - modello(par,x)) / sy) ** 2)
 
     if chi:
         res = minimize(chi2, beta0, args=(x, y, sy))
