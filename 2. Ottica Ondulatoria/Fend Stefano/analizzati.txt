@@ -27,11 +27,11 @@ Fit minimo2dx
 	c = 4670 ± 100 
 
 Fit minimo2sx
-	x del vertice = 346 ± 10 
+	x del vertice = 348 ± 10 
 	y del vertice = 2 ± 30 
-	a = 0.0041 ± 0.0001 
-	b = -2.82 ± 0.07 
-	c = 491 ± 10 
+	a = 0.0046 ± 0.0001 
+	b = -3.18 ± 0.07 
+	c = 554 ± 10 
 
 Fit minimo3dx
 	x del vertice = 1227 ± 60 
