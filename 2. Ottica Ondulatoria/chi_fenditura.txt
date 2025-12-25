@@ -6,6 +6,8 @@ Test Chi Quadro Compatibilità massimi__________________________________________
 4  86.67       0.83        1.00        
 Media pesata = 87.50
 Chi quadro = 4.00
+Gradi Libertà = 3
+Chi Quadro Ridotto = 1.33
 
 Test Chi Quadro Compatibilità larghezza____________________________________________
    y           sy          chi         
@@ -15,6 +17,8 @@ Test Chi Quadro Compatibilità larghezza________________________________________
 4  1440.00     2.00        1.00        
 Media pesata = 1438.00
 Chi quadro = 4.00
+Gradi Libertà = 3
+Chi Quadro Ridotto = 1.33
 
 Test Chi Quadro Compatibilità intensita____________________________________________
    y           sy          chi         
@@ -24,4 +28,6 @@ Test Chi Quadro Compatibilità intensita________________________________________
 4  29330.00    1126.52     0.44        
 Media pesata = 28580.00
 Chi quadro = 4.00
+Gradi Libertà = 3
+Chi Quadro Ridotto = 1.33
 

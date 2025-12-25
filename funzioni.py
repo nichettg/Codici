@@ -99,11 +99,17 @@ def chi_quadro(vx,vy,vsy,par,modello,file,titolo,n=8,f=2):
             chi = ((y-y_star)/sy)**2
             somma += chi
             output_elab.write(f"{i+1:<3}{x:<{n}.{f}f}{y:<{n}.{f}f}{y_star:<{n}.{f}f}{sy:<{n}.{f}f}{chi:<{n}.{f}f}\n")
-        output_elab.write(f"Chi Quadro = {somma:.{f}f}\n\n")
+        output_elab.write(f"Chi Quadro = {somma:.{f}f}\n")
+        if np.isscalar(par):
+                gradi = len(vy) - 1
+        else:
+            gradi = len(vy) - len(par)
+        output_elab.write(f"Gradi Libertà = {gradi}\n")
+        output_elab.write(f"Chi Quadro Ridotto = {somma/gradi:.{f}f}\n\n")
 
 
 # Test Compatibilità con Chi Quadro
-def chi_quadro_compatibilita(vy, vsy, file, titolo, n=8, f=2):
+def chi_quadro_compatibilita(vy, vsy, file, titolo, n=12, f=2):
     # n decide la spaziatura tra i valori
     # f decide le cifre significative
     vy = np.array(vy, dtype=float)
@@ -126,7 +132,10 @@ def chi_quadro_compatibilita(vy, vsy, file, titolo, n=8, f=2):
             )
 
         output_elab.write(f"Media pesata = {media_pesata:.{f}f}\n")
-        output_elab.write(f"Chi quadro = {chi2:.{f}f}\n\n")
+        output_elab.write(f"Chi quadro = {chi2:.{f}f}\n")
+        gradi = len(vy) - 1
+        output_elab.write(f"Gradi Libertà = {gradi}\n")
+        output_elab.write(f"Chi Quadro Ridotto = {chi2/gradi:.{f}f}\n\n")
 
 
 ############################################################################################
