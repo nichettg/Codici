@@ -2,7 +2,6 @@ import matplotlib.pyplot as plt
 from matplotlib import rcParams
 from IPython.display import display, HTML
 import numpy as np
-import json
 
 # ======== IMPOSTAZIONI GLOBALI ========
 def imposta_stile_globale():

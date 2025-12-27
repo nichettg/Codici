@@ -1,0 +1,18 @@
+Test Chi Quadro Ala sinistra_____________________________________________
+   x       y       y*      sy      Chi     
+1  635.00  0.00    0.00    0.00    0.05    
+2  1270.00 0.00    0.00    0.00    0.05    
+3  1905.00 0.00    0.00    0.00    0.01    
+Chi Quadro = 0.11
+Gradi Libertà = 1
+Chi Quadro Ridotto = 0.11
+
+Test Chi Quadro Ala destra_____________________________________________
+   x       y       y*      sy      Chi     
+1  635.00  0.00    0.00    0.00    0.00    
+2  1270.00 0.00    0.00    0.00    0.02    
+3  1905.00 0.00    0.00    0.00    0.01    
+Chi Quadro = 0.03
+Gradi Libertà = 1
+Chi Quadro Ridotto = 0.03
+
