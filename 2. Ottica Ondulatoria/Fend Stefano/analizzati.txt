@@ -13,11 +13,11 @@ Fit minimo1dx
 	c = 5940 ± 200 
 
 Fit minimo1sx
-	x del vertice = 174 ± 6 
-	y del vertice = 1 ± 3 
-	a = 0.00195 ± 0.00005 
-	b = -0.68 ± 0.02 
-	c = 60 ± 1 
+	x del vertice = 522 ± 20 
+	y del vertice = 14 ± 100 
+	a = 0.0079 ± 0.0002 
+	b = -8.3 ± 0.2 
+	c = 2172 ± 50 
 
 Fit minimo2dx
 	x del vertice = 1053 ± 40 
@@ -41,9 +41,9 @@ Fit minimo3dx
 	c = 2667 ± 90 
 
 Fit minimo3sx
-	x del vertice = 522 ± 20 
-	y del vertice = 14 ± 100 
-	a = 0.0079 ± 0.0002 
-	b = -8.3 ± 0.2 
-	c = 2172 ± 50 
+	x del vertice = 174 ± 6 
+	y del vertice = 1 ± 3 
+	a = 0.00195 ± 0.00005 
+	b = -0.68 ± 0.02 
+	c = 60 ± 1 
 
