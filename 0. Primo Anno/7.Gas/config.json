@@ -1,9 +1,0 @@
-{
-    "commento": "Configurazione per i calcoli in gas.ipynb",
-    "zoom_min": 9,
-    "zoom_max": 20,
-    "tolleranza": 0.3,
-    "Risoluzione_P": 0.001,
-    "Risoluzione_V": 0.01,
-    "MinimiQuadrati3": true
-}
