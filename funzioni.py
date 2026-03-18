@@ -1,5 +1,6 @@
 import numpy as np
 import sympy as sp
+import pandas as pd
 from scipy.optimize import minimize
 from scipy import odr
 
@@ -81,6 +82,35 @@ def residui(vx,vy,par,modello,file,titolo,n=8,f=2):
             somma += res
             output_elab.write(f"{i+1:<3}{x:<{n}.{f}f}{y:<{n}.{f}f}{y_star:<{n}.{f}f}{res:<{n}.{f}f}\n")
         output_elab.write(f"\nSomma residui = {somma:.{f}f}\n")
+
+def residui(xdata,ydata,par,modello,file,titolo,n=8,f=2):
+    # n decide la spaziatura tra i valori
+    # f decide le cifre significative
+    somma = 0.
+    residui = []
+
+    vx, vsx = xdata
+    vy, vsy = ydata
+    with open(file, 'a') as output_elab:
+        output_elab.write(f"Test residui {titolo}_____________________________________________\n")
+        output_elab.write(f"{'':<3}{'x':<{n}}{'y':<{n}}{'y*':<{n}}{'res':<{n}}{'s_res':<{n}}\n")
+        for i, (x, y) in enumerate(zip(vx, vy)):
+            y_star = modello(par, x)
+            res = y - y_star
+            s_res = vsy[i]  # banalmente uguale a sy
+
+            somma += abs(res)
+            residui.append([x, res, s_res])
+
+            output_elab.write(
+                f"{i+1:<3}{x:<{n}.{f}f}{y:<{n}.{f}f}{y_star:<{n}.{f}f}"
+                f"{res:<{n}.{f}f}{s_res:<{n}.{f}f}\n"
+            )
+        output_elab.write(f"\nSomma residui = {somma:.{f}f}\n")
+    residui = np.array(residui)
+    res = np.array([residui[:,0], residui[:,1], residui[:,2]])
+    return res
+
 
 
 # Test del Chi Quadro
@@ -175,6 +205,9 @@ def minimi_quadrati(x, y, sy):
 
 # Fit Non Lineare con Minimizzazione del Chi Quadro o con Modello ODR
 def fit(xdata, ydata, modello, beta0, chi=True):
+    # Il parametro "chi" fa il fit minimizzando il chi quadro, altrimenti viene fatto con ODR
+    # Nel modello definire prima par e poi x
+    # Il risultato della funzione è una matrice che ha in ogni riga il valore del parametro e la sua incertezza, l'ordine è quello definito nel modello
     x, sx = xdata
     y, sy = ydata
 
@@ -187,7 +220,7 @@ def fit(xdata, ydata, modello, beta0, chi=True):
             [res.x[i], np.sqrt(abs(res.hess_inv[i][i]))]
             for i in range(len(res.x))
         ]
-        return anal_chi
+        return np.array(anal_chi)
 
     model = odr.Model(modello)
     data_odr = odr.RealData(x, y, sx=sx, sy=sy)
@@ -198,13 +231,18 @@ def fit(xdata, ydata, modello, beta0, chi=True):
         [res.beta[i], res.sd_beta[i]]
         for i in range(len(res.beta))
     ]
-    return anal_odr
+    return np.array(anal_odr)
 
 
 ############################################################################################
 ### Altre Funzioni
 ############################################################################################
 
+# Funzione Lettura File ".csv" in Dizionario
+def csv_to_dict(csv: str) -> dict:
+    df = pd.read_csv(csv)
+    dizionario = {col: np.array(df[col]) for col in df.columns}
+    return dizionario
 
 # Funzione Percentuale
 def percento(x, perc, stringa):
