@@ -114,21 +114,26 @@ def residui(xdata,ydata,par,modello,file,titolo,n=8,f=2):
 
 
 # Test del Chi Quadro
-def chi_quadro(vx,vy,vsy,par,modello,file,titolo,n=8,f=2):
-    somma = 0.
+def chi_quadro(xdata,ydata,par,modello,file,titolo,n=8,f=2):
     # n decide la spaziatura tra i valori
     # f decide le cifre significative
-    if np.isscalar(vsy):
-        vsy = np.full_like(vy, fill_value=vsy, dtype=float)
+    somma = 0.
+    chi_quadri = []
 
+    vx, vsx = xdata
+    vy, vsy = ydata
     with open(file, 'a') as output_elab:
         output_elab.write(f"Test Chi Quadro {titolo}_____________________________________________\n")
         output_elab.write(f"{'':<3}{'x':<{n}}{'y':<{n}}{'y*':<{n}}{'sy':<{n}}{'Chi':<{n}}\n")
-        for i,(x,y,sy) in enumerate(zip(vx,vy,vsy)):
+        for i,(x,y) in enumerate(zip(vx,vy)):
             y_star = modello(par,x)
-            chi = ((y-y_star)/sy)**2
+            chi = ((y-y_star)/vsy[i])**2
+            s_chi = vsy[i]
+
             somma += chi
-            output_elab.write(f"{i+1:<3}{x:<{n}.{f}f}{y:<{n}.{f}f}{y_star:<{n}.{f}f}{sy:<{n}.{f}f}{chi:<{n}.{f}f}\n")
+            chi_quadri.append([x, chi, s_chi])
+
+            output_elab.write(f"{i+1:<3}{x:<{n}.{f}f}{y:<{n}.{f}f}{y_star:<{n}.{f}f}{vsy[i]:<{n}.{f}f}{chi:<{n}.{f}f}\n")
         output_elab.write(f"Chi Quadro = {somma:.{f}f}\n")
         if np.isscalar(par):
                 gradi = len(vy) - 1
@@ -136,6 +141,9 @@ def chi_quadro(vx,vy,vsy,par,modello,file,titolo,n=8,f=2):
             gradi = len(vy) - len(par)
         output_elab.write(f"Gradi Libertà = {gradi}\n")
         output_elab.write(f"Chi Quadro Ridotto = {somma/gradi:.{f}f}\n\n")
+    chi_quadri = np.array(chi_quadri)
+    chi = np.array([chi_quadri[:,0], chi_quadri[:,1], chi_quadri[:,2]])
+    return chi
 
 
 # Test Compatibilità con Chi Quadro

@@ -115,6 +115,11 @@ line_params = {
         'linestyle': '--',
         'alpha': 0.7
     }
+line_params_ = {
+        'linewidth': 1.0,
+        'linestyle': '-',
+        'alpha': 0.7
+    }
 
 # Ciclo di 10 colori
 colori = [
