@@ -169,28 +169,16 @@ def salva_grafico(fig, nomefile, formato='pdf', show=True):
     if show:
         plt.show()
 
-# Salva un dizionario in un file testo
-def salva_dizionario(lista_dizionari, nome_file="output.tex", titoli=None):
-    if isinstance(lista_dizionari, dict):
-        lista_dizionari = [lista_dizionari]
-
-    with open(nome_file, "w", encoding="utf-8") as f:
-        f.write("\\documentclass{article}\n")
-        f.write("\\usepackage[utf8]{inputenc}\n")
-        f.write("\\usepackage{booktabs}\n")
-        f.write("\\usepackage{array}\n")
-        f.write("\\begin{document}\n\n")
-
-        for i, diz in enumerate(lista_dizionari):
-            if titoli:
-                f.write(f"\\section*{{{titoli[i]}}}\n")
-            else:
-                f.write(f"\\section*{{Tabella {i + 1}}}\n")
-
-            f.write(dict_to_latex_table(diz))
-            f.write("\n\n")
-
-        f.write("\\end{document}")
+# Salva una analisi in un file testo
+def salva_analisi(anal, parametri, nome_file):
+    with open(nome_file, "w") as f:
+        for i, nome in enumerate(parametri):
+            valore = anal[i, 0]
+            errore = anal[i, 1]
+            
+            # formato con 3 cifre significative
+            riga = f"{nome} = {formatta_errore(valore,errore,txt=True)}\n"
+            f.write(riga)
 
 # Salva un dizionario come tabella in LATEX
 def dict_to_latex_table(d, depth=0):

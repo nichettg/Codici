@@ -1,0 +1,2 @@
+intercetta = 6.90 ± 0.02 
+pendenza = -0.032 ± 0.001 
