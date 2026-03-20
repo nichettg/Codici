@@ -42,17 +42,35 @@ def formatta_errore(val, err, unit='', html=False, txt=False):
             return f"{val_rounded:.3f} &plusmn; 0 {unit}"
         return rf"${val_rounded:.3f} \pm 0$ {unit}"
 
-    # arrotonda l’errore a una cifra significativa (standard)
+    # arrotonda errore a 1 cifra significativa
     err_round = arrotonda_significative(err, cifre=1)
 
-    # trova il numero di decimali richiesto
+    # ordine di grandezza errore
     exp_err = int(np.floor(np.log10(err_round)))
     dec = max(0, -exp_err)
 
-    # arrotonda il valore allo stesso numero di decimali
+    # 👉 SE TROPPI DECIMALI → SCIENTIFICA
+    if dec > 3:
+        exp = int(np.floor(np.log10(abs(val)))) if val != 0 else exp_err
+
+        val_sci = val / 10**exp
+        err_sci = err / 10**exp
+
+        err_sci = arrotonda_significative(err_sci, cifre=1)
+
+        # numero di decimali per mantissa
+        exp_err_sci = int(np.floor(np.log10(err_sci)))
+        dec_sci = max(0, -exp_err_sci)
+
+        if html:
+            return f"({val_sci:.{dec_sci}f} &plusmn; {err_sci:.{dec_sci}f}) × 10<sup>{exp}</sup> {unit}"
+        if txt:
+            return f"({val_sci:.{dec_sci}f} ± {err_sci:.{dec_sci}f}) × 10^{exp} {unit}"
+        return rf"$({val_sci:.{dec_sci}f} \pm {err_sci:.{dec_sci}f}) \times 10^{{{exp}}}$ {unit}"
+
+    # 👉 CASO NORMALE
     val_round = round(val, dec)
 
-    # stampa
     if html:
         return f"{val_round:.{dec}f} &plusmn; {err_round:.{dec}f} {unit}"
     if txt:
