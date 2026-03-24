@@ -182,7 +182,7 @@ def numera_punti(ax,x,y):
 def salva_grafico(fig, nomefile, formato='pdf', show=True):
     fig.tight_layout()
 
-    fig.savefig(nomefile, bbox_inches='tight', format=formato)
+    fig.savefig(nomefile, bbox_inches='tight', format=formato, dpi=600)
 
     if show:
         plt.show()
