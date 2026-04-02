@@ -75,7 +75,8 @@ def formatta_errore(val, err, unit='', html=False, txt=False):
         return f"{val_round:.{dec}f} &plusmn; {err_round:.{dec}f} {unit}"
     if txt:
         return f"{val_round:.{dec}f} ± {err_round:.{dec}f} {unit}"
-    return rf"${val_round:.{dec}f} \pm {err_round:.{dec}f}$ {unit}"
+    else:
+        return rf"${val_round:.{dec}f} \pm {err_round:.{dec}f}$ {unit}"
 
 ############################################################################################
 ### Stile Estetico Grafici
