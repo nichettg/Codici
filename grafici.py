@@ -196,7 +196,7 @@ def salva_analisi(anal, parametri, nome_file):
             errore = anal[i, 1]
             
             # formato con 3 cifre significative
-            riga = f"{nome} = {formatta_errore(valore,errore,txt=True)}\n"
+            riga = f"{nome} = {formatta_errore(valore,errore,txt=True)} ({errore/valore * 100:.2f}%)\n"
             f.write(riga)
 
 # Salva un dizionario come tabella in LATEX
