@@ -180,11 +180,12 @@ def numera_punti(ax,x,y):
 ############################################################################################
 
 # Salva e mostra l'immagine
-def salva_grafico(fig, nomefile, formato='pdf', show=True):
-    fig.tight_layout()
-
-    fig.savefig(nomefile, bbox_inches='tight', format=formato, dpi=600, pad_inches=0.2)
-
+def salva_grafico(fig, nomefile, formato='pdf', show=True, tridimensionale=False):
+    if not tridimensionale:
+        fig.tight_layout()
+        fig.savefig(nomefile, bbox_inches='tight', format=formato, dpi=600)
+    else:
+        fig.savefig(nomefile, bbox_inches='tight', format=formato, dpi=600, pad_inches=0.4)
     if show:
         plt.show()
 
