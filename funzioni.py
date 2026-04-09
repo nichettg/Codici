@@ -69,20 +69,6 @@ def pearson(x, y):
 
 
 # Test dei Residui
-def residui(vx,vy,par,modello,file,titolo,n=8,f=2):
-    somma = 0.
-    # n decide la spaziatura tra i valori
-    # f decide le cifre significative
-    with open(file, 'a') as output_elab:
-        output_elab.write(f"Test residui {titolo}_____________________________________________\n")
-        output_elab.write(f"{'':<3}{'x':<{n}}{'y':<{n}}{'y*':<{n}}{'Residuo':<{n}}\n")
-        for i,(x,y) in enumerate(zip(vx,vy)):
-            y_star = modello(par,x)
-            res = abs(y-y_star)
-            somma += res
-            output_elab.write(f"{i+1:<3}{x:<{n}.{f}f}{y:<{n}.{f}f}{y_star:<{n}.{f}f}{res:<{n}.{f}f}\n")
-        output_elab.write(f"\nSomma residui = {somma:.{f}f}\n")
-
 def residui(xdata,ydata,par,modello,file,titolo,n=8,f=2):
     # n decide la spaziatura tra i valori
     # f decide le cifre significative
@@ -247,10 +233,33 @@ def fit(xdata, ydata, modello, beta0, chi=True):
 ############################################################################################
 
 # Funzione Lettura File ".csv" in Dizionario
-def csv_to_dict(csv: str) -> dict:
-    df = pd.read_csv(csv)
-    dizionario = {col: np.array(df[col]) for col in df.columns}
-    return dizionario
+def csv_to_dict(csv: str, tab=False) -> dict:
+    if tab:
+        dati = {} 
+        with open(csv, "r") as f:
+            header = f.readline().strip().split()
+            for col in header:
+                dati[col] = []
+            for riga in f:
+                riga = riga.strip()
+                if not riga:
+                    continue
+                valori = riga.split()
+                for col, val in zip(header, valori):
+                    dati[col].append(float(val))
+            for key in dati:
+                dati[key] = np.array(dati[key])
+        return dati
+    else:
+        df = pd.read_csv(csv)
+        dizionario = {col: np.array(df[col]) for col in df.columns}
+        return dizionario
+
+# Funzione Scrittura Dizionario in File ".csv"
+def dict_to_csv(dizionario: dict, nome_file: str):
+    inizializza_output(nome_file)
+    df = pd.DataFrame(dizionario)
+    df.to_csv(nome_file, index=False)
 
 # Funzione Percentuale
 def percento(x, perc, stringa):
