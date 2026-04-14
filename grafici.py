@@ -12,18 +12,14 @@ import numpy as np
 def parametri_grafico(ax, titolo=None, xlabel=None, ylabel=None, zlabel=None, tridimensionale=False):
 
     if tridimensionale:
-        if titolo: ax.set_title(titolo, pad=20)
-        if xlabel: ax.set_xlabel(xlabel, labelpad=10)
-        if ylabel: ax.set_ylabel(ylabel, labelpad=10)
-        if zlabel: ax.set_zlabel(zlabel, labelpad=10)
-        ax.tick_params(axis='both', labelsize=16)
-        ax.tick_params(axis='z', labelsize=16)
+        if titolo: ax.set_title(titolo)
+        if xlabel: ax.set_xlabel(xlabel)
+        if ylabel: ax.set_ylabel(ylabel)
+        if zlabel: ax.set_zlabel(zlabel)
     else:
-        if titolo: ax.set_title(titolo, pad=15)
-        if xlabel: ax.set_xlabel(xlabel, labelpad=10)
-        if ylabel: ax.set_ylabel(ylabel, labelpad=10)
-
-    ax.tick_params(axis='both', labelsize=16)
+        if titolo: ax.set_title(titolo)
+        if xlabel: ax.set_xlabel(xlabel)
+        if ylabel: ax.set_ylabel(ylabel)
 
 # Visualizzazione di un dizionario in Jupyter in tabella HTML
 def display_dizionario(d):
@@ -86,12 +82,12 @@ def formatta_errore(val, err, unit='', html=False, txt=False):
 def imposta_stile_globale():
     rcParams.update({
         # Figure
-        "figure.figsize": (8, 6),
-        "figure.dpi": 200,
+        "figure.figsize": (10, 5),
+        "figure.dpi": 400,
 
         # Titoli e testo
         "axes.titlesize": 20,
-        "axes.labelsize": 18, # Dimensione etichette assi
+        "axes.labelsize": 18,
         "legend.fontsize": 16,
         "font.family": "serif",
 
@@ -161,77 +157,11 @@ ciclo_colori = cycle(colori)
 def darken(color, factor=0.6):
     return tuple(factor * c for c in color)
 
-# Scala gli errori se difficili da vedere
-def scaled_error_params(y, scale_factor=1.0):
-    scale = (max(y) - min(y)) * scale_factor
-    return {
-        'elinewidth': 0.02 * scale,
-        'capsize':    0.05 * scale,
-        'capthick':   0.02 * scale,
-    }
-
 # Numera i punti del grafico
 def numera_punti(ax,x,y):
     for i, (xi, yi) in enumerate(zip(x, y)):
         ax.text(1/xi, 1/yi, str(i+1), fontsize=9, ha='left', va='bottom')
-
-############################################################################################
-### Importazine e Esportazione
-############################################################################################
-
-# Salva e mostra l'immagine
-def salva_grafico(fig, nomefile, formato='pdf', show=True, tridimensionale=False):
-    if not tridimensionale:
-        fig.tight_layout()
-        fig.savefig(nomefile, bbox_inches='tight', format=formato, dpi=600)
-    else:
-        fig.savefig(nomefile, bbox_inches='tight', format=formato, dpi=600, pad_inches=0.4)
-    if show:
-        plt.show()
-
-# Salva una analisi in un file testo
-def salva_analisi(anal, parametri, nome_file):
-    with open(nome_file, "w") as f:
-        for i, nome in enumerate(parametri):
-            valore = anal[i, 0]
-            errore = anal[i, 1]
-            
-            # formato con 3 cifre significative
-            riga = f"{nome} = {formatta_errore(valore,errore,txt=True)} ({errore/valore * 100:.2f}%)\n"
-            f.write(riga)
-
-# Salva un dizionario come tabella in LATEX
-def dict_to_latex_table(d, depth=0):
-    latex = ""
-    indent = "\\quad " * depth
-
-    if isinstance(d, dict):
-        latex += "\\begin{tabular}{|l|l|}\n"
-        latex += "\\hline\n"
-        for key, value in d.items():
-            latex += f"{indent}\\textbf{{{key}}} & "
-            if isinstance(value, dict):
-                latex += "\\\\\n"
-                latex += "\\hline\n"
-                latex += f"\\multicolumn{{2}}{{|l|}}{{\n{dict_to_latex_table(value, depth + 1)}\n}} \\\\\n"
-            else:
-                latex += f"{indent}{value} \\\\\n"
-            latex += "\\hline\n"
-        latex += "\\end{tabular}"
-    else:
-        latex += f"{indent}{d}"
-
-    return latex
-
-# Funzionalità PICKLE per file dati molto lunghi
-def esporta_pickle(data, filename="data.pkl"):
-    import pickle
-    with open(filename, "wb") as f:
-        pickle.dump(data, f)
-def importa_pickle(filename="data.pkl"):
-    import pickle
-    with open(filename, "rb") as f:
-        return pickle.load(f)
+        
 
 ############################################################################################
 ### Funzioni Interne

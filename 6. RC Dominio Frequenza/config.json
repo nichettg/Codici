@@ -1,0 +1,32 @@
+{
+    "metodi": {
+        "A": {
+            "file_input": "dati_A.csv",
+            "titolo": "A",
+            "xlabel": "f",
+            "xunit": "Hz",
+            "ylabel": "A",
+            "yunit": ""
+        },
+        "phi": {
+            "file_input": "dati_phi.csv",
+            "titolo": "Phi",
+            "xlabel": "f",
+            "xunit": "Hz",
+            "ylabel": "Phi",
+            "yunit": "rad"
+        }
+    },
+
+    "output": {
+        "regressione": "regressione",
+        "residui": "residui",
+        "chi": "chi"
+    },
+
+    "cartella": {
+        "input": "data",
+        "output1": "non_lineare",
+        "output2": "lineare"
+    }
+}

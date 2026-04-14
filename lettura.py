@@ -1,0 +1,80 @@
+import numpy as np
+import pandas as pd
+
+############################################################################################
+### Input
+############################################################################################
+
+# Funzione Lettura File ".csv" in Dizionario
+def csv_to_dict(csv: str, tab=False) -> dict:
+    # L'opzione tab legge un file csv spaziato da tablature, classico se copia incollato da Excel
+    if tab:
+        dati = {} 
+        with open(csv, "r") as f:
+            header = f.readline().strip().split()
+            for col in header:
+                dati[col] = []
+            for riga in f:
+                riga = riga.strip()
+                if not riga:
+                    continue
+                valori = riga.split()
+                for col, val in zip(header, valori):
+                    dati[col].append(float(val))
+            for key in dati:
+                dati[key] = np.array(dati[key])
+        return dati
+    else:
+        df = pd.read_csv(csv)
+        dizionario = {col: np.array(df[col]) for col in df.columns}
+        return dizionario
+
+# Funzione lettura file Pickle
+def importa_pickle(filename="data.pkl"):
+    import pickle
+    with open(filename, "rb") as f:
+        return pickle.load(f)
+
+############################################################################################
+### Output
+############################################################################################
+
+# Rinomina il file output
+def nomina(nome: str, formato: str, cartella: str = '') -> str:
+    if cartella:
+        return cartella + "/" + nome + "." + formato
+    else:
+        return nome + "." + formato
+
+# Funzione per la Creazione di un File di Output Vuoto
+def inizializza_output (output_filename):
+    with open(output_filename, "w") as file:
+        file.write('')
+
+# Salva e mostra l'immagine
+def salva_grafico(fig, nomefile, formato='jpg'):
+    fig.savefig(nomefile, format=formato)
+
+# Salva una analisi in un file testo
+def salva_analisi(anal, parametri, nome_file):
+    with open(nome_file, "w") as f:
+        for i, nome in enumerate(parametri):
+            valore = anal.val[i]
+            errore = anal.s[i]
+            
+            # formato con 3 cifre significative
+            riga = f"{nome} = {valore} ± {errore} ({errore/valore * 100:.2f}%)\n"
+            f.write(riga)
+
+
+# Funzionalità PICKLE per file dati molto lunghi
+def esporta_pickle(data, filename="data.pkl"):
+    import pickle
+    with open(filename, "wb") as f:
+        pickle.dump(data, f)
+
+# Funzione Scrittura Dizionario in File ".csv"
+def dict_to_csv(dizionario: dict, nome_file: str):
+    inizializza_output(nome_file)
+    df = pd.DataFrame(dizionario)
+    df.to_csv(nome_file, index=False)

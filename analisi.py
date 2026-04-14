@@ -4,22 +4,36 @@ import pandas as pd
 from scipy.optimize import minimize
 from scipy import odr
 
+############################################################################################
+### Data Class Custom
+############################################################################################
+from dataclasses import dataclass
+@dataclass(frozen=True)
+class misura:
+    val: float
+    s: float
+@dataclass(frozen=True)
+class misure:
+    val: np.ndarray
+    s: np.ndarray
+
+############################################################################################
+### Statistica Base
+############################################################################################
+
 # Funzione media pesata
-def media_p(vx, vsx):
-    vx = np.array(vx, dtype=float)
-    vsx = np.array(vsx, dtype=float)
-    vw = 1 / vsx**2
-    media = np.array([np.sum(vx * vw) / np.sum(vw),
-                      np.sqrt( 1 / np.sum(vw) )])
-    return media
+def media_p(x: misure) -> misura:
+    w = 1 / x.s**2
+    media = np.sum(x.val * w) / np.sum(w)
+    s_media = np.sqrt( 1 / np.sum(w) )
+    return misura(media,s_media)
 
 # Funzione semidispersione massima
-def semidisp(vx):
-    vx = np.array(vx, dtype=float)
-    return (np.max(vx) - np.min(vx)) / 2
+def semidisp(x: np.ndarray) -> float:
+    return (np.max(x) - np.min(x)) / 2
 
 # Funzione matrice covarianza campionaria
-def matrice_covarianza(a, b):
+def matrice_covarianza(a: np.ndarray, b: np.ndarray) -> np.ndarray:
     a = np.array(a, dtype=float)
     b = np.array(b, dtype=float)
 
@@ -42,19 +56,13 @@ def matrice_covarianza(a, b):
 
 
 # Compatibilità tra Due Misure
-def compatibilita(f1, sf1, f2, sf2):
-    f1 = float(f1)
-    sf1 = float(sf1)
-    f2 = float(f2)
-    sf2 = float(sf2)
-    return abs(f1 - f2) / np.sqrt(sf1**2 + sf2**2)
+def compatibilita(a:misura, b:misura) -> float:
+    return abs(a.val - b.val) / np.sqrt(a.s**2 + b.s**2)
 
 
 
 # Coefficiente di Pearson
-def pearson(x, y):
-    x = np.array(x, dtype=float)
-    y = np.array(y, dtype=float)
+def pearson(x: np.ndarray, y: np.ndarray) -> misura:
 
     N = len(x)
     matrice = matrice_covarianza(x,y)
@@ -65,18 +73,21 @@ def pearson(x, y):
     r = cov_xy / (sx * sy)
     sigma_r = np.sqrt((1 - r**2) / (N - 2))
 
-    return np.array([r, sigma_r])
+    return misura(r, sigma_r)
 
 
 # Test dei Residui
-def residui(xdata,ydata,par,modello,file,titolo,n=8,f=2):
+def residui(xdata: misure, ydata: misure, par: np.ndarray, modello, file: str, titolo: str, n=8, f=2):
     # n decide la spaziatura tra i valori
     # f decide le cifre significative
     somma = 0.
     residui = []
 
-    vx, vsx = xdata
-    vy, vsy = ydata
+    vx = xdata.val
+    vsx = xdata.s
+    vy = ydata.val
+    vsy = ydata.s
+
     with open(file, 'a') as output_elab:
         output_elab.write(f"Test residui {titolo}_____________________________________________\n")
         output_elab.write(f"{'':<3}{'x':<{n}}{'y':<{n}}{'y*':<{n}}{'res':<{n}}{'s_res':<{n}}\n")
@@ -100,14 +111,17 @@ def residui(xdata,ydata,par,modello,file,titolo,n=8,f=2):
 
 
 # Test del Chi Quadro
-def chi_quadro(xdata,ydata,par,modello,file,titolo,n=8,f=2):
+def chi_quadro(xdata: misure, ydata: misure, par: np.ndarray, modello, file: str, titolo: str, n=8, f=2):
     # n decide la spaziatura tra i valori
     # f decide le cifre significative
     somma = 0.
     chi_quadri = []
 
-    vx, vsx = xdata
-    vy, vsy = ydata
+    vx = xdata.val
+    vsx = xdata.s
+    vy = ydata.val
+    vsy = ydata.s
+
     with open(file, 'a') as output_elab:
         output_elab.write(f"Test Chi Quadro {titolo}_____________________________________________\n")
         output_elab.write(f"{'':<3}{'x':<{n}}{'y':<{n}}{'y*':<{n}}{'sy':<{n}}{'Chi':<{n}}\n")
@@ -132,45 +146,15 @@ def chi_quadro(xdata,ydata,par,modello,file,titolo,n=8,f=2):
     return chi
 
 
-# Test Compatibilità con Chi Quadro
-def chi_quadro_compatibilita(vy, vsy, file, titolo, n=12, f=2):
-    # n decide la spaziatura tra i valori
-    # f decide le cifre significative
-    vy = np.array(vy, dtype=float)
-    if np.isscalar(vsy):
-        vsy = np.full_like(vy, fill_value=vsy, dtype=float)
-    else:
-        vsy = np.array(vsy, dtype=float)
-    media_pesata = media_p(vy,vsy)[0]
-    chi2 = 0.0
-
-    with open(file, 'a') as output_elab:
-        output_elab.write(f"Test Chi Quadro Compatibilità {titolo}____________________________________________\n")
-        output_elab.write(f"{'':<3}{'y':<{n}}{'sy':<{n}}{'chi':<{n}}\n")
-
-        for i, (y, sy) in enumerate(zip(vy, vsy)):
-            contrib = ((y - media_pesata) / sy) ** 2
-            chi2 += contrib
-            output_elab.write(
-                f"{i+1:<3}{y:<{n}.{f}f}{sy:<{n}.{f}f}{contrib:<{n}.{f}f}\n"
-            )
-
-        output_elab.write(f"Media pesata = {media_pesata:.{f}f}\n")
-        output_elab.write(f"Chi quadro = {chi2:.{f}f}\n")
-        gradi = len(vy) - 1
-        output_elab.write(f"Gradi Libertà = {gradi}\n")
-        output_elab.write(f"Chi Quadro Ridotto = {chi2/gradi:.{f}f}\n\n")
-
-
 ############################################################################################
 ### Regressioni
 ############################################################################################
 
 
 # Minimi Quadrati Analitici con Incertezze Uniformi o Variabili sulle Ordinate
-def minimi_quadrati(x, y, sy):
-    x = np.array(x)
-    y = np.array(y)
+def minimi_quadrati(x: np.ndarray, y: misure):
+    y = misure.val
+    sy = misure.s
 
     if np.isscalar(sy):
         sy = np.full_like(y, fill_value=sy, dtype=float)
@@ -198,12 +182,14 @@ def minimi_quadrati(x, y, sy):
 
 
 # Fit Non Lineare con Minimizzazione del Chi Quadro o con Modello ODR
-def fit(xdata, ydata, modello, beta0, chi=True):
+def fit(xdata: misure, ydata: misure, modello, beta0, chi=True) -> misure:
     # Il parametro "chi" fa il fit minimizzando il chi quadro, altrimenti viene fatto con ODR
     # Nel modello definire prima par e poi x
     # Il risultato della funzione è una matrice che ha in ogni riga il valore del parametro e la sua incertezza, l'ordine è quello definito nel modello
-    x, sx = xdata
-    y, sy = ydata
+    x = xdata.val
+    sx = xdata.s
+    y = ydata.val
+    sy = ydata.s
 
     def chi2(par, x, y, sy):
         return np.sum(((y - modello(par,x)) / sy) ** 2)
@@ -214,7 +200,9 @@ def fit(xdata, ydata, modello, beta0, chi=True):
             [res.x[i], np.sqrt(abs(res.hess_inv[i][i]))]
             for i in range(len(res.x))
         ]
-        return np.array(anal_chi)
+        val = np.array([p[0] for p in anal_chi])
+        err = np.array([p[1] for p in anal_chi])
+        return misure(val, err)
 
     model = odr.Model(modello)
     data_odr = odr.RealData(x, y, sx=sx, sy=sy)
@@ -225,56 +213,20 @@ def fit(xdata, ydata, modello, beta0, chi=True):
         [res.beta[i], res.sd_beta[i]]
         for i in range(len(res.beta))
     ]
-    return np.array(anal_odr)
+    val = np.array([p[0] for p in anal_odr])
+    err = np.array([p[1] for p in anal_odr])
+    return misure(val, err)
 
 
 ############################################################################################
 ### Altre Funzioni
 ############################################################################################
 
-# Funzione Lettura File ".csv" in Dizionario
-def csv_to_dict(csv: str, tab=False) -> dict:
-    if tab:
-        dati = {} 
-        with open(csv, "r") as f:
-            header = f.readline().strip().split()
-            for col in header:
-                dati[col] = []
-            for riga in f:
-                riga = riga.strip()
-                if not riga:
-                    continue
-                valori = riga.split()
-                for col, val in zip(header, valori):
-                    dati[col].append(float(val))
-            for key in dati:
-                dati[key] = np.array(dati[key])
-        return dati
-    else:
-        df = pd.read_csv(csv)
-        dizionario = {col: np.array(df[col]) for col in df.columns}
-        return dizionario
-
-# Funzione Scrittura Dizionario in File ".csv"
-def dict_to_csv(dizionario: dict, nome_file: str):
-    inizializza_output(nome_file)
-    df = pd.DataFrame(dizionario)
-    df.to_csv(nome_file, index=False)
 
 # Funzione Percentuale
 def percento(x, perc, stringa):
     if stringa == "+": return x * (1 + perc/100)
     if stringa == "-": return x * (1 - perc/100)
-
-
-# Funzione per la Creazione di un File di Output Vuoto
-def inizializza_output (output_filename, latex=False):
-    with open(output_filename, "w") as file:
-        file.write('')
-    if latex == True:
-        latex_filename = output_filename.replace('.txt', '.tex')
-        with open(latex_filename, 'w') as latex_file:
-            latex_file.write('')
 
 
 # Propagazione delle Incertezze SENZA COVARIANZA

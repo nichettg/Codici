@@ -1,33 +1,42 @@
-"""
-Importa i moduli nella cartella Codici
-"""
+############################################################################################
+### Importa i moduli nella cartella Codici
+############################################################################################
 import importlib
 import sys
 sys.path.append("/home/nichettg/Ubuntu/Laboratorio")
 
-"""
-Moduli per la raccolta dati
-"""
+
+############################################################################################
+### Moduli per la lettura dati
+############################################################################################
 import os
+import json
 import pandas as pd
+import lettura as let
+importlib.reload(let)
 
-"""
-Moduli per l'analisi dati
-"""
+
+############################################################################################
+### Moduli per l'analisi dati e Data Class Custom
+############################################################################################
 import numpy as np
-import funzioni as f
-importlib.reload(f)
+from dataclasses import dataclass
+@dataclass(frozen=True)
+class misura:
+    val: float
+    s: float
+@dataclass(frozen=True)
+class misure:
+    val: np.ndarray
+    s: np.ndarray
+import analisi as an
+importlib.reload(an)
 
-"""
-Moduli per la visualizzazione grafica
-"""
+############################################################################################
+### Moduli per la visualizzazione grafica dei dati
+############################################################################################
 import matplotlib.pyplot as plt
 import grafici as gf
 importlib.reload(gf)
 
 gf.imposta_stile_globale()
-
-"""
-Meme
-"""
-import meme as meme
