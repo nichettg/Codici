@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import plotly.graph_objects as go
 from matplotlib import rcParams
 from itertools import cycle
 from IPython.display import display, HTML
@@ -161,7 +162,7 @@ def darken(color, factor=0.6):
 def numera_punti(ax,x,y):
     for i, (xi, yi) in enumerate(zip(x, y)):
         ax.text(1/xi, 1/yi, str(i+1), fontsize=9, ha='left', va='bottom')
-        
+
 
 ############################################################################################
 ### Funzioni Interne

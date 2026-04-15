@@ -40,22 +40,13 @@ def importa_pickle(filename="data.pkl"):
 ### Output
 ############################################################################################
 
-# Rinomina il file output
-def nomina(nome: str, formato: str, cartella: str = '') -> str:
-    if cartella:
-        return cartella + "/" + nome + "." + formato
-    else:
-        return nome + "." + formato
-
 # Funzione per la Creazione di un File di Output Vuoto
 def inizializza_output (output_filename):
     with open(output_filename, "w") as file:
         file.write('')
 
 # Salva e mostra l'immagine
-def salva_grafico(fig, nomefile, formato='jpg',tight_layout=True):
-    if tight_layout:
-        plt.tight_layout()
+def salva_grafico(fig, nomefile, formato='jpg'):
     fig.savefig(nomefile, format=formato)
 
 # Salva una analisi in un file testo

@@ -36,6 +36,7 @@ importlib.reload(an)
 ### Moduli per la visualizzazione grafica dei dati
 ############################################################################################
 import matplotlib.pyplot as plt
+import plotly.graph_objects as go
 import grafici as gf
 importlib.reload(gf)
 
