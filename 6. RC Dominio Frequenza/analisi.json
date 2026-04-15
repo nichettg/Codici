@@ -26,7 +26,7 @@
 
     "cartella": {
         "input": "data",
-        "output1": "non_lineare",
-        "output2": "lineare"
+        "nonlineare": "non_lineare",
+        "lineare": "lineare"
     }
 }

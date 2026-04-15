@@ -1,5 +1,4 @@
 import matplotlib.pyplot as plt
-import plotly.graph_objects as go
 from matplotlib import rcParams
 from itertools import cycle
 from IPython.display import display, HTML

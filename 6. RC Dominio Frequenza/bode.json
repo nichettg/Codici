@@ -1,0 +1,23 @@
+{
+    "metodi": {
+        "B": {
+            "file_input": "dati_B.csv",
+            "titolo": "Bode",
+            "xlabel": "log(f)",
+            "xunit": "log(Hz)",
+            "ylabel": "|A|",
+            "yunit": ""
+        }
+    },
+
+    "output": {
+        "regressione": "regressione",
+        "residui": "residui",
+        "chi": "chi"
+    },
+
+    "cartella": {
+        "input": "data",
+        "output": "bode"
+    }
+}
