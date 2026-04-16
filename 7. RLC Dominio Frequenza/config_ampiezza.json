@@ -1,0 +1,21 @@
+{
+    "metodi": {
+        "file_input": "dati_V.csv",
+        "titolo": "Ampiezza",
+        "xlabel": "f",
+        "xunit": "Hz",
+        "ylabel": "V",
+        "yunit": "V"
+    },
+
+    "output": {
+        "regressione": "regressione",
+        "residui": "residui",
+        "chi": "chi"
+    },
+
+    "cartella": {
+        "input": "data",
+        "output": "ampiezza"
+    }
+}
