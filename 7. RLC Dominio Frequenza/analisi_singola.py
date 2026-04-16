@@ -193,3 +193,4 @@ ax.axhline(
 )
 
 let.salva_grafico(fig, file_output3)
+plt.show()

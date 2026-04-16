@@ -1,0 +1,31 @@
+{
+    "metodi": {
+        "A": {
+            "file_input": "dati_A.csv",
+            "titolo": "Titolo A",
+            "xlabel": "xlabel A",
+            "xunit": "xunit A",
+            "ylabel": "ylabel A",
+            "yunit": "yunit A"
+        },
+        "B": {
+            "file_input": "dati_B.csv",
+            "titolo": "Titolo B",
+            "xlabel": "xlabel B",
+            "xunit": "xunit B",
+            "ylabel": "ylabel B",
+            "yunit": "yunit B"
+        }
+    },
+
+    "output": {
+        "regressione": "regressione",
+        "residui": "residui",
+        "chi": "chi"
+    },
+
+    "cartella": {
+        "input": "data",
+        "output": "log"
+    }
+}
