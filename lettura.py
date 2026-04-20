@@ -1,6 +1,10 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import importlib
+import classi
+importlib.reload(classi)
+from classi import Misura,RisultatiFit
 
 ############################################################################################
 ### Input
@@ -64,11 +68,33 @@ def salva_analisi(anal, parametri, nome_file):
 # Funzionalità PICKLE per file dati molto lunghi
 def esporta_pickle(data, filename="data.pkl"):
     import pickle
+    inizializza_output(filename)
     with open(filename, "wb") as f:
         pickle.dump(data, f)
 
+# Funzione che dalla classe RisultatiFit crea un dizionario
+def ris_fit_to_dict(ris_fit):
+    dizionario = {
+        "parametri" : ris_fit.anal.val,
+        "s_parametri" : ris_fit.anal.s,
+        "res": ris_fit.res,
+        "chi": ris_fit.chi,
+        "chi_ridotto": ris_fit.chi_ridotto
+    }
+    return dizionario
+
+def dict_to_ris_fit(dict):
+    ris_fit = RisultatiFit(None,None,None)
+    ris_fit.anal = Misura(dict["parametri"], dict["s_parametri"])
+    ris_fit.res = dict["res"]
+    ris_fit.chi = dict["chi"]
+    ris_fit.chi_ridotto = dict["chi_ridotto"]
+    return ris_fit
+
 # Funzione Scrittura Dizionario in File ".csv"
-def dict_to_csv(dizionario: dict, nome_file: str):
+def dict_to_csv(dizionario: dict, nome_file: str, risultati_fit = False):
     inizializza_output(nome_file)
+    if risultati_fit:
+        dizionario = ris_fit_to_dict(dizionario)
     df = pd.DataFrame(dizionario)
     df.to_csv(nome_file, index=False)

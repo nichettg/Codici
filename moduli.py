@@ -8,19 +8,13 @@ sys.path.append("/home/nichettg/Ubuntu/Laboratorio")
 import os
 import json
 import pandas as pd
+import classi
+importlib.reload(classi)
+from classi import Misura,RisultatiFit
 import lettura as let
 importlib.reload(let)
 
 import numpy as np
-from dataclasses import dataclass
-@dataclass(frozen=True)
-class misura:
-    val: float
-    s: float
-@dataclass(frozen=True)
-class misure:
-    val: np.ndarray
-    s: np.ndarray
 import analisi as an
 importlib.reload(an)
 
@@ -51,8 +45,8 @@ def analizza(json_path: str, modello, param_labels, beta0):
 
     dati = let.csv_to_dict(file_input)
 
-    xdata = misure(dati["x"],dati["sx"])
-    ydata = misure(dati["y"],dati["sy"])
+    xdata = Misura(dati["x"],dati["sx"])
+    ydata = Misura(dati["y"],dati["sy"])
 
     ############################################################################################
     ### Analisi
@@ -190,4 +184,4 @@ def analizza(json_path: str, modello, param_labels, beta0):
     let.salva_grafico(fig, file_output3)
     plt.show()
 
-    return anal,xdata,ydata
+    return RisultatiFit(anal,res,chi)

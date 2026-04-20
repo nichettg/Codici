@@ -7,26 +7,21 @@ from scipy import odr
 ############################################################################################
 ### Data Class Custom
 ############################################################################################
-from dataclasses import dataclass
-@dataclass(frozen=True)
-class misura:
-    val: float
-    s: float
-@dataclass(frozen=True)
-class misure:
-    val: np.ndarray
-    s: np.ndarray
+import importlib
+import classi
+importlib.reload(classi)
+from classi import Misura
 
 ############################################################################################
 ### Statistica Base
 ############################################################################################
 
 # Funzione media pesata
-def media_p(x: misure) -> misura:
+def media_p(x: Misura) -> Misura:
     w = 1 / x.s**2
     media = np.sum(x.val * w) / np.sum(w)
     s_media = np.sqrt( 1 / np.sum(w) )
-    return misura(media,s_media)
+    return Misura(media,s_media)
 
 # Funzione semidispersione massima
 def semidisp(x: np.ndarray) -> float:
@@ -56,13 +51,13 @@ def matrice_covarianza(a: np.ndarray, b: np.ndarray) -> np.ndarray:
 
 
 # Compatibilità tra Due Misure
-def compatibilita(a:misura, b:misura) -> float:
+def compatibilita(a:Misura, b:Misura) -> float:
     return abs(a.val - b.val) / np.sqrt(a.s**2 + b.s**2)
 
 
 
 # Coefficiente di Pearson
-def pearson(x: np.ndarray, y: np.ndarray) -> misura:
+def pearson(x: np.ndarray, y: np.ndarray) -> Misura:
 
     N = len(x)
     matrice = matrice_covarianza(x,y)
@@ -73,11 +68,11 @@ def pearson(x: np.ndarray, y: np.ndarray) -> misura:
     r = cov_xy / (sx * sy)
     sigma_r = np.sqrt((1 - r**2) / (N - 2))
 
-    return misura(r, sigma_r)
+    return Misura(r, sigma_r)
 
 
 # Test dei Residui
-def residui(xdata: misure, ydata: misure, par: np.ndarray, modello, file: str, titolo: str, n=8, f=2):
+def residui(xdata: Misura, ydata: Misura, par: np.ndarray, modello, file: str, titolo: str, n=8, f=2):
     # n decide la spaziatura tra i valori
     # f decide le cifre significative
     somma = 0.
@@ -111,7 +106,7 @@ def residui(xdata: misure, ydata: misure, par: np.ndarray, modello, file: str, t
 
 
 # Test del Chi Quadro
-def chi_quadro(xdata: misure, ydata: misure, par: np.ndarray, modello, file: str, titolo: str, n=8, f=2):
+def chi_quadro(xdata: Misura, ydata: Misura, par: np.ndarray, modello, file: str, titolo: str, n=8, f=2):
     # n decide la spaziatura tra i valori
     # f decide le cifre significative
     somma = 0.
@@ -152,9 +147,9 @@ def chi_quadro(xdata: misure, ydata: misure, par: np.ndarray, modello, file: str
 
 
 # Minimi Quadrati Analitici con Incertezze Uniformi o Variabili sulle Ordinate
-def minimi_quadrati(x: np.ndarray, y: misure):
-    y = misure.val
-    sy = misure.s
+def minimi_quadrati(x: np.ndarray, y: Misura):
+    y = Misura.val
+    sy = Misura.s
 
     if np.isscalar(sy):
         sy = np.full_like(y, fill_value=sy, dtype=float)
@@ -182,7 +177,7 @@ def minimi_quadrati(x: np.ndarray, y: misure):
 
 
 # Fit Non Lineare con Minimizzazione del Chi Quadro o con Modello ODR
-def fit(xdata: misure, ydata: misure, modello, beta0, chi=True) -> misure:
+def fit(xdata: Misura, ydata: Misura, modello, beta0, chi=True) -> Misura:
     # Il parametro "chi" fa il fit minimizzando il chi quadro, altrimenti viene fatto con ODR
     # Nel modello definire prima par e poi x
     # Il risultato della funzione è una matrice che ha in ogni riga il valore del parametro e la sua incertezza, l'ordine è quello definito nel modello
@@ -202,7 +197,7 @@ def fit(xdata: misure, ydata: misure, modello, beta0, chi=True) -> misure:
         ]
         val = np.array([p[0] for p in anal_chi])
         err = np.array([p[1] for p in anal_chi])
-        return misure(val, err)
+        return Misura(val, err)
 
     model = odr.Model(modello)
     data_odr = odr.RealData(x, y, sx=sx, sy=sy)
@@ -215,7 +210,7 @@ def fit(xdata: misure, ydata: misure, modello, beta0, chi=True) -> misure:
     ]
     val = np.array([p[0] for p in anal_odr])
     err = np.array([p[1] for p in anal_odr])
-    return misure(val, err)
+    return Misura(val, err)
 
 
 ############################################################################################

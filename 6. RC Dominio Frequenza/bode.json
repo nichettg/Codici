@@ -1,13 +1,11 @@
 {
     "metodi": {
-        "B": {
-            "file_input": "dati_B.csv",
-            "titolo": "Bode",
-            "xlabel": "log(f)",
-            "xunit": "log(Hz)",
-            "ylabel": "|A|",
-            "yunit": ""
-        }
+        "file_input": "dati_bode.csv",
+        "titolo": "Bode",
+        "xlabel": "log(f)",
+        "xunit": "",
+        "ylabel": "A",
+        "yunit": "dB"
     },
 
     "output": {

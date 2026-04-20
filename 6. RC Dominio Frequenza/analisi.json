@@ -27,6 +27,6 @@
     "cartella": {
         "input": "data",
         "nonlineare": "non_lineare",
-        "lineare": "lineare"
+        "locale": "locale"
     }
 }
