@@ -64,3 +64,28 @@ Somma chi quadri e chi ridotto :
 -34.0664
 -2.0039
 
+#######################
+###### Linearizzato
+#######################
+A
+Parametri regressione :
+0.6558248715281425 ± 0.08824660567793456
+0.0002576728396816936 ± 2.5825661204761734e-05
+
+Somma residui :
+0.4361
+Somma chi quadri e chi ridotto :
+0.4361
+0.0727
+
+phi
+Parametri regressione :
+-0.0006831447938783763 ± 0.019124321159879467
+0.00019482458276037784 ± 1.182382217818681e-05
+
+Somma residui :
+0.7883
+Somma chi quadri e chi ridotto :
+0.7883
+0.1314
+
