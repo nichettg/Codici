@@ -9,8 +9,8 @@ Parametri regressione :
 Somma residui :
 0.0021
 Somma chi quadri e chi ridotto :
-0.0021
-0.0003
+0.3526
+0.0588
 
 phi
 Parametri regressione :
@@ -20,8 +20,8 @@ Parametri regressione :
 Somma residui :
 -0.1654
 Somma chi quadri e chi ridotto :
--0.1654
--0.0276
+21.9487
+3.6581
 
 #######################
 ###### Non Lineare
@@ -35,8 +35,8 @@ Parametri regressione :
 Somma residui :
 -0.0110
 Somma chi quadri e chi ridotto :
--0.0110
--0.0006
+0.1055
+0.0062
 
 phi
 Parametri regressione :
@@ -47,45 +47,45 @@ Parametri regressione :
 Somma residui :
 0.6714
 Somma chi quadri e chi ridotto :
-0.6714
-0.0395
+63.3221
+3.7248
 
 #######################
 ###### Bode
 #######################
 Parametri regressione :
-5200.02756396692 ± 1.00104584516535
-4868.690898332401 ± 2603.590607504199
--0.009088542224858526 ± 2.262052370641787
+5200.050002138249 ± 0.9999999992923402
+-0.024125995694025456 ± 0.014017713425758362
+-0.020431698636115235 ± 0.12787570142250945
 
 Somma residui :
--34.0664
+0.3270
 Somma chi quadri e chi ridotto :
--34.0664
--2.0039
+0.2269
+0.0133
 
 #######################
 ###### Linearizzato
 #######################
 A
 Parametri regressione :
-0.6558248715281425 ± 0.08824660567793456
-0.0002576728396816936 ± 2.5825661204761734e-05
+0.8255535778685171 ± 0.03483032769380798
+0.00026381827683791796 ± 1.5382022035590318e-05
 
 Somma residui :
-0.4361
+74.6230
 Somma chi quadri e chi ridotto :
-0.4361
-0.0727
+60.8025
+3.3779
 
 phi
 Parametri regressione :
--0.0006831447938783763 ± 0.019124321159879467
-0.00019482458276037784 ± 1.182382217818681e-05
+-0.00477317568038424 ± 0.0017380284784130307
+0.00017059223794777773 ± 2.887905719024416e-06
 
 Somma residui :
-0.7883
+30.1804
 Somma chi quadri e chi ridotto :
-0.7883
-0.1314
+45.0969
+2.5054
 

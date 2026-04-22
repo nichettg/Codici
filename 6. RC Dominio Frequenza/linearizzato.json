@@ -2,18 +2,18 @@
     "metodi": {
         "A": {
             "file_input": "dati_A_lin.csv",
-            "titolo": "A",
+            "titolo": "A^{-2}",
             "xlabel": "f",
             "xunit": "Hz",
-            "ylabel": "A",
+            "ylabel": "A^{-2}",
             "yunit": ""
         },
         "phi": {
             "file_input": "dati_phi_lin.csv",
-            "titolo": "Phi",
+            "titolo": "tan(Phi)",
             "xlabel": "f",
             "xunit": "Hz",
-            "ylabel": "Phi",
+            "ylabel": "tan(Phi)",
             "yunit": "rad"
         }
     },
@@ -26,7 +26,6 @@
 
     "cartella": {
         "input": "data",
-        "nonlineare": "non_lineare",
-        "locale": "lineare"
+        "output": "linearizzato"
     }
 }

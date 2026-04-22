@@ -80,7 +80,7 @@ def analizza(json_path: str, modello, param_labels, beta0):
     ### Chi Quadro
 
     let.inizializza_output(file_output3)
-    chi = an.residui(xdata, ydata, anal.val, modello, file_output3, titolo)
+    chi = an.chi_quadro(xdata, ydata, anal.val, modello, file_output3, titolo)
 
     ############################################################################################
     ### Grafici
