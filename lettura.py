@@ -35,7 +35,7 @@ def csv_to_dict(csv: str, tab=False) -> dict:
         return dizionario
 
 # Funzione lettura file Pickle
-def importa_pickle(filename="data.pkl"):
+def importa_pickle(filename: str):
     import pickle
     with open(filename, "rb") as f:
         return pickle.load(f)
@@ -66,7 +66,7 @@ def salva_analisi(anal, parametri, nome_file):
 
 
 # Funzionalità PICKLE per file dati molto lunghi
-def esporta_pickle(data, filename="data.pkl"):
+def esporta_pickle(data, filename: str):
     import pickle
     inizializza_output(filename)
     with open(filename, "wb") as f:
@@ -92,9 +92,7 @@ def dict_to_ris_fit(dict):
     return ris_fit
 
 # Funzione Scrittura Dizionario in File ".csv"
-def dict_to_csv(dizionario: dict, nome_file: str, risultati_fit = False):
+def dict_to_csv(dizionario: dict, nome_file: str):
     inizializza_output(nome_file)
-    if risultati_fit:
-        dizionario = ris_fit_to_dict(dizionario)
     df = pd.DataFrame(dizionario)
     df.to_csv(nome_file, index=False)
