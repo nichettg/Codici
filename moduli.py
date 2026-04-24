@@ -97,21 +97,28 @@ def analizza(json_path: str, modello, param_labels, beta0):
     )
     file_output2 = os.path.join(
         nomi["cartella"]["output"],
-        nomi["output"]["residui"] + ".jpg"
-    )
-    file_output3 = os.path.join(
-        nomi["cartella"]["output"],
         nomi["output"]["chi"] + ".jpg"
     )
 
     ### Regressione
 
     # Inizializzazione e labels
-    fig,ax = plt.subplots(1, 1,  figsize=(10, 5), constrained_layout = True)
-    gf.parametri_grafico(ax, f"{titolo}, Regressione", xlabel= rf"${xlabel} [{xunit}]$", ylabel= rf"${ylabel} [{yunit}]$")
+    fig1, (ax1, ax2) = plt.subplots(
+        2, 1,
+        figsize=(10, 8),
+        gridspec_kw={'height_ratios': [5, 3]},
+        constrained_layout=True,
+        sharex=True
+    )
+    ax1.tick_params(axis='x', labelbottom=False)
+    gf.parametri_grafico(ax1, f"{titolo}", ylabel= rf"${ylabel} [{yunit}]$")
+    gf.parametri_grafico(ax2, xlabel=rf"${xlabel} [{xunit}]$", ylabel="Residui")
+
+    fig2,ax = plt.subplots(1, 1,  figsize=(10, 3), constrained_layout = True)
+    gf.parametri_grafico(ax, xlabel=rf"${xlabel} [{xunit}]$", ylabel=r"$\chi^2$")
 
     # Dati
-    ax.errorbar(
+    ax1.errorbar(
         xdata.val,
         ydata.val,
         xerr=xdata.s,
@@ -124,7 +131,7 @@ def analizza(json_path: str, modello, param_labels, beta0):
     # Fit
     fit_label = "Fit: " + "".join(f"{param_labels[i]}={gf.formatta_errore(anal.val[i],anal.s[i])}\n" for i in range(len(param_labels)))
     x_fit = np.linspace(min(xdata.val), max(xdata.val), 500)
-    ax.plot(
+    ax1.plot(
         x_fit,
         modello(anal.val,x_fit),
         label=fit_label,
@@ -132,38 +139,27 @@ def analizza(json_path: str, modello, param_labels, beta0):
         color = gf.colori[1]
     )
 
-    ax.legend()
-
-    let.salva_grafico(fig,file_output1)
-
-    ### Residui
-
-    # Inizializzazione e label
-    fig,ax = plt.subplots(1, 1,  figsize=(10, 3), constrained_layout = True)
-    gf.parametri_grafico(ax, xlabel=rf"${xlabel} [{xunit}]$", ylabel="Residui")
+    ax1.legend()
 
     # Residui
-    ax.errorbar(
+    ax2.errorbar(
         res[0],
         res[1],
         yerr=res[2],
         **gf.errorbar_params,
         color=gf.colori[0]
     )
+
     # Linea orizzontale
-    ax.axhline(
+    ax2.axhline(
         0,
         **gf.line_params,
         color="red"
     )
 
-    let.salva_grafico(fig, file_output2)
+    let.salva_grafico(fig1, file_output1)
 
     ### Chi Quadro
-
-    # Inizializzaiozne e label
-    fig,ax = plt.subplots(1, 1,  figsize=(10, 3), constrained_layout = True)
-    gf.parametri_grafico(ax, xlabel=rf"${xlabel} [{xunit}]$", ylabel=r"$\chi^2$")
 
     # Chi Quadri
     ax.errorbar(
@@ -181,7 +177,7 @@ def analizza(json_path: str, modello, param_labels, beta0):
         color="red"
     )
 
-    let.salva_grafico(fig, file_output3)
+    let.salva_grafico(fig2, file_output2)
     plt.show()
 
     return RisultatiFit(anal,res,chi)
