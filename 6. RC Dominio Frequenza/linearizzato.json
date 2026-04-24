@@ -3,8 +3,8 @@
         "A": {
             "file_input": "dati_A_lin.csv",
             "titolo": "A^{-2}",
-            "xlabel": "f",
-            "xunit": "Hz",
+            "xlabel": "f^{2}",
+            "xunit": "Hz^{2}",
             "ylabel": "A^{-2}",
             "yunit": ""
         },
