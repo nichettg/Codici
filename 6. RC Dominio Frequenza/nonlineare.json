@@ -2,18 +2,18 @@
     "metodi": {
         "A": {
             "file_input": "dati_A.csv",
-            "titolo": "A",
+            "titolo": "Ampiezza",
             "xlabel": "f",
             "xunit": "Hz",
             "ylabel": "A",
-            "yunit": ""
+            "yunit": "-"
         },
         "phi": {
             "file_input": "dati_phi.csv",
-            "titolo": "Phi",
+            "titolo": "Sfasamento",
             "xlabel": "f",
             "xunit": "Hz",
-            "ylabel": "Phi",
+            "ylabel": "\\Phi",
             "yunit": "rad"
         }
     },

@@ -27,52 +27,24 @@ def display_dizionario(d):
     display(HTML(html))
 
 # Formattazione di un valore con incertezza alle giuste cifre significative
-def formatta_errore(val, err, unit='', html=False, txt=False):
+def formatta_errore(val, err, txt=False):
     if err < 0:
         raise ValueError("Errore negativo no grazie.")
+    exp = int(np.floor(np.log10(abs(err))))
+    val_sci = val / 10**exp
+    err_sci = err / 10**exp
+    err_sci = arrotonda_significative(err_sci, cifre=1)
+    err_rounded = arrotonda_significative(err, cifre=1)
+    exp_err = int(np.floor(np.log10(abs(err_rounded))))
+    dec = max(0, -(exp_err - exp))
 
-    # caso errore zero
-    if np.isclose(err, 0):
-        val_rounded = round(val, 3)
-        if html:
-            return f"{val_rounded:.3f} &plusmn; 0 {unit}"
-        return rf"${val_rounded:.3f} \pm 0$ {unit}"
+    valore = f"{val_sci:.{dec}f}"
 
-    # arrotonda errore a 1 cifra significativa
-    err_round = arrotonda_significative(err, cifre=1)
-
-    # ordine di grandezza errore
-    exp_err = int(np.floor(np.log10(err_round)))
-    dec = max(0, -exp_err)
-
-    # 👉 SE TROPPI DECIMALI → SCIENTIFICA
-    if dec > 3:
-        exp = int(np.floor(np.log10(abs(val)))) if val != 0 else exp_err
-
-        val_sci = val / 10**exp
-        err_sci = err / 10**exp
-
-        err_sci = arrotonda_significative(err_sci, cifre=1)
-
-        # numero di decimali per mantissa
-        exp_err_sci = int(np.floor(np.log10(err_sci)))
-        dec_sci = max(0, -exp_err_sci)
-
-        if html:
-            return f"({val_sci:.{dec_sci}f} &plusmn; {err_sci:.{dec_sci}f}) × 10<sup>{exp}</sup> {unit}"
-        if txt:
-            return f"({val_sci:.{dec_sci}f} ± {err_sci:.{dec_sci}f}) × 10^{exp} {unit}"
-        return rf"$({val_sci:.{dec_sci}f} \pm {err_sci:.{dec_sci}f}) \times 10^{{{exp}}}$ {unit}"
-
-    # 👉 CASO NORMALE
-    val_round = round(val, dec)
-
-    if html:
-        return f"{val_round:.{dec}f} &plusmn; {err_round:.{dec}f} {unit}"
+    if float(valore) == 0:
+        valore = "0"
     if txt:
-        return f"{val_round:.{dec}f} ± {err_round:.{dec}f} {unit}"
-    else:
-        return rf"${val_round:.{dec}f} \pm {err_round:.{dec}f}$ {unit}"
+        return f"( {valore} ± {err_sci:.{dec}f}) × 10^{exp}"
+    return rf"({valore} \pm {err_sci:.{dec}f}) \times 10^{{{exp}}}"
 
 ############################################################################################
 ### Stile Estetico Grafici
@@ -166,12 +138,17 @@ def numera_punti(ax,x,y):
 ############################################################################################
 ### Funzioni Interne
 ############################################################################################
-def arrotonda_significative(x, cifre=2):
+def arrotonda_significative(x, cifre=1):
     if x == 0:
         return 0.0
-    exp = int(np.floor(np.log10(abs(x))))
+
+    x_abs = abs(x)
+    exp = int(np.floor(np.log10(x_abs)))
     fattore = 10**(cifre - 1 - exp)
-    return round(x * fattore) / fattore
+    y = round(x * fattore) / fattore
+    if y == 0:
+        y = np.sign(x) * 10**exp
+    return y
 
 def dict_to_html_table(d, depth=0):
     html = ''

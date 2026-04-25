@@ -2,9 +2,9 @@
     "metodi": {
         "file_input": "dati_bode.csv",
         "titolo": "Bode",
-        "xlabel": "log(f)",
-        "xunit": "",
-        "ylabel": "A",
+        "xlabel": "\\log(f)",
+        "xunit": "-",
+        "ylabel": "20\\log(A)",
         "yunit": "dB"
     },
 

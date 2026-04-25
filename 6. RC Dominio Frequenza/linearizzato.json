@@ -2,19 +2,19 @@
     "metodi": {
         "A": {
             "file_input": "dati_A_lin.csv",
-            "titolo": "A^{-2}",
-            "xlabel": "f^{2}",
-            "xunit": "Hz^{2}",
+            "titolo": "Ampiezza Linearizzata",
+            "xlabel": "f^2",
+            "xunit": "Hz^2",
             "ylabel": "A^{-2}",
-            "yunit": ""
+            "yunit": "-"
         },
         "phi": {
             "file_input": "dati_phi_lin.csv",
-            "titolo": "tan(Phi)",
+            "titolo": "Sfasamento Linearizzato",
             "xlabel": "f",
             "xunit": "Hz",
-            "ylabel": "tan(Phi)",
-            "yunit": "rad"
+            "ylabel": "\\tan(\\Phi)",
+            "yunit": "-"
         }
     },
 
