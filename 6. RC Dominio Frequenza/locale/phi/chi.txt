@@ -9,6 +9,6 @@ Test Chi Quadro Sfasamento_____________________________________________
 7  7000.00 0.88    1.08    0.11    3.17    
 8  8000.00 1.01    1.22    0.13    2.94    
 Chi Quadro = 21.95
-Gradi Libert√† = 6
+Gradi Libert‡ = 6
 Chi Quadro Ridotto = 3.66
 

@@ -20,6 +20,6 @@ Test Chi Quadro Sfasamento Linearizzato_________________________________________
 18 150.00  0.02    0.02    0.07    0.00    
 19 100.00  0.01    0.01    0.04    0.00    
 Chi Quadro = 0.22
-Gradi Libert√† = 17
+Gradi Libert‡ = 17
 Chi Quadro Ridotto = 0.01
 
