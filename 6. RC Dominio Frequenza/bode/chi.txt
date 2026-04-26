@@ -20,6 +20,6 @@ Test Chi Quadro Bode_____________________________________________
 18 2.18    0.00    -0.02   0.53    0.00    
 19 2.00    0.00    -0.02   0.53    0.00    
 Chi Quadro = 0.20
-Gradi Libert√† = 16
+Gradi Libert‡ = 16
 Chi Quadro Ridotto = 0.01
 

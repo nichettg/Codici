@@ -2,28 +2,23 @@
 ### Importa i moduli necessari nel codice
 ############################################################################################
 import importlib
-import sys
-sys.path.append("/home/nichettg/Ubuntu/Laboratorio")
-
 import os
 import json
 import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
 import classi
 importlib.reload(classi)
 from classi import Misura,RisultatiFit
 import lettura as let
 importlib.reload(let)
-
-import numpy as np
 import analisi as an
 importlib.reload(an)
-
-import matplotlib.pyplot as plt
 import grafici as gf
 importlib.reload(gf)
 
 gf.imposta_stile_globale()
-
 
 def analizza(json_path: str, modello, param_labels, beta0):
     ############################################################################################
@@ -52,7 +47,7 @@ def analizza(json_path: str, modello, param_labels, beta0):
     ### Analisi
     ############################################################################################
 
-    titolo = f"{nomi["metodi"]["titolo"]}"
+    titolo = f"{nomi['metodi']['titolo']}"
     file_output1 = os.path.join(
         nomi["cartella"]["output"],
         nomi["output"]["regressione"] + ".txt"
@@ -86,10 +81,10 @@ def analizza(json_path: str, modello, param_labels, beta0):
     ### Grafici
     ############################################################################################
 
-    xlabel = f"{nomi["metodi"]["xlabel"]}"
-    xunit = f"{nomi["metodi"]["xunit"]}"
-    ylabel = f"{nomi["metodi"]["ylabel"]}"
-    yunit = f"{nomi["metodi"]["yunit"]}"
+    xlabel = f"{nomi['metodi']['xlabel']}"
+    xunit = f"{nomi['metodi']['xunit']}"
+    ylabel = f"{nomi['metodi']['ylabel']}"
+    yunit = f"{nomi['metodi']['yunit']}"
 
     file_output1 = os.path.join(
         nomi["cartella"]["output"],

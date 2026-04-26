@@ -12,6 +12,6 @@ Test Chi Quadro Titolo A_____________________________________________
 10 9.00    10.10   10.07   0.20    0.03    
 11 10.00   11.00   11.07   0.20    0.12    
 Chi Quadro = 0.79
-Gradi Libert√† = 9
+Gradi Libert‡ = 9
 Chi Quadro Ridotto = 0.09
 
