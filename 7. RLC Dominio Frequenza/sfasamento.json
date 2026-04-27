@@ -1,6 +1,6 @@
 {
     "metodi": {
-        "file_input": "dati_phi.csv",
+        "file_input": "dati_sfasamento.csv",
         "titolo": "Sfasamento",
         "xlabel": "f",
         "xunit": "Hz",

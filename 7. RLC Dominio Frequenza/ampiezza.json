@@ -1,6 +1,6 @@
 {
     "metodi": {
-        "file_input": "dati_V.csv",
+        "file_input": "dati_ampiezza.csv",
         "titolo": "Ampiezza",
         "xlabel": "f",
         "xunit": "Hz",
