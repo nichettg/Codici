@@ -61,7 +61,7 @@ def salva_analisi(anal, parametri, nome_file):
             errore = anal.s[i]
             
             # formato con 3 cifre significative
-            riga = f"{nome} = {valore} ± {errore} ({errore/valore * 100:.2f}%)\n"
+            riga = f"{nome} = {valore} +/- {errore} ({errore/valore * 100:.2f}%)\n"
             f.write(riga)
 
 
