@@ -11,6 +11,6 @@ Test Chi Quadro Titolo B_____________________________________________
 9  8.00    9.30    9.17    0.15    0.71    
 10 9.00    10.05   10.19   0.15    0.92    
 Chi Quadro = 3.57
-Gradi Libert√† = 8
+Gradi Libert‡ = 8
 Chi Quadro Ridotto = 0.45
 

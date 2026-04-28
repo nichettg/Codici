@@ -125,7 +125,7 @@ def analizza(json_path: str, modello, param_labels, beta0):
     )
 
     # Fit
-    fit_label = "Fit: " + "".join(f"{param_labels[i]}=${gf.formatta_errore(anal.val[i],anal.s[i])}$\n" for i in range(len(param_labels)))
+    fit_label = f"Fit {titolo}:\n" + "".join(f"${param_labels[i]}$=${gf.formatta_errore(anal.val[i],anal.s[i])}$\n" for i in range(len(param_labels)))
     x_fit = np.linspace(min(xdata.val), max(xdata.val), 500)
     ax1.plot(
         x_fit,
