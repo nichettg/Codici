@@ -56,6 +56,8 @@ def imposta_stile_globale():
         # Figure
         "figure.figsize": (10, 5),
         "figure.dpi": 400,
+        'figure.subplot.wspace':'0.1',
+        'figure.subplot.hspace':'0.1',
 
         # Titoli e testo
         "axes.titlesize": 20,
