@@ -4,8 +4,8 @@
         "titolo": "Sfasamento",
         "xlabel": "f",
         "xunit": "Hz",
-        "ylabel": "phi",
-        "yunit": "°"
+        "ylabel": "\\phi",
+        "yunit": "rad"
     },
 
     "output": {
