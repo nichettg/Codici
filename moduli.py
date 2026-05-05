@@ -89,11 +89,11 @@ def analizza(json_path: str, modello, param_labels, beta0):
 
     file_output1 = os.path.join(
         nomi["cartella"]["output"],
-        nomi["output"]["regressione"] + ".jpg"
+        nomi["output"]["regressione"] + ".pdf"
     )
     file_output2 = os.path.join(
         nomi["cartella"]["output"],
-        nomi["output"]["chi"] + ".jpg"
+        nomi["output"]["chi"] + ".pdf"
     )
 
     ### Regressione

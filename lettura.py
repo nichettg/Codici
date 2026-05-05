@@ -50,7 +50,7 @@ def inizializza_output (output_filename):
         file.write('')
 
 # Salva e mostra l'immagine
-def salva_grafico(fig, nomefile, formato='jpg'):
+def salva_grafico(fig, nomefile, formato='pdf'):
     fig.savefig(nomefile, format=formato)
 
 # Salva una analisi in un file testo
