@@ -21,21 +21,21 @@ importlib.reload(gf)
 
 gf.imposta_stile_globale()
 
-def analizza(json_path: str, modello, param_labels, beta0):
+def analizza(metodo: str, modello, param_labels, beta0):
     ############################################################################################
     ### Lettura
     ############################################################################################
 
     ### Lettura file json
-
+    json_path = metodo + ".json"
     with open(json_path) as f:
         nomi = json.load(f)
 
-    file_input = os.path.join(nomi["cartella"]["input"],nomi["metodi"]["file_input"])
+    file_input = os.path.join(nomi["cartella"],nomi["file_input"])
 
-    ### Creazione cartelle
+    ### Creazione cartella
 
-    os.makedirs(nomi["cartella"]["output"], exist_ok=True)
+    os.makedirs(metodo, exist_ok=True)
 
     ### Lettura dati
 
@@ -48,17 +48,17 @@ def analizza(json_path: str, modello, param_labels, beta0):
     ### Analisi
     ############################################################################################
 
-    titolo = f"{nomi['metodi']['titolo']}"
+    titolo = f"{nomi['titolo']}"
     file_output1 = os.path.join(
-        nomi["cartella"]["output"],
+        metodo,
         nomi["output"]["regressione"] + ".txt"
     )
     file_output2 = os.path.join(
-        nomi["cartella"]["output"],
+        metodo,
         nomi["output"]["residui"] + ".txt"
     )
     file_output3 = os.path.join(
-        nomi["cartella"]["output"],
+        metodo,
         nomi["output"]["chi"] + ".txt"
     )
 
@@ -82,17 +82,17 @@ def analizza(json_path: str, modello, param_labels, beta0):
     ### Grafici
     ############################################################################################
 
-    xlabel = f"{nomi['metodi']['xlabel']}"
-    xunit = f"{nomi['metodi']['xunit']}"
-    ylabel = f"{nomi['metodi']['ylabel']}"
-    yunit = f"{nomi['metodi']['yunit']}"
+    xlabel = f"{nomi['xlabel']}"
+    xunit = f"{nomi['xunit']}"
+    ylabel = f"{nomi['ylabel']}"
+    yunit = f"{nomi['yunit']}"
 
     file_output1 = os.path.join(
-        nomi["cartella"]["output"],
+        metodo,
         nomi["output"]["regressione"] + ".pdf"
     )
     file_output2 = os.path.join(
-        nomi["cartella"]["output"],
+        metodo,
         nomi["output"]["chi"] + ".pdf"
     )
 
