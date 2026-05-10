@@ -16,6 +16,18 @@ from classi import Misura
 ### Statistica Base
 ############################################################################################
 
+# Media aritmetica semplice (non pesata)
+def media(x: Misura) -> Misura:
+    valori = x.val
+    n = len(valori)
+
+    stima = np.sum(valori) / n
+
+    # incertezza: deviazione standard della media (errore standard)
+    s = np.sqrt(np.sum((valori - stima)**2) / (n * (n - 1)))
+
+    return Misura(stima, s)
+
 # Funzione media pesata
 def media_p(x: Misura) -> Misura:
     w = 1 / x.s**2
