@@ -1,12 +1,10 @@
 {
-    "metodi": {
-        "file_input": "dati_sfasamento.csv",
-        "titolo": "Sfasamento",
-        "xlabel": "f",
-        "xunit": "Hz",
-        "ylabel": "\\phi",
-        "yunit": "rad"
-    },
+    "file_input": "dati_sfasamento.csv",
+    "titolo": "Sfasamento",
+    "xlabel": "f",
+    "xunit": "Hz",
+    "ylabel": "\\phi",
+    "yunit": "rad",
 
     "output": {
         "regressione": "regressione",
@@ -14,8 +12,5 @@
         "chi": "chi"
     },
 
-    "cartella": {
-        "input": "data",
-        "output": "sfasamento"
-    }
+    "cartella": "data"
 }

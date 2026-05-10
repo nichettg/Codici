@@ -1,12 +1,10 @@
 {
-    "metodi": {
-        "file_input": "dati_ampiezza.csv",
-        "titolo": "Ampiezza",
-        "xlabel": "f",
-        "xunit": "Hz",
-        "ylabel": "A",
-        "yunit": "V"
-    },
+    "file_input": "dati_ampiezza.csv",
+    "titolo": "Ampiezza",
+    "xlabel": "f",
+    "xunit": "Hz",
+    "ylabel": "A",
+    "yunit": "V",
 
     "output": {
         "regressione": "regressione",
@@ -14,8 +12,5 @@
         "chi": "chi"
     },
 
-    "cartella": {
-        "input": "data",
-        "output": "ampiezza"
-    }
+    "cartella": "data"
 }
