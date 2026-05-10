@@ -4,7 +4,7 @@
     "xlabel": "f",
     "xunit": "Hz",
     "ylabel": "A",
-    "yunit": "V",
+    "yunit": "-",
 
     "output": {
         "regressione": "regressione",

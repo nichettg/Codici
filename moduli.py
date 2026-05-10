@@ -21,7 +21,7 @@ importlib.reload(gf)
 
 gf.imposta_stile_globale()
 
-def analizza(metodo: str, modello, param_labels, beta0):
+def analizza(metodo: str, modello, param_labels, beta0, legenda_loc = "upper right", legenda_bbox = (1, 1), legenda_fontsize = 10) -> RisultatiFit:
     ############################################################################################
     ### Lettura
     ############################################################################################
@@ -135,7 +135,7 @@ def analizza(metodo: str, modello, param_labels, beta0):
         color = gf.colori[1]
     )
 
-    ax1.legend()
+    ax1.legend(loc=legenda_loc, bbox_to_anchor=legenda_bbox, fontsize=legenda_fontsize)
 
     # Residui
     ax2.errorbar(
