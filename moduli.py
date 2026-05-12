@@ -21,7 +21,7 @@ importlib.reload(gf)
 
 gf.imposta_stile_globale()
 
-def analizza(metodo: str, modello, param_labels, beta0, legenda_loc = "upper right", legenda_bbox = (1, 1), legenda_fontsize = 10) -> RisultatiFit:
+def analizza(metodo: str, modello, param_labels, beta0, legenda_loc = "upper right", legenda_bbox = (1, 1), legenda_fontsize = 10, ritorno_grafico=False) -> RisultatiFit:
     ############################################################################################
     ### Lettura
     ############################################################################################
@@ -176,4 +176,7 @@ def analizza(metodo: str, modello, param_labels, beta0, legenda_loc = "upper rig
     let.salva_grafico(fig2, file_output2)
     plt.show()
 
-    return RisultatiFit(anal,res,chi)
+    if not ritorno_grafico:
+        return RisultatiFit(anal,res,chi)
+    if ritorno_grafico:
+        return RisultatiFit(anal,res,chi), fig1
