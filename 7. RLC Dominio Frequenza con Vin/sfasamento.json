@@ -1,0 +1,16 @@
+{
+    "file_input": "dati_sfasamento.csv",
+    "titolo": "Sfasamento",
+    "xlabel": "f",
+    "xunit": "Hz",
+    "ylabel": "\\phi",
+    "yunit": "rad",
+
+    "output": {
+        "regressione": "regressione",
+        "residui": "residui",
+        "chi": "chi"
+    },
+
+    "cartella": "data"
+}
