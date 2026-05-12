@@ -1,5 +1,5 @@
 {
-    "file_input": "dati_ampiezza.csv",
+    "file_input": "dati_ampiezza_git.csv",
     "titolo": "Ampiezza",
     "xlabel": "f",
     "xunit": "Hz",
